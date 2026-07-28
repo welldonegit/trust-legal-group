@@ -1,0 +1,193 @@
+/* Trust Legal Group — 404
+   Navy-страница на всю высоту: водяной знак «404», заголовок + кнопка на
+   головну, песочные ячейки-направления со стрелкой в углу, футер с контактами.
+   Fluid→шкала @1440. Водяной знак и крупный заголовок — исключения вне шкалы. */
+
+.nf {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-navy);
+  color: var(--color-sand);
+}
+
+/* ---------- Шапка ---------- */
+.nf__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-24);
+  padding: var(--space-16) var(--container-pad);
+  border-bottom: var(--border-hairline) solid var(--color-on-navy-12);
+}
+.nf__logo { display: flex; flex: 0 0 auto; }
+.nf__logo img { height: 48px; width: auto; }
+.nf__nav { display: flex; align-items: center; gap: var(--space-24); }
+.nf__burger,
+.nf__call {
+  display: none;
+  width: var(--control-h-md);
+  height: var(--control-h-md);
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: var(--border-hairline) solid var(--color-on-navy-45);
+  color: var(--color-sand);
+  cursor: pointer;
+  flex: 0 0 auto;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.nf__burger:hover,
+.nf__call:hover { background: color-mix(in srgb, var(--color-sand) 10%, transparent); }
+
+/* ---------- Основной блок ---------- */
+.nf__main {
+  position: relative;
+  flex: 1 1 auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: var(--space-80) var(--container-pad);
+}
+.nf__watermark {
+  position: absolute;
+  right: -0.06em;
+  bottom: -0.3em;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  font-weight: var(--fw-medium);
+  font-size: 400px; /* исключение вне шкалы — декоративный водяной знак */
+  line-height: 0.78;
+  letter-spacing: -0.05em;
+  color: var(--color-on-navy-06);
+}
+.nf__grid {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: var(--space-80);
+  align-items: center;
+}
+.nf__text { display: flex; flex-direction: column; align-items: flex-start; }
+.nf__index { color: var(--color-gold); }
+.nf__title {
+  margin: var(--space-16) 0 0;
+  font-weight: var(--fw-regular);
+  font-size: 80px; /* исключение вне шкалы — крупный display-заголовок 404 */
+  line-height: 84px;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-sand);
+}
+.nf__sub {
+  margin: var(--space-24) 0 0;
+  max-width: 30em;
+  color: var(--color-on-navy-72);
+}
+
+/* Кнопка «На головну» — светлая CTA на тёмном фоне (только на этой странице) */
+.nf__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  height: var(--control-h-lg);
+  padding: 0 var(--space-32);
+  margin-top: var(--space-32);
+  background: var(--color-sand);
+  color: var(--color-navy);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm-size);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+}
+.nf__btn:hover { background: var(--color-white); }
+.nf__btn-arrow { display: inline-block; transition: transform 0.2s ease; }
+.nf__btn:hover .nf__btn-arrow { transform: translateX(4px); }
+
+/* Ячейки-направления */
+.nf__cells {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--border-hairline);
+  background: color-mix(in srgb, var(--color-sand) 16%, transparent);
+}
+.nf__cell {
+  --cell-min-h: 168px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-8);
+  min-height: var(--cell-min-h);
+  padding: var(--space-24) var(--space-80) var(--space-24) var(--space-24);
+  background: var(--color-sand);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.nf__cell:hover { background: var(--color-white); }
+.nf__cell-label { color: var(--color-navy); font-weight: var(--fw-medium); }
+.nf__cell-desc { color: var(--color-ink-muted); }
+.nf__cell-arrow {
+  position: absolute;
+  right: var(--space-24);
+  bottom: var(--space-24);
+  width: var(--control-h-sm);
+  height: var(--control-h-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-hairline) solid var(--color-rule);
+  color: var(--color-navy);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.nf__cell-arrow-ico { transform: rotate(-45deg); }
+.nf__cell:hover .nf__cell-arrow { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-on-dark); }
+
+/* ---------- Футер ---------- */
+.nf__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  flex-wrap: wrap;
+  padding: var(--space-16) var(--container-pad);
+  border-top: var(--border-hairline) solid var(--color-on-navy-12);
+}
+.nf__foot-note { color: var(--color-gold); }
+.nf__foot-links { display: flex; gap: var(--space-24); flex-wrap: wrap; }
+.nf__foot-links a { color: var(--color-on-navy-72); text-decoration: none; transition: color 0.2s ease; }
+.nf__foot-links a:hover { color: var(--color-sand); }
+
+@media (max-width: 1023px) {
+  .nf__grid { grid-template-columns: 1fr; gap: var(--space-48); }
+  .nf__sub { max-width: none; }
+}
+@media (max-width: 719px) {
+  .nf__nav { display: none; }
+  .nf__burger,
+  .nf__call { display: flex; }
+  .nf__logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 62%;
+    justify-content: center;
+  }
+  .nf__logo img { height: 38px; }
+  .nf__main { align-items: flex-start; }
+  .nf__cells { grid-template-columns: 1fr; }
+  .nf__cell { min-height: 0; }
+  .nf__watermark { font-size: 200px; }
+  .nf__foot { flex-direction: column; align-items: flex-start; gap: var(--space-8); }
+  .nf__foot-links { gap: var(--space-12); flex-direction: column; }
+}

@@ -14,7 +14,8 @@ npm run build     # прод-сборка в dist/
 npm run preview   # предпросмотр собранного
 ```
 
-Точки входа (multi-page): `index.html` (сайт) и `styleguide.html` (дизайн-система).
+Точки входа (multi-page): `index.html` (сайт + блок спецификации состояний под
+футером), `styleguide.html` (дизайн-система) и `404.html` (страница ошибки).
 
 ## Структура
 

@@ -25,8 +25,8 @@
 @import "./components/loc.css";
 @import "./components/seo.css";
 @import "./components/footer.css";
-@import "./components/link.css";
 @import "./components/form.css";
+@import "./components/notfound.css";
 
 /* Стайлгайд (только для styleguide.html) */
 @import "./components/styleguide.css";

@@ -12,6 +12,7 @@ export default defineConfig({
       input: {
         index: resolve(__dirname, "index.html"),
         styleguide: resolve(__dirname, "styleguide.html"),
+        notfound: resolve(__dirname, "404.html"),
       },
     },
   },
