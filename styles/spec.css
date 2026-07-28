@@ -74,14 +74,6 @@
 /* Бургер по умолчанию display:none (виден только на мобайле) — в демо форсируем */
 .states .hero__burger { display: inline-flex; }
 .states__stack { display: flex; flex-direction: column; gap: var(--space-16); width: 100%; }
-/* Демо переноса кнопки в две строки */
-.states__btn-2line {
-  max-width: 220px;
-  white-space: normal;
-  height: auto;
-  min-height: var(--control-h-md);
-  padding-block: var(--space-8);
-}
 
 /* Снимок не должен ловить анимацию/переход */
 .states__demo,

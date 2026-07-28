@@ -24,32 +24,16 @@
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
 }
 
-/* Высоты (шкала контролов 40 · 48 · 56) */
-.btn--sm { height: var(--control-h-sm); padding-inline: var(--space-16); font-size: var(--text-caption-size); }
-.btn--md { height: var(--control-h-md); padding-inline: var(--space-24); font-size: var(--text-body-sm-size); }
+/* Высота (шкала контролов). На сайте используется только lg (56). */
 .btn--lg { height: var(--control-h-lg); padding-inline: var(--space-32); font-size: var(--text-body-size); }
 
-/* Во всю ширину контейнера */
+/* Во всю ширину контейнера (карточка hero, панель, форма) */
 .btn--block { width: 100%; }
-/* Только иконка — квадратная (ширина = высоте), без боковых паддингов */
-.btn--icon { padding-inline: 0; aspect-ratio: 1 / 1; }
 
-/* Варианты */
+/* Вариант (на сайте — только primary) */
 .btn--primary { background: var(--color-navy); color: var(--color-white); }
 .btn--primary:hover,
 .btn--primary.btn--hover { background: var(--color-navy-hover); }
-
-.btn--dark { background: var(--color-ink); color: var(--color-white); }
-.btn--dark:hover,
-.btn--dark.btn--hover { background: var(--color-navy); }
-
-.btn--outline { background: transparent; color: var(--color-ink-muted); border-color: var(--color-rule); }
-.btn--outline:hover,
-.btn--outline.btn--hover { color: var(--color-ink); border-color: var(--color-ink); background: var(--color-band); }
-
-.btn--gold { background: var(--color-gold); color: var(--color-ink); }
-.btn--gold:hover,
-.btn--gold.btn--hover { background: var(--color-gold-hover); }
 
 /* Стрелка */
 .btn__arrow { display: inline-block; transition: transform 0.2s ease; }
