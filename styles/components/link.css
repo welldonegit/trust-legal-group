@@ -21,16 +21,6 @@
 .link[aria-disabled="true"],
 .link--disabled { color: var(--color-ink-muted); text-decoration: none; pointer-events: none; }
 
-/* Без подчёркивания (в макете есть оба варианта) */
-.link--plain { text-decoration: none; }
-.link--plain:hover,
-.link--plain.link--hover { text-decoration: underline; }
-
 /* Ссылка с иконкой (внешняя / скачивание) */
 .link--icon { display: inline-flex; align-items: center; gap: var(--space-8); }
 .link--icon .icon { flex: 0 0 auto; }
-
-/* На тёмном фоне */
-.link--on-dark { color: var(--color-on-dark); }
-.link--on-dark:hover,
-.link--on-dark.link--hover { color: var(--color-gold); }
