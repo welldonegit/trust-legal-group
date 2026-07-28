@@ -84,7 +84,6 @@ textarea.field__control { resize: vertical; min-height: 88px; }
 /* Поле с иконкой (поиск) и поле с кнопкой-действием */
 .field__group { display: flex; align-items: center; gap: var(--space-8); border-bottom: var(--border-hairline) solid var(--color-rule); transition: border-color 0.2s ease; }
 .field__group .field__control { border-bottom: none; }
-.field__group-ico { flex: 0 0 auto; color: var(--color-ink-muted); line-height: 0; }
 .field__group:focus-within,
 .field--focus .field__group { border-bottom-color: var(--color-navy); }
 .field--error .field__group { border-bottom-color: var(--color-error); }
