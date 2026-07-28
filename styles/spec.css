@@ -41,7 +41,9 @@
   gap: var(--space-16);
 }
 .states__grid--wide { grid-template-columns: 1fr; }
-.states__grid--2 { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+.states__grid--2 { grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); }
+/* Кнопки lg с длинным текстом шире базовой ячейки — колонки под них */
+.states__grid--btn { grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr)); }
 
 .states__cell {
   display: flex;
