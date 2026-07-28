@@ -97,8 +97,6 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--border-hairline);
   background: var(--color-rule);
-  align-content: stretch;
-  grid-auto-rows: 1fr;
 }
 .spec-cell {
   --cell-min-h: 104px;
