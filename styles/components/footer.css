@@ -29,20 +29,20 @@
 .foot__now-note { color: var(--color-ink-muted); }
 
 .foot__msgr { display: flex; gap: var(--space-12); }
+/* Иконки мессенджеров/соцсетей — готовые круглые бейджи (SVG со своим
+   фоном-кружком). Кнопка = сам бейдж; без бордюра/перекраски. */
 .foot__ic {
   width: var(--control-h-md);
   height: var(--control-h-md);
   flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: var(--border-hairline) solid var(--color-rule);
-  color: var(--color-navy) !important;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  display: block;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  transition: opacity 0.2s ease;
 }
-.foot__ic:hover { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-on-dark) !important; }
+.foot__ic:hover { opacity: 0.82; }
 .foot__ic--sm { width: var(--control-h-sm); height: var(--control-h-sm); }
-.foot-glyph { width: var(--icon-md); height: var(--icon-md); }
+.foot-glyph { display: block; width: 100%; height: 100%; }
 
 /* ---------- Колонки ---------- */
 .foot__col { border: 0; }
