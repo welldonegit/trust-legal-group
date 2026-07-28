@@ -1,0 +1,81 @@
+/* Trust Legal Group — Про нас
+   Слева eyebrow + заголовок + вступ, справа фото; ниже — 4 карточки-принципа
+   с тонколинейными иконками. Песочный фон, Onest. Fluid→шкала @1440.
+   Точка перед eyebrow — реальный тег (был ::before, в экспорт не попадает). */
+
+.about__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-64);
+  align-items: center;
+}
+.about__col { display: flex; flex-direction: column; gap: var(--space-16); }
+
+.about__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  color: var(--color-gold);
+}
+.about__eyebrow-dot {
+  width: var(--space-8);
+  height: var(--space-8);
+  border-radius: var(--radius-pill);
+  background: var(--color-gold);
+}
+.about__title { color: var(--color-ink); }
+
+.about__lead {
+  margin-top: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  max-width: 35em;
+}
+.about__lead p { color: var(--color-ink-muted); }
+.about__lead strong { color: var(--color-ink); font-weight: var(--fw-semibold); }
+
+.about__photo { overflow: hidden; background: var(--color-band); }
+.about__photo img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+
+.about__cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+}
+.about__card {
+  --card-min-h: 192px;
+  background: var(--color-white);
+  padding: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  min-height: var(--card-min-h);
+}
+.about__card-ico {
+  width: var(--control-h-md);
+  height: var(--control-h-md);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-navy);
+  border: var(--border-hairline) solid var(--color-rule);
+}
+.about__card-title { color: var(--color-navy); }
+.about__card-desc { color: var(--color-ink-muted); }
+
+@media (max-width: 1023px) {
+  .about__grid { grid-template-columns: 1fr; gap: var(--space-40); }
+  .about__lead { max-width: none; }
+  .about__cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 719px) {
+  .about__cards { grid-template-columns: 1fr; }
+  .about__card { min-height: 0; }
+}
