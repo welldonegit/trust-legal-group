@@ -1,0 +1,202 @@
+/* Trust Legal Group — Спеціалізація
+   Navy-панель: слева заголовок + «усі послуги», справа бордюрная сетка ячеек
+   с угловой стрелкой. Fluid сведён к шкале (снимок @1440).
+   Водяной знак-номер (spec-panel__index) — задокументированное исключение
+   вне типо-шкалы (декоративный, низкоконтрастный). */
+
+.spec__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+.spec__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  max-width: var(--content-max);
+}
+.spec__eyebrow { color: var(--color-gold); }
+.spec__title { color: var(--color-ink); }
+.spec__sub { color: var(--color-ink-muted); max-width: 40em; }
+
+.spec__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+/* ---------- Панель ---------- */
+.spec-panel {
+  --panel-pad: var(--space-40);
+  --panel-min-h: 248px;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 36%) minmax(0, 1fr);
+  grid-template-rows: 1fr auto;
+  min-height: var(--panel-min-h);
+  color: var(--color-on-dark);
+  background: var(--color-navy);
+}
+.spec-panel__index {
+  position: absolute;
+  right: 0.1em;
+  bottom: -0.24em;
+  z-index: 0;
+  pointer-events: none;
+  font-weight: var(--fw-semibold);
+  font-size: 160px; /* исключение вне шкалы — декоративный водяной знак */
+  line-height: 0.8;
+  color: var(--color-on-navy-06);
+  letter-spacing: -0.04em;
+}
+.spec-panel__left {
+  position: relative;
+  z-index: 1;
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--panel-pad) var(--panel-pad) 0;
+}
+.spec-panel__title { color: var(--color-on-dark); max-width: 11em; }
+.spec-panel__sub { color: var(--color-on-navy-60); max-width: 22em; }
+
+.spec-panel__all {
+  position: relative;
+  z-index: 1;
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-32) var(--panel-pad);
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-lh);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-sand);
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+.spec-panel__all:hover { gap: var(--space-16); color: var(--color-gold); }
+
+/* ---------- Сетка ячеек ---------- */
+.spec-panel__grid {
+  position: relative;
+  z-index: 1;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--border-hairline);
+  background: var(--color-rule);
+  align-content: stretch;
+  grid-auto-rows: 1fr;
+}
+.spec-cell {
+  --cell-min-h: 104px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-8);
+  box-sizing: border-box;
+  min-height: var(--cell-min-h);
+  padding: var(--space-24) var(--space-64) var(--space-24) var(--space-24);
+  background: var(--color-sand);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.spec-cell--wide { grid-column: 1 / -1; }
+.spec-cell__tag { letter-spacing: var(--tracking-tag); text-transform: uppercase; color: var(--color-gold); }
+.spec-cell__title {
+  color: var(--color-navy);
+  max-width: 15em;
+  min-height: 2.6em;
+  display: flex;
+  align-items: flex-end;
+}
+.spec-cell__arrow {
+  position: absolute;
+  right: var(--space-24);
+  bottom: var(--space-24);
+  width: var(--control-h-sm);
+  height: var(--control-h-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-hairline) solid var(--color-rule);
+  background: transparent;
+  color: var(--color-navy);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.spec-cell__arrow-ico { transform: rotate(-45deg); }
+.spec-cell:hover .spec-cell__arrow { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-on-dark); }
+
+.spec-more {
+  --cell-min-h: 104px;
+  position: relative;
+  z-index: 1;
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  box-sizing: border-box;
+  min-height: var(--cell-min-h);
+  padding: var(--space-24) var(--space-80) var(--space-24) var(--space-24);
+  background: var(--color-sand);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--text-body-size);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-snug);
+  color: var(--color-navy);
+  text-align: left;
+}
+.spec-more__ico {
+  position: absolute;
+  right: var(--space-24);
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--control-h-sm);
+  height: var(--control-h-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-hairline) solid var(--color-rule);
+  color: var(--color-navy);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.spec-more:hover .spec-more__ico { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-on-dark); }
+
+/* На десктопе «показати ще» скрыт (все ячейки видимы). */
+.spec-more { display: none; }
+
+/* ---------- Планшет (≤1023px) ---------- */
+@media (max-width: 1023px) {
+  .spec-panel {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    min-height: 0;
+  }
+  .spec-panel__left { grid-column: 1; grid-row: 1; }
+  .spec-panel__all { grid-column: 1; grid-row: 2; align-self: start; padding-top: 0; }
+  .spec-panel__grid { grid-column: 1; grid-row: 3; border-top: var(--border-hairline) solid var(--color-rule); }
+  .spec-panel__index { font-size: 96px; }
+  .spec-panel__title { max-width: none; }
+}
+
+/* ---------- Мобайл (≤719px) ---------- */
+@media (max-width: 719px) {
+  .spec-panel__left { padding: var(--space-24) var(--space-24) 0; }
+  .spec-panel__all { padding: var(--space-32) var(--space-24) var(--space-24); }
+  .spec-cell { padding: var(--space-24) var(--space-40) var(--space-24) var(--space-24); }
+  .spec-panel__grid { grid-template-columns: 1fr; }
+  .spec-cell--wide { grid-column: auto; }
+  .spec-panel:not(.is-open) .spec-cell--extra { display: none; }
+  .spec-more { display: flex; }
+  .spec-panel.is-open .spec-more { display: none; }
+}
