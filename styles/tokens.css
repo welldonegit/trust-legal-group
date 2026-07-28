@@ -1,0 +1,141 @@
+/* Trust Legal Group — Design tokens
+   Единственный источник значений. В компонентных стилях используются только
+   var(...) — «магических» чисел там быть не должно.
+
+   Шкалы (см. README):
+     отступы   2·4·8·12·16·24·32·40·48·64·80·96·128
+     радиусы   0·2·4·8·12·16·24·pill
+     границы   1·2
+     иконки    16·20·24·32·40
+     контролы  40·48·56
+     кегль     12·14·16·18·20·24·28·32·40·48·64·80
+   Проценты, vh/vw, fr, minmax(), auto, aspect-ratio и длительности анимаций
+   намеренно НЕ токенизированы. */
+
+:root {
+  /* ============================ Цвет ============================ */
+  /* Ядро бренда */
+  --color-navy:            #1b2a3d; /* основной — кнопки, марки, тёмные поверхности */
+  --color-navy-hover:      #0f1b33;
+  --color-gold:            #c8a04a; /* единственный акцент — eyebrow, линии, иконки */
+  --color-gold-hover:      #a88438;
+  --color-ink:             #16140f; /* заголовки, текст на светлом */
+  --color-ink-muted:       #5a554a; /* основной текст, вторичный */
+
+  /* Поверхности */
+  --color-white:           #ffffff; /* страница / карточки */
+  --color-sand:            #f2efe7; /* тёплый крем: hero-карта, панели, светлый текст на тёмном */
+  --color-band:            #eee9e5; /* крем-смуга секций */
+  --color-map-bg:          #e9e4dc; /* заглушка карты */
+
+  /* Линии */
+  --color-rule:            #c9c2b2; /* хайрлайны, бордюры инпутов */
+
+  /* Статусы / одиночные */
+  --color-status-online:   #3fbf6a; /* точка «на звʼязку» */
+  --color-avatar-bg:       #233a51; /* фон аватара-заглушки */
+
+  /* Наложения и текст на тёмном (navy/ink) */
+  --color-scrim:           rgba(22,20,15,.5);
+  --color-on-dark:         #ffffff;
+  --color-on-dark-muted:   rgba(255,255,255,.6);
+  --color-on-navy:         #f2efe7;
+  --color-on-navy-72:      rgba(242,239,231,.72);
+  --color-on-navy-60:      rgba(242,239,231,.6);
+  --color-on-navy-45:      rgba(242,239,231,.45);
+  --color-on-navy-12:      rgba(242,239,231,.12);
+  --color-on-navy-08:      rgba(242,239,231,.08);
+  --color-on-navy-06:      rgba(242,239,231,.06);
+  --color-rule-on-dark:    rgba(242,239,231,.1);
+
+  /* Семантические алиасы */
+  --color-primary:         var(--color-navy);
+  --color-primary-hover:   var(--color-navy-hover);
+  --color-accent:          var(--color-gold);
+  --color-bg:              var(--color-white);
+  --color-text:            var(--color-ink);
+  --color-text-muted:      var(--color-ink-muted);
+  --color-border:          var(--color-rule);
+
+  /* ========================== Отступы ========================== */
+  --space-2:    2px;   /* только хайрлайн / микро-отступ */
+  --space-4:    4px;
+  --space-8:    8px;
+  --space-12:  12px;
+  --space-16:  16px;
+  --space-24:  24px;
+  --space-32:  32px;
+  --space-40:  40px;
+  --space-48:  48px;
+  --space-64:  64px;
+  --space-80:  80px;
+  --space-96:  96px;
+  --space-128:128px;
+
+  /* ========================== Радиусы ========================== */
+  --radius-none: 0;
+  --radius-sm:   2px;
+  --radius-md:   8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-2xl: 24px;
+  --radius-pill: 9999px; /* круглые иконочные контролы */
+
+  /* ========================== Границы ========================== */
+  --border-hairline: 1px;
+  --border-thick:    2px;
+
+  /* ===================== Высоты контролов ===================== */
+  --control-h-sm: 40px;
+  --control-h-md: 48px;
+  --control-h-lg: 56px;
+
+  /* ======================= Размеры иконок ===================== */
+  --icon-sm:  16px;
+  --icon-md:  20px;
+  --icon-lg:  24px;
+  --icon-xl:  32px;
+  --icon-2xl: 40px;
+
+  /* ===================== Раскладка / контейнер ================ */
+  --container-max:        1440px;
+  --container-pad:          96px; /* десктопный отступ по краям */
+  --container-pad-mobile:   20px; /* ≤719px */
+  --content-max:           768px; /* мера для заголовков / lead */
+  /* Брейкпоинты (для справки): 1023px · 719px · 639px */
+
+  /* ============================ Тени =========================== */
+  --shadow-dialog: 0 12px 40px rgba(22,20,15,.18);
+  --shadow-sm:     0 1px 4px -1px rgba(0,0,0,.3);
+  --shadow-md:     0 2px 6px rgba(0,0,0,.3);
+
+  /* ========================= Типографика ====================== */
+  --font-sans:  "Onest", sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* Кегль + межстрочный (в px, всё на 4px-сетке) */
+  --text-display-size: 64px; --text-display-lh: 72px;
+  --text-h1-size:      48px; --text-h1-lh:      56px;
+  --text-h2-size:      40px; --text-h2-lh:      48px;
+  --text-h3-size:      32px; --text-h3-lh:      40px;
+  --text-h4-size:      28px; --text-h4-lh:      36px;
+  --text-h5-size:      24px; --text-h5-lh:      32px;
+  --text-title-size:   20px; --text-title-lh:   28px;
+  --text-lead-size:    18px; --text-lead-lh:    24px;
+  --text-body-size:    16px; --text-body-lh:    24px;
+  --text-body-sm-size: 14px; --text-body-sm-lh: 20px;
+  --text-caption-size: 12px; --text-caption-lh: 16px;
+
+  /* Межбуквенный — единственное место, где допустима дробь */
+  --tracking-tight:  -0.02em; /* крупные заголовки */
+  --tracking-snug:   -0.01em; /* средние заголовки */
+  --tracking-normal:  0;
+  --tracking-label:   0.05em; /* кнопки, nav */
+  --tracking-eyebrow: 0.2em;  /* золотой kicker (caps) */
+  --tracking-tag:     0.14em; /* бордюрные теги-категории */
+}
