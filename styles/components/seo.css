@@ -1,0 +1,53 @@
+/* Trust Legal Group — SEO-текст (перед футером)
+   Приглушённый мелкий editorial-текст на кремовой полосе с раскрытием.
+   Fluid→шкала @1440. Затухание внизу — реальный <div class="seo__fade">
+   вместо ::after (в экспорт не попадает). */
+
+.seo { border-top: var(--border-hairline) solid var(--color-rule); }
+.seo__inner { display: flex; flex-direction: column; gap: var(--space-16); }
+.seo__h1 { color: var(--color-ink); max-width: 24em; margin-bottom: var(--space-8); }
+
+.seo__body {
+  --seo-collapsed-h: 150px;
+  position: relative;
+  overflow: hidden;
+  max-height: var(--seo-collapsed-h);
+  transition: max-height 0.4s ease;
+}
+.seo.is-open .seo__body { max-height: 1600px; }
+.seo__fade {
+  --seo-fade-h: 88px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--seo-fade-h);
+  background: linear-gradient(180deg, transparent, var(--color-white));
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.seo.is-open .seo__fade { opacity: 0; }
+
+.seo__h {
+  margin: var(--space-24) 0 var(--space-8);
+  color: var(--color-ink);
+  font-weight: var(--fw-semibold);
+}
+.seo__p { margin: 0 0 var(--space-12); max-width: 74em; color: var(--color-ink-muted); line-height: var(--text-body-lh); }
+.seo__p strong { color: var(--color-ink); font-weight: var(--fw-semibold); }
+
+.seo__toggle {
+  margin-top: var(--space-8);
+  align-self: flex-start;
+  padding: 0 0 var(--space-4);
+  background: transparent;
+  border: none;
+  border-bottom: var(--border-hairline) solid var(--color-rule);
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: var(--tracking-tag);
+  text-transform: uppercase;
+  color: var(--color-navy);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.seo__toggle:hover { color: var(--color-navy-hover); border-color: var(--color-navy); }

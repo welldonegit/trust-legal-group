@@ -1,0 +1,129 @@
+/* Trust Legal Group — Футер
+   Слева лого + блок «24/7» + мессенджеры; четыре колонки ссылок; нижняя
+   полоса с реквизитами и дисклеймером. На мобайле колонки — аккордеоны
+   (Контакти открыта по умолчанию). Fluid→шкала @1440.
+   Кастомные glyph-иконки — инлайновый SVG (currentColor). */
+
+.foot { background: var(--color-sand); color: var(--color-ink); padding-top: var(--space-64); }
+.foot__inner { padding-bottom: var(--space-32); }
+.foot a { color: var(--color-ink-muted); }
+.foot a:hover { color: var(--color-navy); }
+
+.foot__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.85fr 0.95fr 1.4fr 1fr;
+  gap: var(--space-40);
+}
+
+.foot__brand { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-16); }
+.foot__logo { height: 64px; width: auto; }
+.foot__now { display: flex; flex-direction: column; gap: var(--space-8); }
+.foot__now-h { letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--color-gold); }
+.foot__phone {
+  color: var(--color-navy) !important;
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-snug);
+  line-height: 1.1;
+}
+.foot__phone:hover { color: var(--color-navy-hover) !important; }
+.foot__now-note { color: var(--color-ink-muted); }
+
+.foot__msgr { display: flex; gap: var(--space-12); }
+.foot__ic {
+  width: var(--control-h-md);
+  height: var(--control-h-md);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-hairline) solid var(--color-rule);
+  color: var(--color-navy) !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.foot__ic:hover { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-on-dark) !important; }
+.foot__ic--sm { width: var(--control-h-sm); height: var(--control-h-sm); }
+.foot-glyph { width: var(--icon-md); height: var(--icon-md); }
+
+/* ---------- Колонки ---------- */
+.foot__col { border: 0; }
+.foot__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  margin: 0 0 var(--space-16);
+  padding: 0;
+  width: 100%;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  font-size: var(--text-body-size);
+  font-weight: var(--fw-semibold);
+  color: var(--color-ink);
+  text-align: left;
+  cursor: default;
+}
+.foot__chev { display: none; color: var(--color-ink-muted); transition: transform 0.2s ease; }
+.foot__list { display: flex; flex-direction: column; gap: var(--space-12); }
+.foot__link { line-height: 1.4; }
+.foot__meta { color: var(--color-ink-muted); line-height: 1.5; }
+
+.foot__products {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-bottom: var(--space-16);
+  margin-bottom: var(--space-16);
+  border-bottom: var(--border-hairline) solid var(--color-rule);
+}
+.foot__product {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+  color: var(--color-navy) !important;
+  font-weight: var(--fw-semibold);
+  line-height: 1.3;
+}
+.foot__product .icon { margin-top: var(--space-4); flex: 0 0 auto; }
+.foot__product:hover { color: var(--color-navy-hover) !important; }
+.foot__popular { display: flex; flex-direction: column; gap: var(--space-12); }
+.foot__social { display: flex; gap: var(--space-8); margin-top: var(--space-8); }
+
+/* ---------- Нижняя полоса ---------- */
+.foot__bar {
+  margin-top: var(--space-48);
+  padding-top: var(--space-24);
+  border-top: var(--border-hairline) solid var(--color-rule);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-16) var(--space-40);
+  align-items: start;
+}
+.foot__legal { display: flex; flex-direction: column; gap: var(--space-8); }
+.foot__copy { color: var(--color-ink); }
+.foot__legal-links { display: flex; gap: var(--space-24); flex-wrap: wrap; }
+.foot__disclaimer {
+  grid-column: 1 / -1;
+  color: var(--color-ink-muted);
+  opacity: 0.82;
+  max-width: 64em;
+  line-height: 1.5;
+}
+
+@media (max-width: 1023px) {
+  .foot__grid { grid-template-columns: 1fr 1fr; }
+  .foot__brand { grid-column: 1 / -1; }
+  .foot__bar { grid-template-columns: 1fr; }
+  .foot__legal-links { flex-direction: column; gap: var(--space-12); }
+}
+@media (max-width: 719px) {
+  .foot__grid { grid-template-columns: 1fr; gap: 0; }
+  .foot__brand { margin-bottom: var(--space-16); }
+  .foot__col { border-top: var(--border-hairline) solid var(--color-rule); }
+  .foot__head { cursor: pointer; margin: 0; padding: var(--space-16) 0; }
+  .foot__chev { display: inline-flex; }
+  .foot__col.is-open .foot__chev { transform: rotate(90deg); }
+  .foot__col:not(.is-open) .foot__list { display: none; }
+  .foot__list { padding-bottom: var(--space-16); }
+  .foot__bar { grid-template-columns: 1fr; }
+}
