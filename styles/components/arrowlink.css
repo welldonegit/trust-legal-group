@@ -1,0 +1,26 @@
+/* Trust Legal Group — ArrowLink
+   Тихая ссылка «читати далі» в подвале карточек: мелкая, заглавная,
+   с широким трекингом и хвостовой стрелкой →. Вариант --block разносит
+   подпись и стрелку по краям. */
+
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-12);
+  text-decoration: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-lh);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  transition: color 0.2s ease;
+}
+.arrow-link--block { display: flex; justify-content: space-between; width: 100%; }
+.arrow-link__arrow { display: inline-block; flex-shrink: 0; transition: transform 0.2s ease; }
+.arrow-link:hover,
+.arrow-link--hover { color: var(--color-ink); }
+.arrow-link:hover .arrow-link__arrow,
+.arrow-link--hover .arrow-link__arrow { transform: translateX(4px); }
