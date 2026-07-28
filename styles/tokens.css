@@ -112,6 +112,9 @@
   /* ========================= Типографика ====================== */
   --font-sans:  "Onest", sans-serif;
   --font-serif: "Playfair Display", serif;
+  /* Первый экран намеренно набран Helvetica Neue (по брифу, локально для hero).
+     Задокументированное исключение — см. README / стайлгайд. */
+  --font-hero:  "Helvetica Neue", "Helvetica", Arial, sans-serif;
 
   --fw-regular:  400;
   --fw-medium:   500;

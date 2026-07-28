@@ -8,3 +8,7 @@
 @import "./layout.css";
 
 /* Компоненты (добавляются по мере рефакторинга секций) */
+@import "./components/icon.css";
+@import "./components/button.css";
+@import "./components/navlink.css";
+@import "./components/hero.css";

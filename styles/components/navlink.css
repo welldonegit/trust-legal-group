@@ -1,0 +1,26 @@
+/* Trust Legal Group — NavLink
+   Заглавная навигационная ссылка с широким трекингом. Два тона: на тёмном
+   и на светлом фоне. Активное/наведённое состояние продублировано классом
+   .is-active для экспорта. */
+
+.navlink {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-lh);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.navlink--on-dark { color: var(--color-on-dark-muted); }
+.navlink--on-dark:hover,
+.navlink--on-dark.is-active,
+.navlink--on-dark[aria-current="page"] { color: var(--color-on-dark); }
+
+.navlink--on-light { color: var(--color-ink-muted); }
+.navlink--on-light:hover,
+.navlink--on-light.is-active,
+.navlink--on-light[aria-current="page"] { color: var(--color-ink); }

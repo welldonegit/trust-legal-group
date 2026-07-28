@@ -8,6 +8,97 @@
   <link rel="stylesheet" href="./styles/main.css" />
 </head>
 <body>
-  <!-- Секции добавляются посекционно в ходе рефакторинга (см. задачи). -->
+  <main>
+    <section class="hero" id="top">
+      <div class="hero__media">
+        <img class="hero__img hero__img--desktop" src="assets/images/hero-team.png" alt="Команда юристів Trust Legal Group за роботою" />
+        <img class="hero__img hero__img--mobile" src="assets/images/hero-team-mobile.jpg" alt="Команда юристів Trust Legal Group за роботою" />
+        <div class="hero__scrim" aria-hidden="true"></div>
+
+        <header class="hero__header">
+          <button type="button" class="hero__burger" aria-label="Меню" aria-expanded="false">
+            <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+          </button>
+          <a class="hero__logo" href="#top" aria-label="Trust Legal Group — на головну">
+            <img class="hero__logo-img" src="assets/logo-header.svg" alt="Trust Legal Group" />
+          </a>
+          <nav class="hero__nav" aria-label="Головна навігація">
+            <a class="navlink navlink--on-dark" href="#top">Головна</a>
+            <a class="navlink navlink--on-dark" href="#practice">Практики</a>
+            <a class="navlink navlink--on-dark" href="#about">Про нас</a>
+            <a class="navlink navlink--on-dark" href="#team">Команда</a>
+            <a class="navlink navlink--on-dark" href="#">Pro Bono</a>
+            <a class="navlink navlink--on-dark" href="#">Новини</a>
+            <a class="navlink navlink--on-dark" href="#">Контакти</a>
+          </nav>
+          <a class="hero__call" href="tel:+380970979696" aria-label="Подзвонити">
+            <svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z" /></svg>
+          </a>
+
+          <div class="hero__overlay" aria-hidden="true"></div>
+          <aside class="hero__panel" role="dialog" aria-modal="true" aria-label="Меню">
+            <div class="hero__panel-top">
+              <img class="hero__panel-logo" src="assets/logo-full.svg" alt="Trust Legal Group" />
+              <button type="button" class="hero__close" aria-label="Закрити меню">
+                <svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
+              </button>
+            </div>
+            <nav class="hero__menu" aria-label="Мобільна навігація">
+              <a class="hero__menu-link" href="#top">Головна</a>
+              <a class="hero__menu-link" href="#practice">Практики</a>
+              <a class="hero__menu-link" href="#about">Про нас</a>
+              <a class="hero__menu-link" href="#team">Команда</a>
+              <a class="hero__menu-link" href="#">Pro Bono</a>
+              <a class="hero__menu-link" href="#">Новини</a>
+              <a class="hero__menu-link" href="#">Контакти</a>
+            </nav>
+            <div class="hero__panel-foot">
+              <a class="hero__panel-phone" href="tel:+380970979696">+380 97 097 96 96</a>
+              <a class="btn btn--primary btn--lg" href="#">
+                <span>Отримати консультацію</span>
+                <span class="btn__arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </aside>
+        </header>
+
+        <div class="hero__lower">
+          <div class="hero__headline">
+            <h1 class="hero__title">Професійний юридичний захист у&nbsp;будь-якій кризовій ситуації</h1>
+          </div>
+
+          <aside class="hero__card" aria-label="Консультація адвоката">
+            <p class="hero__card-desc">Залиште проблему нам — і повертайтесь до своїх справ. Про все інше подбають наші профільні адвокати.</p>
+            <div class="hero__card-cta">
+              <a class="btn btn--primary btn--lg hero__card-btn" href="#">
+                <span>Зв'язатись</span>
+                <span class="btn__arrow" aria-hidden="true">→</span>
+              </a>
+              <span class="hero__card-note">На дзвінок відповідає адвокат, а не менеджер</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <span class="hero__stat-num">10</span>
+          <p class="hero__stat-desc">адвокатів з досвідом у ключових галузях права</p>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">10+</span>
+          <p class="hero__stat-desc">років юридичного стажу в кожного фахівця</p>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">1000+</span>
+          <p class="hero__stat-desc">справ, проведених за роки практики</p>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">24/7</span>
+          <p class="hero__stat-desc">зв'язок з виїздом у критичній ситуації</p>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
