@@ -1,0 +1,98 @@
+/* Trust Legal Group — Стайлгайд (раскладка страницы-гайда)
+   Стили только для styleguide.html: сетки свотчей, специменов, шкал.
+   Сами компоненты берутся из своих файлов. */
+
+.sg { max-width: 1160px; margin-inline: auto; padding: var(--space-64) var(--container-pad-mobile) var(--space-96); }
+.sg__eyebrow { color: var(--color-gold); }
+.sg__title { color: var(--color-ink); margin-top: var(--space-16); }
+.sg__lede { color: var(--color-ink-muted); margin-top: var(--space-16); max-width: 60ch; }
+
+.sg-section { padding-top: var(--space-64); }
+.sg-section__title { color: var(--color-ink); padding-bottom: var(--space-16); margin-bottom: var(--space-32); border-bottom: var(--border-hairline) solid var(--color-rule); }
+.sg-section__note { color: var(--color-ink-muted); margin-bottom: var(--space-24); max-width: 68ch; }
+
+/* Палитра */
+.sg-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--space-16); }
+.sg-swatch { border: var(--border-hairline) solid var(--color-rule); }
+.sg-swatch__chip { height: 88px; }
+.sg-swatch__meta { padding: var(--space-12); display: flex; flex-direction: column; gap: var(--space-2); }
+.sg-swatch__name { color: var(--color-ink); font-family: ui-monospace, monospace; font-size: 13px; }
+.sg-swatch__hex { color: var(--color-ink-muted); font-variant-numeric: tabular-nums; font-size: 12px; }
+
+/* Типографика */
+.sg-type { display: flex; flex-direction: column; gap: var(--space-32); }
+.sg-type__row { display: grid; grid-template-columns: 1fr auto; gap: var(--space-24); align-items: baseline; border-bottom: var(--border-hairline) solid var(--color-rule); padding-bottom: var(--space-24); }
+.sg-type__sample { color: var(--color-ink); min-width: 0; }
+.sg-type__meta { color: var(--color-ink-muted); font-family: ui-monospace, monospace; font-size: 12px; white-space: nowrap; text-align: right; }
+.sg-type__name { display: block; color: var(--color-gold); }
+
+/* Шкала отступов */
+.sg-scale { display: flex; flex-direction: column; gap: var(--space-12); }
+.sg-scale__row { display: flex; align-items: center; gap: var(--space-16); }
+.sg-scale__bar { height: 16px; background: var(--color-navy); }
+.sg-scale__label { color: var(--color-ink-muted); font-family: ui-monospace, monospace; font-size: 12px; font-variant-numeric: tabular-nums; }
+
+/* Радиусы / границы / тени / контролы / иконки */
+.sg-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-16); }
+.sg-tile { display: flex; flex-direction: column; gap: var(--space-12); align-items: flex-start; }
+.sg-tile__box { width: 96px; height: 96px; background: var(--color-band); border: var(--border-hairline) solid var(--color-rule); }
+.sg-tile__box--navy { background: var(--color-navy); border: none; }
+.sg-tile__label { color: var(--color-ink-muted); font-family: ui-monospace, monospace; font-size: 12px; }
+.sg-tile__label b { color: var(--color-ink); font-weight: var(--fw-semibold); }
+
+/* Компоненты */
+.sg-cluster { display: flex; flex-direction: column; gap: var(--space-24); }
+.sg-row { display: flex; flex-wrap: wrap; gap: var(--space-16); align-items: center; }
+.sg-row--dark { background: var(--color-navy); padding: var(--space-24); }
+.sg-caption { color: var(--color-ink-muted); font-size: 13px; width: 100%; margin-bottom: calc(-1 * var(--space-8)); }
+.sg-icons { display: flex; flex-wrap: wrap; gap: var(--space-24); color: var(--color-navy); align-items: center; }
+.sg-field-demo { max-width: 360px; }
+
+@media (max-width: 719px) {
+  .sg-type__row { grid-template-columns: 1fr; gap: var(--space-8); }
+  .sg-type__meta { text-align: left; }
+}
+
+/* Свотчи цвета (без инлайн-стилей) */
+.sg-chip--navy         { background: var(--color-navy); }
+.sg-chip--navy-hover   { background: var(--color-navy-hover); }
+.sg-chip--gold         { background: var(--color-gold); }
+.sg-chip--gold-hover   { background: var(--color-gold-hover); }
+.sg-chip--ink          { background: var(--color-ink); }
+.sg-chip--ink-muted    { background: var(--color-ink-muted); }
+.sg-chip--white        { background: var(--color-white); }
+.sg-chip--sand         { background: var(--color-sand); }
+.sg-chip--band         { background: var(--color-band); }
+.sg-chip--map-bg       { background: var(--color-map-bg); }
+.sg-chip--rule         { background: var(--color-rule); }
+.sg-chip--status-online{ background: var(--color-status-online); }
+.sg-chip--avatar-bg    { background: var(--color-avatar-bg); }
+
+/* Ширины шкалы отступов */
+.sg-w-2   { width: var(--space-2); }
+.sg-w-4   { width: var(--space-4); }
+.sg-w-8   { width: var(--space-8); }
+.sg-w-12  { width: var(--space-12); }
+.sg-w-16  { width: var(--space-16); }
+.sg-w-24  { width: var(--space-24); }
+.sg-w-32  { width: var(--space-32); }
+.sg-w-40  { width: var(--space-40); }
+.sg-w-48  { width: var(--space-48); }
+.sg-w-64  { width: var(--space-64); }
+.sg-w-80  { width: var(--space-80); }
+.sg-w-96  { width: var(--space-96); }
+.sg-w-128 { width: var(--space-128); }
+
+/* Радиусы-плитки */
+.sg-tile__box--r-none { border-radius: var(--radius-none); }
+.sg-tile__box--r-sm   { border-radius: var(--radius-sm); }
+.sg-tile__box--r-md   { border-radius: var(--radius-md); }
+.sg-tile__box--r-lg   { border-radius: var(--radius-lg); }
+.sg-tile__box--r-xl   { border-radius: var(--radius-xl); }
+.sg-tile__box--r-2xl  { border-radius: var(--radius-2xl); }
+.sg-tile__box--r-pill { border-radius: var(--radius-pill); }
+
+/* Тени-плитки */
+.sg-tile__box--sh-sm     { box-shadow: var(--shadow-sm); border: none; background: var(--color-white); }
+.sg-tile__box--sh-md     { box-shadow: var(--shadow-md); border: none; background: var(--color-white); }
+.sg-tile__box--sh-dialog { box-shadow: var(--shadow-dialog); border: none; background: var(--color-white); }
