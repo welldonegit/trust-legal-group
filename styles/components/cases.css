@@ -1,0 +1,115 @@
+/* Trust Legal Group — Кейси
+   Анонимные выигранные дела: eyebrow+заголовок, сетка карточек (тег, ситуация,
+   золотая строка «Результат»), затем navy-баннер с формой. Fluid→шкала @1440. */
+
+.cases__inner { display: flex; flex-direction: column; gap: var(--space-24); }
+
+.cases__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-32);
+  margin-bottom: var(--space-24);
+}
+.cases__head-group { display: flex; flex-direction: column; gap: var(--space-12); }
+.cases__eyebrow { color: var(--color-gold); }
+.cases__title { color: var(--color-ink); }
+
+.cases__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-24);
+}
+.case-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  background: var(--color-sand);
+  padding: var(--space-32);
+}
+.case-card__tag {
+  align-self: flex-start;
+  letter-spacing: var(--tracking-tag);
+  text-transform: uppercase;
+  color: var(--color-navy);
+  border: var(--border-hairline) solid var(--color-rule);
+  padding: var(--space-8) var(--space-12);
+  line-height: 1.1;
+}
+.case-card__text { color: var(--color-ink-muted); }
+.case-card__result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-top: auto;
+  padding-top: var(--space-16);
+  border-top: var(--border-hairline) solid var(--color-rule);
+}
+.case-card__result-label {
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+.case-card__result-text { color: var(--color-ink); font-weight: var(--fw-medium); line-height: 1.4; }
+.case-card__foot {
+  padding-top: var(--space-16);
+  border-top: var(--border-hairline) solid var(--color-rule);
+}
+
+/* ---------- Баннер с формой ---------- */
+.cases__cta { margin-top: var(--space-24); }
+.cases__banner {
+  background: var(--color-navy);
+  padding: var(--space-40);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-48);
+  flex-wrap: wrap;
+}
+.cases__banner-text { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: var(--space-8); }
+.cases__banner-title { color: var(--color-sand); }
+.cases__banner-sub { color: var(--color-on-navy-72); }
+.cases__banner-form { flex: 1 1 380px; display: flex; gap: var(--space-12); align-items: stretch; }
+.cases__banner-form input {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: inherit;
+  font-size: var(--text-body-size);
+  color: var(--color-sand);
+  background: transparent;
+  border: none;
+  border-bottom: var(--border-hairline) solid var(--color-on-navy-45);
+  padding: 0 0 var(--space-8);
+  transition: border-color 0.2s ease;
+}
+.cases__banner-form input::placeholder { color: var(--color-on-navy-45); }
+.cases__banner-form input:focus { outline: none; border-bottom-color: var(--color-gold); }
+.cases__banner-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  height: var(--control-h-lg);
+  padding: 0 var(--space-32);
+  border: none;
+  cursor: pointer;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: inherit;
+  font-size: var(--text-body-sm-size);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.cases__banner-btn:hover { background: var(--color-band); }
+.cases__banner-btn-arrow { transition: transform 0.2s ease; }
+.cases__banner-btn:hover .cases__banner-btn-arrow { transform: translateX(4px); }
+
+@media (max-width: 719px) {
+  .cases__head { flex-direction: column; align-items: flex-start; gap: var(--space-12); }
+  .cases__grid { grid-template-columns: 1fr; }
+  .cases__banner-form { flex-direction: column; }
+  .cases__banner-form > * { width: 100%; }
+  .cases__banner-form input { padding-bottom: var(--space-16); }
+}

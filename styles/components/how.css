@@ -1,0 +1,83 @@
+/* Trust Legal Group — Як ми працюємо
+   Вертикальный нумерованный таймлайн: соединительная линия с navy-бейджами
+   шагов. Десктоп: sticky-заголовок слева, таймлайн справа. Fluid→шкала @1440.
+   Соединительная линия — реальный <span> (был ::before, в экспорт не попадает);
+   центрируется через left без transform. */
+
+.how__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--space-80);
+  align-items: start;
+}
+.how__aside {
+  position: sticky;
+  top: var(--space-96);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+.how__eyebrow { color: var(--color-gold); }
+.how__title { color: var(--color-ink); max-width: 11em; }
+.how__sub { color: var(--color-ink-muted); max-width: 22em; }
+.how__cta { margin-top: var(--space-16); }
+
+.how__steps { list-style: none; margin: 0; padding: 0; }
+.how-step {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-32);
+}
+.how-step__rail {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: var(--control-h-lg);
+}
+.how-step__line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 0.5px);
+  width: var(--border-hairline);
+  background: var(--color-rule);
+}
+.how-step:first-child .how-step__line { top: calc(var(--control-h-lg) / 2); }
+.how-step:last-child .how-step__line { bottom: calc(100% - var(--control-h-lg)); }
+.how-step__badge {
+  position: relative;
+  z-index: 1;
+  width: var(--control-h-lg);
+  height: var(--control-h-lg);
+  border-radius: var(--radius-pill);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-navy);
+  color: var(--color-sand);
+  font-size: var(--text-body-size);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-snug);
+}
+.how-step__body { padding: var(--space-4) 0 var(--space-48); }
+.how-step:last-child .how-step__body { padding-bottom: var(--space-4); }
+.how-step__title { color: var(--color-ink); }
+.how-step__desc { margin-top: var(--space-12); color: var(--color-ink-muted); max-width: 32em; }
+
+@media (max-width: 1023px) {
+  .how__inner { grid-template-columns: 1fr; gap: var(--space-48); }
+  .how__aside { position: static; }
+  .how__title,
+  .how__sub { max-width: none; }
+}
+@media (max-width: 719px) {
+  .how-step__rail { width: var(--control-h-sm); }
+  .how-step:first-child .how-step__line { top: calc(var(--control-h-sm) / 2); }
+  .how-step:last-child .how-step__line { bottom: calc(100% - var(--control-h-sm)); }
+  .how-step__badge {
+    width: var(--control-h-sm);
+    height: var(--control-h-sm);
+    font-size: var(--text-caption-size);
+  }
+}

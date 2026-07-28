@@ -1,0 +1,57 @@
+/* Trust Legal Group — Button
+   Прямоугольная кнопка (квадратные углы) с заглавным текстом и опциональной
+   стрелкой. Три высоты из шкалы контролов, четыре варианта.
+   Состояния :hover/:disabled продублированы статическими классами
+   (.btn--hover / .btn--disabled) для попадания в экспорт Figma. */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  letter-spacing: var(--tracking-label);
+  border: var(--border-hairline) solid transparent;
+  border-radius: var(--radius-none);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Высоты (шкала контролов 40 · 48 · 56) */
+.btn--sm { height: var(--control-h-sm); padding-inline: var(--space-16); font-size: var(--text-caption-size); }
+.btn--md { height: var(--control-h-md); padding-inline: var(--space-24); font-size: var(--text-body-sm-size); }
+.btn--lg { height: var(--control-h-lg); padding-inline: var(--space-32); font-size: var(--text-body-size); }
+
+/* Варианты */
+.btn--primary { background: var(--color-navy); color: var(--color-white); }
+.btn--primary:hover,
+.btn--primary.btn--hover { background: var(--color-navy-hover); }
+
+.btn--dark { background: var(--color-ink); color: var(--color-white); }
+.btn--dark:hover,
+.btn--dark.btn--hover { background: var(--color-navy); }
+
+.btn--outline { background: transparent; color: var(--color-ink-muted); border-color: var(--color-rule); }
+.btn--outline:hover,
+.btn--outline.btn--hover { color: var(--color-ink); border-color: var(--color-ink); background: var(--color-band); }
+
+.btn--gold { background: var(--color-gold); color: var(--color-ink); }
+.btn--gold:hover,
+.btn--gold.btn--hover { background: var(--color-gold-hover); }
+
+/* Стрелка */
+.btn__arrow { display: inline-block; transition: transform 0.2s ease; }
+.btn:hover .btn__arrow,
+.btn--hover .btn__arrow { transform: translateX(4px); }
+
+/* Заблокировано */
+.btn:disabled,
+.btn[aria-disabled="true"],
+.btn--disabled { opacity: 0.45; pointer-events: none; }

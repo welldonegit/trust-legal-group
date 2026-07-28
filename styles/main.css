@@ -1,0 +1,30 @@
+/* Trust Legal Group — CSS entry
+   Единственный файл, который подключают страницы. Порядок: токены → reset
+   → типографика → раскладка → компоненты (по одному файлу на компонент). */
+
+@import "./tokens.css";
+@import "./reset.css";
+@import "./typography.css";
+@import "./layout.css";
+
+/* Компоненты (добавляются по мере рефакторинга секций) */
+@import "./components/icon.css";
+@import "./components/button.css";
+@import "./components/navlink.css";
+@import "./components/hero.css";
+@import "./components/spec.css";
+@import "./components/about.css";
+@import "./components/arrowlink.css";
+@import "./components/cases.css";
+@import "./components/team.css";
+@import "./components/how.css";
+@import "./components/ig.css";
+@import "./components/faq.css";
+@import "./components/blog.css";
+@import "./components/cta.css";
+@import "./components/loc.css";
+@import "./components/seo.css";
+@import "./components/footer.css";
+
+/* Стайлгайд (только для styleguide.html) */
+@import "./components/styleguide.css";

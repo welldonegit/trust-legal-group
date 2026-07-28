@@ -1,0 +1,57 @@
+/* Trust Legal Group — FAQ / аккордеон
+   Eyebrow + заголовок + подзаголовок, затем раскрываемые строки (первая
+   открыта по умолчанию) и заметка о цене консультации. Fluid→шкала @1440. */
+
+.faq__inner { display: flex; flex-direction: column; gap: var(--space-32); }
+.faq__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  max-width: var(--content-max);
+  margin-bottom: var(--space-16);
+}
+.faq__eyebrow { color: var(--color-gold); }
+.faq__title { color: var(--color-ink); }
+.faq__sub { color: var(--color-ink-muted); max-width: 34em; }
+
+.faq__list { border-top: var(--border-hairline) solid var(--color-rule); }
+.faq-row { border-bottom: var(--border-hairline) solid var(--color-rule); }
+.faq-row__head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+  padding: var(--space-24) 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+.faq-row__title { flex: 1 1 auto; color: var(--color-ink); }
+.faq-row__chev {
+  flex: 0 0 auto;
+  width: var(--control-h-md);
+  height: var(--control-h-md);
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-band);
+  color: var(--color-ink);
+  transition: transform 0.28s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.faq-row__head:hover .faq-row__chev { background: var(--color-navy); color: var(--color-on-dark); }
+.faq-row.is-open .faq-row__chev { transform: rotate(45deg); }
+
+.faq-row__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.28s ease; }
+.faq-row.is-open .faq-row__panel { grid-template-rows: 1fr; }
+.faq-row__panelin { overflow: hidden; }
+.faq-row__desc {
+  margin: 0;
+  padding: 0 0 var(--space-24);
+  max-width: 60em;
+  color: var(--color-ink-muted);
+}
+.faq__note { color: var(--color-ink-muted); max-width: 60em; }
+.faq__note strong { color: var(--color-ink); font-weight: var(--fw-semibold); }
