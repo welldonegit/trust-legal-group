@@ -55,7 +55,6 @@
 }
 .states__cell--dark { background: var(--color-navy); border-color: var(--color-navy); }
 .states__cell--dark .states__label { color: var(--color-on-navy-72); }
-.states__cell--pad0 { padding: 0; }
 
 .states__label {
   font-family: var(--font-sans);
@@ -68,12 +67,9 @@
 /* Демо-область: центрирование в потоке, без absolute/transform */
 .states__demo { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-16); }
 .states__demo--col { flex-direction: column; align-items: stretch; }
-.states__demo--start { align-items: flex-start; }
 
-.states__demo--pad { padding: var(--space-24); }
 /* Бургер по умолчанию display:none (виден только на мобайле) — в демо форсируем */
 .states .hero__burger { display: inline-flex; }
-.states__stack { display: flex; flex-direction: column; gap: var(--space-16); width: 100%; }
 
 /* Снимок не должен ловить анимацию/переход */
 .states__demo,

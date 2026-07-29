@@ -7,7 +7,8 @@
 .foot { background: var(--color-sand); color: var(--color-ink); padding-top: var(--space-64); }
 .foot__inner { padding-bottom: var(--space-32); }
 .foot a { color: var(--color-ink-muted); }
-.foot a:hover { color: var(--color-navy); }
+.foot a:hover,
+.foot__link--hover { color: var(--color-navy); }
 
 .foot__grid {
   display: grid;

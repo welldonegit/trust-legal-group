@@ -24,3 +24,7 @@
 .navlink--on-light:hover,
 .navlink--on-light.is-active,
 .navlink--on-light[aria-current="page"] { color: var(--color-ink); }
+
+/* Фокус — псевдокласс + статик-класс (для спеки состояний) */
+.navlink:focus-visible,
+.navlink--focus { outline: var(--border-thick) solid var(--color-gold); outline-offset: 3px; }
