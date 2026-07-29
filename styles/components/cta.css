@@ -75,9 +75,13 @@
 .cta__field textarea { resize: none; line-height: var(--text-body-sm-lh); }
 .cta__field input::placeholder,
 .cta__field textarea::placeholder { color: var(--color-rule); }
+/* Фокус — псевдокласс + статик-класс (для спеки состояний) одним объявлением */
 .cta__field input:focus,
 .cta__field textarea:focus,
-.cta__select select:focus { outline: none; border-bottom-color: var(--color-navy); }
+.cta__select select:focus,
+.cta__field--focus input,
+.cta__field--focus textarea,
+.cta__select--focus select { outline: none; border-bottom-color: var(--color-navy); }
 .cta__select { position: relative; }
 .cta__select select {
   width: 100%;

@@ -41,7 +41,8 @@
   color: var(--color-ink);
   transition: transform 0.28s ease, background-color 0.2s ease, color 0.2s ease;
 }
-.faq-row__head:hover .faq-row__chev { background: var(--color-navy); color: var(--color-on-dark); }
+.faq-row__head:hover .faq-row__chev,
+.faq-row--hover .faq-row__chev { background: var(--color-navy); color: var(--color-on-dark); }
 .faq-row.is-open .faq-row__chev { transform: rotate(45deg); }
 
 .faq-row__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.28s ease; }
