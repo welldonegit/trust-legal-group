@@ -112,11 +112,7 @@
   --shadow-md:     0 2px 6px rgba(0,0,0,.3);
 
   /* ========================= Типографика ====================== */
-  --font-sans:  "Onest", sans-serif;
-  --font-serif: "Playfair Display", serif;
-  /* Первый экран намеренно набран Helvetica Neue (по брифу, локально для hero).
-     Задокументированное исключение — см. README / стайлгайд. */
-  --font-hero:  "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  --font-sans:  "Onest", sans-serif; /* единственная гарнитура во всём проекте */
 
   --fw-regular:  400;
   --fw-medium:   500;
