@@ -943,7 +943,7 @@
       </section>
       <section class="states__section">
         <h3 class="states__section-title text-h3">Поля форм</h3>
-        <p class="states__note text-body-sm">Реальні поля сайту: підкреслений стиль (.cta__field / .cta__select) зі станами default / focus, і форма-банер на тёмному фоні. Валідації/помилок у поточній вёрстці немає.</p>
+        <p class="states__note text-body-sm">Реальні поля сайту: підкреслений стиль (.cta__field / .cta__select) зі станами default / focus, і форма-банер на тёмному фоні. Валідації у поточній вёрстці немає — error-стан і тексти нижче задані під майбутню реалізацію.</p>
         <div class="states__group"><h4 class="states__group-title text-body-sm">Форма контактів (.cta__field / .cta__select)</h4><div class="states__grid">
           <div class="states__cell"><span class="states__label">Input / Default</span><div class="states__demo states__demo--col"><div class="cta__field"><label class="text-caption" for="sf-name">Ім'я</label><input id="sf-name" type="text" placeholder="Іван" /></div></div></div>
           <div class="states__cell"><span class="states__label">Input / Focus</span><div class="states__demo states__demo--col"><div class="cta__field cta__field--focus"><label class="text-caption" for="sf-name-f">Ім'я</label><input id="sf-name-f" type="text" value="Іван" placeholder="" /></div></div></div>
@@ -954,11 +954,19 @@
           <div class="states__cell"><span class="states__label">Select / Focus</span><div class="states__demo states__demo--col"><div class="cta__field cta__select--focus"><label class="text-caption" for="sf-sel-f">Як з вами зв'язатись?</label><div class="cta__select"><select id="sf-sel-f"><option>Оберіть спосіб</option></select><span class="cta__select-chev"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg></span></div></div></div></div>
           </div></div>
         <div class="states__group"><h4 class="states__group-title text-body-sm">Форма-банер (на тёмному фоні)</h4><div class="states__grid states__grid--wide">
-          <div class="states__cell states__cell--dark"><span class="states__label">Банер / Телефон + кнопка</span><div class="states__demo states__demo--col"><form class="cases__banner-form"><input type="tel" placeholder="+380 __ ___ __ __" aria-label="Ваш телефон" /><button type="button" class="cases__banner-btn"><span>Отримати консультацію</span><span class="cases__banner-btn-arrow" aria-hidden="true">→</span></button></form></div></div>
+          <div class="states__cell states__cell--dark"><span class="states__label">Банер / Телефон + кнопка</span><div class="states__demo"><form class="cases__banner-form"><input type="tel" placeholder="+380 __ ___ __ __" aria-label="Ваш телефон" /><button type="button" class="cases__banner-btn"><span>Отримати консультацію</span><span class="cases__banner-btn-arrow" aria-hidden="true">→</span></button></form></div></div>
+          </div></div>
+        <div class="states__group"><h4 class="states__group-title text-body-sm">Тексти помилок (реальні формулювання, на поля сайту)</h4><div class="states__grid">
+          <div class="states__cell"><span class="states__label">Помилка / Пусте обов'язкове</span><div class="states__demo states__demo--col"><div class="cta__field cta__field--error"><label class="text-caption" for="e-req">Ім'я</label><input id="e-req" type="text" value="" aria-invalid="true" aria-describedby="e-req-e" /><p class="cta__field-error" id="e-req-e" role="alert">Вкажіть, будь ласка, ім'я — без нього не зможемо звʼязатися.</p></div></div></div>
+          <div class="states__cell"><span class="states__label">Помилка / Телефон</span><div class="states__demo states__demo--col"><div class="cta__field cta__field--error"><label class="text-caption" for="e-tel">Телефон</label><input id="e-tel" type="text" value="+380 12" aria-invalid="true" aria-describedby="e-tel-e" /><p class="cta__field-error" id="e-tel-e" role="alert">Перевірте номер: 10 цифр у форматі +380 XX XXX XX XX.</p></div></div></div>
+          <div class="states__cell"><span class="states__label">Помилка / Не вибрано у списку</span><div class="states__demo states__demo--col"><div class="cta__field cta__field--error"><label class="text-caption" for="e-sel">Спосіб зв'язку</label><div class="cta__select"><select id="e-sel" aria-invalid="true" aria-describedby="e-sel-e"><option>Оберіть спосіб</option></select><span class="cta__select-chev"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg></span></div><p class="cta__field-error" id="e-sel-e" role="alert">Оберіть, будь ласка, спосіб зв'язку зі списку.</p></div></div></div>
+          <div class="states__cell"><span class="states__label">Помилка / Замало символів</span><div class="states__demo states__demo--col"><div class="cta__field cta__field--error"><label class="text-caption" for="e-short">Питання</label><textarea id="e-short" aria-invalid="true" aria-describedby="e-short-e">ДТП</textarea><p class="cta__field-error" id="e-short-e" role="alert">Замало символів: опишіть ситуацію хоча б кількома словами.</p></div></div></div>
+          <div class="states__cell"><span class="states__label">Помилка / Забагато символів</span><div class="states__demo states__demo--col"><div class="cta__field cta__field--error"><label class="text-caption" for="e-long">Питання</label><textarea id="e-long" aria-invalid="true" aria-describedby="e-long-e">Дуже довгий текст…</textarea><p class="cta__field-error" id="e-long-e" role="alert">Занадто довго — приберіть зайве, максимум 500 символів.</p></div></div></div>
           </div></div>
       </section>
       </div>
     </aside>
   </main>
+  <script type="module" src="/main.js"></script>
 </body>
 </html>
