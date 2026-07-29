@@ -30,7 +30,7 @@ styles/
   layout.css          # контейнер, ритм секций
   components/<имя>.css # по одному файлу на компонент
 assets/
-  fonts/              # Onest + Playfair Display (woff2, self-host)
+  fonts/              # Onest (woff2, self-host)
   images/  team/      # фотографии, логотипы
 reference/            # исходный экспорт + извлечённые JSX/CSS (для сверки)
 vite.config.js
@@ -64,13 +64,23 @@ fluid-типографики в проекте нет.
 
 ## Типографика
 
-- **Onest** — весь UI и текст (вес 300–700), self-host woff2.
-- **Playfair Display** — вордмарк / редкий serif (500–700).
-- **Helvetica Neue** — только первый экран (hero), намеренно, по брифу
-  (`--font-hero`). Единственное исключение из основного стека; задокументировано.
+- **Onest** — весь UI и текст. Начертания: **Regular 400 · Medium 500 · SemiBold 600**.
+  Self-host woff2 (вариативный).
+- **Helvetica Neue** — только первый экран (hero) и шапка, намеренно, по брифу
+  (`--font-hero`). Начертания: **400 · 500 · 600**. Единственное исключение из
+  основного стека; системный шрифт macOS.
 
 Стили текста — переиспользуемые классы `.text-h1`, `.text-body` и т.д.
 В разметке ставится класс, размер внутри компонента не переопределяется.
+
+### Шрифты для Figma (html.to.design)
+
+Плагин мапит `font-family` на шрифт, **установленный в системе с Figma** —
+self-host woff2 работает только в браузере. Если шрифт не установлен, Figma
+подставляет Inter («missing font mapping»). Установите в ОС:
+
+- **Onest** — Regular 400, Medium 500, SemiBold 600 (бесплатно, Google Fonts, .ttf).
+- **Helvetica Neue** — 400, 500, 600 (есть на macOS; на Windows стандартно нет).
 
 ## Импорт в Figma (html.to.design)
 
