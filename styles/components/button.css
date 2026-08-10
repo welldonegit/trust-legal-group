@@ -35,6 +35,19 @@
 .btn--primary:hover,
 .btn--primary.btn--hover { background: var(--color-navy-hover); }
 
+/* Прозрачная (outline) — вторичное действие на светлом фоне (напр. hero-карточка) */
+.btn--ghost { background: transparent; color: var(--color-navy); border-color: var(--color-rule); }
+.btn--ghost:hover,
+.btn--ghost.btn--hover {
+  background: color-mix(in srgb, var(--color-navy) 6%, transparent);
+  border-color: var(--color-navy);
+}
+
+/* Светлая (белая) — действие на тёмном (navy) баннере */
+.btn--light { background: var(--color-white); color: var(--color-ink); }
+.btn--light:hover,
+.btn--light.btn--hover { background: var(--color-band); }
+
 /* Стрелка */
 .btn__arrow { display: inline-block; transition: transform 0.2s ease; }
 .btn:hover .btn__arrow,

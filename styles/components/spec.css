@@ -70,6 +70,11 @@
 .spec-panel__title { color: var(--color-on-dark); max-width: 11em; }
 .spec-panel__sub { color: var(--color-on-navy-60); max-width: 22em; }
 
+/* Панель без ссылки «усі послуги»: в левой колонке только заголовок, поэтому
+   ей нужен нижний отступ — иначе заголовок липнет к низу/сетке (видно на
+   мобайле, где колонка стекается над сеткой ячеек). */
+.spec-panel--headonly .spec-panel__left { padding-bottom: var(--panel-pad); }
+
 .spec-panel__all {
   position: relative;
   z-index: 1;
@@ -191,6 +196,7 @@
 /* ---------- Мобайл (≤719px) ---------- */
 @media (max-width: 719px) {
   .spec-panel__left { padding: var(--space-24) var(--space-24) 0; }
+  .spec-panel--headonly .spec-panel__left { padding-bottom: var(--space-24); }
   .spec-panel__all { padding: var(--space-32) var(--space-24) var(--space-24); }
   .spec-cell { padding: var(--space-24) var(--space-40) var(--space-24) var(--space-24); }
   .spec-panel__grid { grid-template-columns: 1fr; }

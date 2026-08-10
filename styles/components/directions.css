@@ -1,0 +1,60 @@
+/* Trust Legal Group — Інші напрями (плитки-ссылки)
+   Список песочных плиток на всю ширину: слева название практики, справа
+   квадратный бокс с угловой стрелкой. Плитки тянутся по ширине ряда (flex). */
+
+.directions__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+.directions__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  max-width: var(--content-max);
+}
+.directions__eyebrow { color: var(--color-gold); }
+.directions__title { color: var(--color-ink); }
+.directions__sub { color: var(--color-ink-muted); max-width: 44em; }
+
+.directions__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+}
+.directions-tile {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-24);
+  min-height: var(--space-80);
+  padding: var(--space-24);
+  background: var(--color-sand);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.directions-tile__label { color: var(--color-navy); white-space: nowrap; }
+.directions-tile__arrow {
+  flex: 0 0 auto;
+  width: var(--control-h-sm);
+  height: var(--control-h-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-hairline) solid var(--color-rule);
+  color: var(--color-navy);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.directions-tile__arrow-ico { transform: rotate(-45deg); }
+.directions-tile:hover .directions-tile__arrow,
+.directions-tile--hover .directions-tile__arrow {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+  color: var(--color-on-dark);
+}
+
+@media (max-width: 719px) {
+  .directions-tile { flex: 1 1 100%; min-height: var(--control-h-lg); }
+  .directions-tile__label { white-space: normal; }
+}
