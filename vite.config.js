@@ -5,6 +5,9 @@ import { defineConfig } from "vite";
 export default defineConfig({
   root: ".",
   publicDir: false,
+  // Слушаем 0.0.0.0 — иначе из devcontainer порт наружу не проброшивается.
+  server: { host: true },
+  preview: { host: true },
   build: {
     outDir: "dist",
     emptyOutDir: true,
@@ -13,7 +16,7 @@ export default defineConfig({
         index: resolve(__dirname, "index.html"),
         styleguide: resolve(__dirname, "styleguide.html"),
         notfound: resolve(__dirname, "404.html"),
-        practiceMilitary: resolve(__dirname, "practice-military.html"),
+        practiceMilitaryNew: resolve(__dirname, "practice-military-new.html"),
       },
     },
   },

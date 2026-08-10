@@ -1,0 +1,54 @@
+/* Trust Legal Group — CTA-баннер
+   Тёмная (navy) плита: слева eyebrow + заголовок + описание, справа светлая
+   кнопка (+ примечание). Общий конверсионный баннер БЕЗ формы (напр. блок
+   «Перший крок»). От баннера с формой (cases__banner) отличается наличием
+   кнопки вместо поля — поэтому вынесен отдельным переиспользуемым блоком. */
+
+.cta-banner {
+  background: var(--color-navy);
+  padding: var(--space-40);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-48);
+  flex-wrap: wrap;
+}
+.cta-banner__text {
+  flex: 1 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+/* Весь текст на синей плите — белым (без золотого/кремового). */
+.cta-banner__eyebrow { color: var(--color-on-dark); }
+.cta-banner__title { color: var(--color-on-dark); max-width: 22em; }
+.cta-banner__title b { font-weight: var(--fw-regular); color: var(--color-on-dark); }
+/* Описание — приглушённое, как .cases__banner-sub на главной (не чисто белое). */
+.cta-banner__desc { color: var(--color-on-navy-72); max-width: 48em; }
+
+.cta-banner__action {
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  align-items: flex-start;
+}
+.cta-banner__note { color: var(--color-on-dark); max-width: 22em; }
+
+/* Вариант с формой (телефон + кнопка) вместо одиночной кнопки.
+   Переиспользует форму баннера кейсов (.cases__banner-form) — та же тёмная
+   подложка. Пропорции колонок совпадают с баннером на главной (текст 300 /
+   форма 380), поэтому поле телефона той же длины; вертикальный flex-basis
+   формы снимаем, иначе в колонке она тянулась бы по высоте. */
+.cta-banner--form .cta-banner__text { flex: 1 1 300px; }
+.cta-banner--form .cta-banner__action { flex: 1 1 380px; align-items: stretch; }
+.cta-banner--form .cases__banner-form { flex: 0 0 auto; }
+/* Сноска идёт вдоль всей строки «поле + кнопка» (без узкого ограничения). */
+.cta-banner--form .cta-banner__note { max-width: none; }
+
+@media (max-width: 719px) {
+  .cta-banner { padding: var(--space-24); gap: var(--space-24); }
+  .cta-banner__action { align-self: stretch; }
+  .cta-banner__action .btn { width: 100%; }
+}

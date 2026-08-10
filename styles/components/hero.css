@@ -247,6 +247,8 @@
   color: var(--color-ink-muted);
   max-width: 15em;
 }
+/* Сноска под метрикой (напр. пометка о сроках) */
+.hero__stat-note { margin: 0; color: var(--color-ink-muted); }
 
 /* ---------- Планшет (≤1023px) ---------- */
 @media (max-width: 1023px) {

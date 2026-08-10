@@ -32,6 +32,11 @@
   .section--tight { padding-block: var(--space-48); }
 }
 
+/* Секция продолжает полосу того же фона, что и предыдущая: верхний паддинг
+   убран, чтобы граница одного фона была ОДНИМ шагом ритма, а не двумя
+   (иначе смежные секции одного цвета дают удвоенный отступ). */
+.section--flush-top { padding-top: 0; }
+
 /* Тёмные/светлые фоны секций-полос. */
 .section--band  { background: var(--color-band); }
 .section--sand  { background: var(--color-sand); }

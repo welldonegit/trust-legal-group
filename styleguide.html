@@ -103,6 +103,8 @@
         <p class="sg-section__note text-body">Стани :hover / :disabled продубльовані статичними класами (.btn--hover, .btn--disabled) — вони не потрапляють в експорт як псевдокласи.</p>
         <div class="sg-cluster">
           <div><p class="sg-caption">.btn--primary / lg — default · hover · focus · disabled</p><div class="sg-row"><a class="btn btn--primary btn--lg" href="#"><span>Отримати консультацію</span><span class="btn__arrow" aria-hidden="true">→</span></a><span class="btn btn--primary btn--lg btn--hover"><span>Отримати консультацію</span><span class="btn__arrow" aria-hidden="true">→</span></span><span class="btn btn--primary btn--lg btn--focus"><span>Отримати консультацію</span><span class="btn__arrow" aria-hidden="true">→</span></span><button class="btn btn--primary btn--lg btn--disabled" type="button" disabled><span>Отримати консультацію</span><span class="btn__arrow" aria-hidden="true">→</span></button></div></div>
+          <div><p class="sg-caption">.btn--ghost / lg — default · hover (вторинна дія, hero-картка)</p><div class="sg-row"><a class="btn btn--ghost btn--lg" href="#"><span>Знайти свою ситуацію</span><span class="btn__arrow" aria-hidden="true">→</span></a><span class="btn btn--ghost btn--lg btn--hover"><span>Знайти свою ситуацію</span><span class="btn__arrow" aria-hidden="true">→</span></span></div></div>
+          <div><p class="sg-caption">.btn--light / lg — default · hover (біла кнопка на тёмному банері)</p><div class="sg-row sg-row--dark"><a class="btn btn--light btn--lg" href="#"><span>Записатися</span><span class="btn__arrow" aria-hidden="true">→</span></a><span class="btn btn--light btn--lg btn--hover"><span>Записатися</span><span class="btn__arrow" aria-hidden="true">→</span></span></div></div>
           <div><p class="sg-caption">NavLink — on-dark</p><div class="sg-row sg-row--dark"><a class="navlink navlink--on-dark" href="#">Практики</a><a class="navlink navlink--on-dark is-active" href="#">Головна</a></div></div>
           <div><p class="sg-caption">NavLink — on-light</p><div class="sg-row"><a class="navlink navlink--on-light" href="#">Практики</a><a class="navlink navlink--on-light is-active" href="#">Головна</a></div></div>
           <div><p class="sg-caption">ArrowLink — base · hover</p><div class="sg-row"><a class="arrow-link" href="#"><span>Детальніше</span><span class="arrow-link__arrow">→</span></a><a class="arrow-link arrow-link--hover" href="#"><span>Детальніше :hover</span><span class="arrow-link__arrow">→</span></a></div></div>
@@ -121,6 +123,54 @@
               <span class="cta__select-chev"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg></span></div></div>
             <div class="cta__field"><label class="text-caption" for="sg-q">Питання</label><textarea id="sg-q" rows="2" placeholder="Коротко опишіть ситуацію"></textarea></div>
           </form>
+        </div>
+      </section>
+      <section class="sg-section">
+        <h2 class="sg-section__title text-h3">Компоненти сторінок практик</h2>
+        <p class="sg-section__note text-body">Нові блоки для сторінок практик: CTA-банер (тёмна плита з кнопкою, без форми), список плиток «Інші напрями» та картка команди в сітці з бейджами і посиланням на профіль.</p>
+        <div class="sg-cluster">
+          <div><p class="sg-caption">.cta-banner--form — тёмна плита з формою (телефон + кнопка)</p>
+            <div class="cta-banner cta-banner--form">
+              <div class="cta-banner__text">
+                <span class="text-eyebrow cta-banner__eyebrow">Перший крок</span>
+                <h2 class="cta-banner__title text-h3">Ціна першої консультації — <b>від 1500 грн*</b></h2>
+                <p class="cta-banner__desc text-body">Оцінка перспектив, реальні строки, покроковий план і точна вартість супроводу.</p>
+              </div>
+              <div class="cta-banner__action">
+                <form class="cases__banner-form">
+                  <input type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" aria-label="Ваш телефон" required />
+                  <button type="submit" class="cases__banner-btn"><span>Отримати консультацію</span><span class="cases__banner-btn-arrow" aria-hidden="true">→</span></button>
+                </form>
+                <p class="cta-banner__note text-caption">*Сума зараховується у вартість послуги при укладанні договору.</p>
+              </div>
+            </div>
+          </div>
+          <div><p class="sg-caption">.directions-tile — плитки «Інші напрями»</p>
+            <div class="directions__list">
+              <a class="directions-tile" href="#"><span class="directions-tile__label text-title">Кримінальне право</span><span class="directions-tile__arrow" aria-hidden="true"><svg class="icon icon--md directions-tile__arrow-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span></a>
+              <a class="directions-tile" href="#"><span class="directions-tile__label text-title">Сімейне право</span><span class="directions-tile__arrow" aria-hidden="true"><svg class="icon icon--md directions-tile__arrow-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span></a>
+              <a class="directions-tile" href="#"><span class="directions-tile__label text-title">Медіація</span><span class="directions-tile__arrow" aria-hidden="true"><svg class="icon icon--md directions-tile__arrow-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span></a>
+            </div>
+          </div>
+          <div><p class="sg-caption">.team-card + .team__grid — картка напряму з бейджами і посиланням</p>
+            <div class="team__grid">
+              <article class="team-card">
+                <div class="team-card__photo">
+                  <img class="team-card__img" src="assets/team/dmytriev.jpg" alt="Валентин К." />
+                  <div class="team-card__badges">
+                    <span class="team-card__badge"><span class="team-card__badge-num text-body text--semibold">100+</span><span class="team-card__badge-label text-caption">справ проти ТЦК</span></span>
+                    <span class="team-card__badge"><span class="team-card__badge-num text-body text--semibold">10+</span><span class="team-card__badge-label text-caption">років практики</span></span>
+                  </div>
+                </div>
+                <div class="team-card__body">
+                  <h3 class="team-card__name text-title">Валентин К.</h3>
+                  <p class="team-card__role text-caption">Керівник напряму</p>
+                  <p class="team-card__spec text-caption">Військове право</p>
+                  <a class="team-card__link text-caption" href="#"><span>Переглянути профіль</span><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
     </main>
