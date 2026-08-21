@@ -28,21 +28,15 @@
   background: var(--color-sand);
   border: var(--border-hairline) solid var(--color-rule);
 }
-.step-card__ico {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
-  width: var(--control-h-sm);
-  height: var(--control-h-sm);
-  border: var(--border-hairline) solid var(--color-rule);
-  color: var(--color-gold);
+/* Метка-риска вместо иконки: eyebrow-подпись «Зробіть» / «Не робіть»
+   с короткой линией под текстом. Цвет линии — цвет метки. */
+.step-card__tag {
+  align-self: flex-start;
+  padding-bottom: var(--space-12);
+  border-bottom: var(--border-hairline) solid currentColor;
 }
-.step-card__ico--no {
-  background: var(--color-navy);
-  border-color: var(--color-navy);
-  color: var(--color-sand);
-}
+.step-card__tag--yes { color: var(--color-gold); }
+.step-card__tag--no { color: var(--color-ink-muted); }
 .step-card__t {
   margin: auto 0 0; /* прижимает заголовок с описанием к низу карточки */
   color: var(--color-navy);
@@ -56,7 +50,8 @@
 .step-card--navy { background: var(--color-navy); border-color: var(--color-navy); }
 .step-card--navy .step-card__t { color: var(--color-on-dark); }
 .step-card--navy .step-card__d { color: var(--color-on-navy-72); }
-.step-card--navy .step-card__ico { border-color: var(--color-on-navy-45); }
+/* На тёмной карточке метка «Не робіть» — приглушённо-светлая (не тёмная). */
+.step-card--navy .step-card__tag--no { color: var(--color-on-navy-60); }
 
 /* ---------- Планшет (≤1023px) ---------- */
 @media (max-width: 1023px) {
