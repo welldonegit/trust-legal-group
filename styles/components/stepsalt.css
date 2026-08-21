@@ -1,0 +1,61 @@
+/* Trust Legal Group — «Перші кроки», альтернативная подача
+   Строки на всю ширину, разделённые хайрлайнами. Слева — знак в рамке и
+   заголовок, справа — описание. Тот же контент, что и в блоке .steps —
+   это витрина двух вариантов для выбора в Figma. */
+
+.stepsalt__title {
+  margin: 0 0 var(--space-48);
+  max-width: 22em;
+  color: var(--color-ink);
+}
+
+.stepsalt__rows { display: flex; flex-direction: column; }
+
+.stepsalt__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 44%);
+  align-items: center;
+  gap: var(--space-64);
+  padding: var(--space-40) 0;
+  border-top: var(--border-hairline) solid var(--color-rule);
+}
+.stepsalt__row:last-child { border-bottom: var(--border-hairline) solid var(--color-rule); }
+
+.stepsalt__lead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+}
+.stepsalt__ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--space-64);
+  height: var(--space-64);
+  background: var(--color-white);
+  border: var(--border-hairline) solid var(--color-rule);
+  color: var(--color-gold);
+}
+.stepsalt__ico--no {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+  color: var(--color-sand);
+}
+.stepsalt__rt { margin: 0; color: var(--color-navy); }
+.stepsalt__rd { margin: 0; color: var(--color-ink-muted); }
+
+/* ---------- Планшет (≤1023px) ---------- */
+@media (max-width: 1023px) {
+  .stepsalt__row { grid-template-columns: 1fr; align-items: start; gap: var(--space-16); }
+  /* описание выравнивается под заголовок (сдвиг на ширину знака + gap) */
+  .stepsalt__rd { padding-left: calc(var(--space-64) + var(--space-24)); }
+}
+
+/* ---------- Мобайл (≤719px) ---------- */
+@media (max-width: 719px) {
+  .stepsalt__row { padding: var(--space-24) 0; gap: var(--space-12); }
+  .stepsalt__lead { gap: var(--space-16); }
+  .stepsalt__ico { width: var(--control-h-md); height: var(--control-h-md); }
+  .stepsalt__rd { padding-left: 0; }
+}

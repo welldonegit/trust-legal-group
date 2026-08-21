@@ -1,0 +1,84 @@
+/* Trust Legal Group — «Перші кроки»
+   Четыре карточки-шага в один ряд; последняя — сплошная navy.
+   Знаки-марки (крест «не робіть» / галочка «зробіть») — инлайновые <svg>.
+   Fluid-значения экспорта сведены к шкале @1440; одиночная min-height
+   карточки вынесена в локальную custom-property. */
+
+.steps__inner { --step-card-min-h: 248px; }
+
+.steps__title {
+  margin: 0 0 var(--space-48);
+  max-width: 22em;
+  color: var(--color-ink);
+}
+
+.steps__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+}
+
+.step-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  box-sizing: border-box;
+  padding: var(--space-32);
+  min-height: var(--step-card-min-h);
+  background: var(--color-sand);
+  border: var(--border-hairline) solid var(--color-rule);
+}
+.step-card__ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--control-h-sm);
+  height: var(--control-h-sm);
+  border: var(--border-hairline) solid var(--color-rule);
+  color: var(--color-gold);
+}
+.step-card__ico--no {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+  color: var(--color-sand);
+}
+.step-card__t {
+  margin: auto 0 0; /* прижимает заголовок с описанием к низу карточки */
+  color: var(--color-navy);
+}
+.step-card__d {
+  margin: 0;
+  color: var(--color-ink-muted);
+}
+
+/* Последняя — тёмная */
+.step-card--navy { background: var(--color-navy); border-color: var(--color-navy); }
+.step-card--navy .step-card__t { color: var(--color-on-dark); }
+.step-card--navy .step-card__d { color: var(--color-on-navy-72); }
+.step-card--navy .step-card__ico { border-color: var(--color-on-navy-45); }
+
+/* ---------- Планшет (≤1023px) ---------- */
+@media (max-width: 1023px) {
+  .steps__grid { grid-template-columns: repeat(2, 1fr); }
+  .step-card { min-height: 0; }
+}
+
+/* ---------- Мобайл (≤719px) ---------- */
+@media (max-width: 719px) {
+  .steps__grid { grid-template-columns: 1fr; gap: 0; }
+  .step-card {
+    padding: var(--space-24) 0;
+    background: transparent;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+  .step-card:last-child { border-bottom: var(--border-hairline) solid var(--color-rule); }
+  .step-card__t { margin-top: 0; }
+  .step-card--navy {
+    padding: var(--space-24);
+    background: var(--color-navy);
+    border: var(--border-hairline) solid var(--color-navy);
+  }
+}

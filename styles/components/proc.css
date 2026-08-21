@@ -1,0 +1,71 @@
+/* Trust Legal Group — «Як ми знімаємо розшук»
+   Четыре шага «драбинкой»: каждый следующий ниже предыдущего, на своей
+   вертикальной хайрлайн-линии — номер сверху, название и описание снизу.
+   Лесенка — финальная раскладка (реальные margin-top на десктопе), поэтому
+   видна и без JS, и в Figma. JS только проявляет шаги при скролле.
+   Вертикальная линия — border-left колонки. */
+
+.proc__title {
+  margin: 0 0 var(--space-64);
+  max-width: 24em;
+  color: var(--color-ink);
+}
+
+.proc__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-32);
+  align-items: start;
+}
+.proc__col {
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--space-24);
+  border-left: var(--border-hairline) solid var(--color-rule);
+}
+.proc__n { color: var(--color-navy); }
+.proc__gap { display: block; height: var(--space-64); } /* воздух: номер сверху, текст снизу */
+.proc__t { margin: 0 0 var(--space-12); color: var(--color-navy); }
+.proc__d { margin: 0; color: var(--color-ink-muted); }
+
+/* ---------- Планшет (≤1023px) ---------- */
+@media (max-width: 1023px) {
+  .proc__grid { grid-template-columns: repeat(2, 1fr); row-gap: var(--space-48); }
+  .proc__gap { height: var(--space-48); }
+}
+
+/* ---------- Мобайл (≤719px) ---------- */
+@media (max-width: 719px) {
+  .proc__grid { grid-template-columns: 1fr; row-gap: var(--space-24); }
+  .proc__col { padding-left: var(--space-16); }
+  .proc__gap { height: var(--space-24); }
+}
+
+/* ---------- Раскладка «драбинкой» (десктоп) ----------
+   Каждый следующий шаг ниже предыдущего — это ФИНАЛЬНАЯ раскладка (реальные
+   margin-top, не transform), поэтому лесенка есть и без JS, и в Figma, а блок
+   сам вмещает её по высоте — фон ничего не обрезает. */
+@media (min-width: 1024px) {
+  .proc__grid { --proc-step: var(--space-40); }
+  .proc__col:nth-child(2) { margin-top: var(--proc-step); }
+  .proc__col:nth-child(3) { margin-top: calc(var(--proc-step) * 2); }
+  .proc__col:nth-child(4) { margin-top: calc(var(--proc-step) * 3); }
+}
+
+/* ---------- Проявление при скролле (десктоп, только с JS) ----------
+   Прогрессивное улучшение: JS вешает .proc--anim → шаги скрыты и чуть
+   приподняты; при попадании в кадр (.is-in) проявляются со сдвигом по
+   времени и остаются на своих ступеньках (БЕЗ выравнивания в ряд).
+   opacity/transform не влияют на раскладку — высота блока не меняется. */
+@media (min-width: 1024px) {
+  .proc--anim .proc__col { opacity: 0; transform: translateY(16px); }
+  .proc--anim.is-in .proc__col {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.22, 0.61, 0.24, 1);
+    transition-delay: var(--proc-delay, 0ms);
+  }
+  .proc--anim .proc__col:nth-child(2) { --proc-delay:  90ms; }
+  .proc--anim .proc__col:nth-child(3) { --proc-delay: 180ms; }
+  .proc--anim .proc__col:nth-child(4) { --proc-delay: 270ms; }
+}
