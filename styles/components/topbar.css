@@ -1,0 +1,82 @@
+/* Trust Legal Group — Top Call (плашка термінового дзвінка)
+   Статична navy-смуга над hero (в обычном потоке, НЕ sticky): текст-хук слева
+   и форма «Зв'яжіться зі мною» справа. На мобильных описание скрыто, форма
+   заменяется компактной tel-кнопкой. */
+
+.topcall {
+  background: var(--color-navy);
+  border-bottom: var(--border-hairline) solid var(--color-on-navy-12);
+}
+
+.topcall__inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-16) var(--container-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-32);
+}
+
+.topcall__text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.topcall__title {
+  margin: 0;
+  color: var(--color-on-dark);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-lh);
+}
+.topcall__desc {
+  margin: 0;
+  color: var(--color-on-navy-72);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-lh);
+}
+
+.topcall__action {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+/* Форма (телефон + кнопка) — как в баннере «Ціна першої консультації».
+   Фиксированная ширина, поле не растягивается на всю смугу. */
+.topcall__form {
+  flex: 0 0 auto;
+  width: 420px;
+  align-items: center;
+}
+/* Компактная tel-кнопка — только для мобильных (десктоп использует форму). */
+.topcall__tel { display: none; }
+
+/* ---------- Планшет (≤1023px) ---------- */
+@media (max-width: 1023px) {
+  .topcall__inner { padding-inline: var(--space-40); }
+  .topcall__form { width: 360px; }
+}
+
+/* ---------- Мобайл (≤719px) ---------- */
+@media (max-width: 719px) {
+  .topcall__inner {
+    padding: var(--space-12) var(--container-pad-mobile);
+    gap: var(--space-16);
+  }
+  .topcall__desc { display: none; } /* на моб оставляем только хук */
+  /* На моб форма не помещается — показываем компактную tel-кнопку. */
+  .topcall__form { display: none; }
+  .topcall__tel {
+    display: inline-flex;
+    height: var(--control-h-md);
+    padding-inline: var(--space-16);
+    font-size: var(--text-body-sm-size);
+  }
+}

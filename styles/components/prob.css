@@ -67,35 +67,3 @@
   .prob__card,
   .prob__card--wide { grid-column: span 1; gap: var(--space-24); }
 }
-
-/* ---------- Draw-in иконок (только с JS) ----------
-   В экспорте знаки — Lottie-анимации (draw-in) с одноразовым прогоном при
-   появлении карточки в кадре. Здесь тот же эффект на CSS: обводка «рисуется»
-   через stroke-dashoffset. Прогрессивное улучшение — без JS (и в Figma)
-   иконки отрисованы полностью. JS вешает .prob--anim (обнуляет обводку →
-   «не нарисовано»), затем при въезде карточки в кадр добавляет .is-drawn.
-   pathLength="1" на фигурах нормализует длину — рисуются синхронно. */
-.prob--anim .prob__ico svg :is(path, circle, rect, ellipse) {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-}
-/* Зациклённый draw-in: рисуем обводку → держим → «стираем» → повтор.
-   При dasharray:1 состояния offset 1 и -1 совпадают (полностью скрыто),
-   поэтому переход между циклами бесшовный. */
-.prob--anim .prob__ico.is-drawn svg :is(path, circle, rect, ellipse) {
-  animation: prob-draw 3.4s ease-in-out infinite;
-}
-@keyframes prob-draw {
-  0%   { stroke-dashoffset: 1; }
-  30%  { stroke-dashoffset: 0; }
-  65%  { stroke-dashoffset: 0; }
-  95%  { stroke-dashoffset: -1; }
-  100% { stroke-dashoffset: -1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .prob--anim .prob__ico svg :is(path, circle, rect, ellipse) {
-    stroke-dashoffset: 0;
-    transition: none;
-    animation: none;
-  }
-}

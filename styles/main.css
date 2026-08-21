@@ -31,7 +31,7 @@
 @import "./components/loc.css";
 @import "./components/seo.css";
 @import "./components/footer.css";
-@import "./components/stickycall.css";
+@import "./components/topbar.css";
 @import "./components/notfound.css";
 
 /* Стайлгайд (только для styleguide.html) */
