@@ -40,12 +40,12 @@
       transparent 100%);
 }
 
-/* ---------- Шапка ---------- */
+/* ---------- Шапка ----------
+   В обычном потоке (не fixed): идёт под плашкой topcall над hero, обе
+   прокручиваются вместе со страницей. relative + z-index — чтобы шапка была
+   над абсолютным меню-оверлеем в своём контексте. */
 .hero__header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   z-index: 50;
   display: flex;
   align-items: center;
