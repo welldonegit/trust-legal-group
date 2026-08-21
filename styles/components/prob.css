@@ -79,13 +79,23 @@
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
 }
+/* Зациклённый draw-in: рисуем обводку → держим → «стираем» → повтор.
+   При dasharray:1 состояния offset 1 и -1 совпадают (полностью скрыто),
+   поэтому переход между циклами бесшовный. */
 .prob--anim .prob__ico.is-drawn svg :is(path, circle, rect, ellipse) {
-  stroke-dashoffset: 0;
-  transition: stroke-dashoffset 0.9s ease;
+  animation: prob-draw 3.4s ease-in-out infinite;
+}
+@keyframes prob-draw {
+  0%   { stroke-dashoffset: 1; }
+  30%  { stroke-dashoffset: 0; }
+  65%  { stroke-dashoffset: 0; }
+  95%  { stroke-dashoffset: -1; }
+  100% { stroke-dashoffset: -1; }
 }
 @media (prefers-reduced-motion: reduce) {
   .prob--anim .prob__ico svg :is(path, circle, rect, ellipse) {
     stroke-dashoffset: 0;
     transition: none;
+    animation: none;
   }
 }
