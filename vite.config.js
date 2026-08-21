@@ -17,6 +17,7 @@ export default defineConfig({
         styleguide: resolve(__dirname, "styleguide.html"),
         notfound: resolve(__dirname, "404.html"),
         practiceMilitaryNew: resolve(__dirname, "practice-military-new.html"),
+        serviceRozshuk: resolve(__dirname, "service-rozshuk.html"),
       },
     },
   },

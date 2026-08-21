@@ -12,6 +12,10 @@
 @import "./components/button.css";
 @import "./components/navlink.css";
 @import "./components/hero.css";
+@import "./components/steps.css";
+@import "./components/stepsalt.css";
+@import "./components/proc.css";
+@import "./components/prob.css";
 @import "./components/spec.css";
 @import "./components/about.css";
 @import "./components/arrowlink.css";

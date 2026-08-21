@@ -178,6 +178,12 @@
   max-width: var(--content-max);
   padding-top: var(--space-8);
 }
+/* Модификатор: на десктопе центрировать заголовок по высоте кремовой
+   карточки (для страниц с коротким заголовком — иначе flex-start поднимает
+   его вверх). На планшете/мобайле ряд становится колонкой — не влияет. */
+@media (min-width: 1024px) {
+  .hero__lower--middle { align-items: center; }
+}
 .hero__title {
   margin: 0;
   color: var(--color-on-dark);
