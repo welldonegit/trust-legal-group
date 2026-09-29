@@ -1,0 +1,353 @@
+/* Trust Legal Group — сторінка юриста (картка адвоката).
+   Хлібні крошки під шапкою, герой «портрет + біографія», блок
+   «Кваліфікація» на сітці «заголовок-колонка зліва / рядки справа».
+   Instagram-стрічка внизу — окремий компонент ig. Fluid-значення
+   експорту зведені до фіксованої шкали токенів (@1440). */
+
+/* ------------------------- Хлібні крошки ------------------------ */
+/* Прозорий ряд — без окремої підложки, зливається зі світлим героєм. */
+.crumbs__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+  padding-block: 44px;
+}
+.crumbs__link {
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.crumbs__link:hover { color: var(--color-navy); }
+.crumbs__sep {
+  color: var(--color-gold);
+  user-select: none;
+}
+.crumbs__current { color: var(--color-ink); }
+
+/* ----------------------------- Герой ---------------------------- */
+.lhero { background: var(--color-white); }
+.lhero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: var(--space-96);
+  align-items: start;
+  padding-top: 0;
+  padding-bottom: var(--space-96);
+}
+.lhero__photo {
+  margin: 0;
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-map-bg);
+  border: var(--border-hairline) solid var(--color-rule);
+}
+.lhero__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+.lhero__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.lhero__eyebrow {
+  color: var(--color-navy);
+  font-weight: var(--fw-medium);
+}
+.lhero__name {
+  margin: var(--space-24) 0 0;
+  padding-bottom: var(--space-24);
+  border-bottom: var(--border-hairline) solid var(--color-rule);
+  color: var(--color-ink);
+}
+.lhero__name span { display: block; }
+.lhero__bio {
+  margin-top: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  max-width: 44em;
+}
+.lhero__bio p { color: var(--color-ink); }
+.lhero__facts {
+  list-style: none;
+  margin: var(--space-48) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-80);
+}
+.lhero__fact {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-12);
+}
+.lhero__fact-num {
+  color: var(--color-navy);
+  line-height: 1;
+}
+.lhero__fact-label { color: var(--color-ink-muted); }
+.lhero__cta {
+  margin-top: var(--space-48);
+  display: flex;
+}
+
+/* ------------- Секції-блоки (Спеціалізація / Кваліфікація) ------ */
+.lsec__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: var(--space-96);
+  align-items: start;
+}
+.lsec__head {
+  position: sticky;
+  top: var(--space-32);
+  align-self: start;
+}
+.lsec__title {
+  margin: 0;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.lsec__body { min-width: 0; }
+.lsec__group {
+  margin: 0 0 var(--space-16);
+  color: var(--color-gold);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-tag);
+  text-transform: uppercase;
+}
+
+/* Кваліфікація */
+.lqual__groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+.lqual__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--border-hairline) solid var(--color-rule);
+}
+.lqual__item {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: var(--space-8) var(--space-48);
+  align-items: baseline;
+  padding-block: var(--space-24);
+  border-bottom: var(--border-hairline) solid var(--color-rule);
+}
+.lqual__t {
+  margin: 0;
+  color: var(--color-navy);
+  font-weight: var(--fw-medium);
+}
+.lqual__d {
+  margin: 0;
+  color: var(--color-ink-muted);
+}
+
+/* Картки-принципи / компетенції (стиль about з головної).
+   Три картки — рівномірна сітка на 3 колонки замість базових 4. */
+.about__cards--3 { grid-template-columns: repeat(3, 1fr); }
+
+/* --------------- Instagram (стрічка Reels, новий дизайн) -------- */
+.lig__inner {
+  display: flex;
+  flex-direction: column;
+}
+.lig__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-24);
+  margin-bottom: var(--space-48);
+}
+.lig__title {
+  margin: 0;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.lig__handle {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  height: var(--control-h-md);
+  padding-inline: var(--space-24);
+  border: var(--border-hairline) solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  font-size: var(--text-body-size);
+  color: var(--color-navy);
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.lig__handle-ico { line-height: 0; color: var(--color-gold); transition: color 0.25s ease; }
+.lig__handle-arr { transition: transform 0.25s ease; }
+.lig__handle:hover { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-sand); }
+.lig__handle:hover .lig__handle-ico { color: var(--color-sand); }
+.lig__handle:hover .lig__handle-arr { transform: translateX(2px); }
+
+.lig__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-16);
+}
+.lig__tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-map-bg);
+  color: var(--color-on-dark);
+  text-decoration: none;
+  isolation: isolate;
+  transition: transform 0.45s cubic-bezier(0.2, 0.6, 0.2, 1), box-shadow 0.45s ease;
+}
+.lig__tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.lig__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--color-navy) 28%, transparent) 0%,
+    transparent 26%,
+    transparent 55%,
+    color-mix(in srgb, var(--color-navy) 72%, transparent) 100%);
+  transition: background-color 0.35s ease;
+}
+.lig__badge {
+  position: absolute;
+  top: var(--space-16);
+  right: var(--space-16);
+  line-height: 0;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+}
+.lig__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--space-64);
+  height: var(--space-64);
+  transform: translate(-50%, -50%) scale(0.85);
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3px;
+  color: var(--color-sand);
+  background: color-mix(in srgb, var(--color-sand) 18%, transparent);
+  border: var(--border-hairline) solid color-mix(in srgb, var(--color-sand) 70%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.4s cubic-bezier(0.2, 0.6, 0.2, 1), background-color 0.25s ease, color 0.25s ease;
+}
+.lig__cta {
+  position: absolute;
+  left: var(--space-16);
+  right: var(--space-16);
+  bottom: var(--space-16);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  color: var(--color-sand);
+  font-size: var(--text-caption-size);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-tag);
+  text-transform: uppercase;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+.lig__cta-arr { font-size: var(--text-body-size); letter-spacing: var(--tracking-normal); transition: transform 0.3s ease; }
+.lig__follow { display: none; }
+
+.lig__tile:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -18px color-mix(in srgb, var(--color-navy) 55%, transparent); }
+.lig__tile:hover img { transform: scale(1.06); }
+.lig__tile:hover .lig__shade { background-color: color-mix(in srgb, var(--color-navy) 22%, transparent); }
+.lig__tile:hover .lig__play { transform: translate(-50%, -50%) scale(1); }
+.lig__tile .lig__play:hover { background: var(--color-sand); color: var(--color-navy); }
+.lig__tile:hover .lig__cta { opacity: 1; }
+.lig__tile:hover .lig__cta-arr { transform: translateX(3px); }
+.lig__tile:focus-visible { outline: var(--border-thick) solid var(--color-gold); outline-offset: 3px; }
+
+/* ------------------------- Адаптив ------------------------------ */
+@media (max-width: 1023px) {
+  .lhero__inner { gap: var(--space-64); padding-bottom: var(--space-64); }
+  .lsec__inner { gap: var(--space-48); }
+  .lig__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lig__tile:nth-child(n + 7) { display: none; }
+  /* 3-колонкова сітка карток слідує за адаптивом about (2 колонки) */
+  .about__cards--3 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 719px) {
+  .crumbs__inner { padding-top: var(--space-16); padding-bottom: var(--space-24); }
+  .about__cards--3 { grid-template-columns: 1fr; }
+  .lhero__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-40);
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-48);
+  }
+  .lhero__photo { aspect-ratio: 1 / 1; }
+  .lhero__name { margin-top: var(--space-16); padding-bottom: var(--space-24); }
+  .lhero__bio { margin-top: var(--space-24); }
+  .lhero__facts { gap: var(--space-32); margin-top: var(--space-40); }
+  .lhero__cta > * { width: 100%; }
+
+  .lsec__inner { grid-template-columns: 1fr; gap: var(--space-40); }
+  .lsec__head { position: static; }
+  .lqual__item { grid-template-columns: 1fr; gap: var(--space-4); padding-block: var(--space-24); }
+
+  /* Instagram → горизонтальна стрічка зі снапом */
+  .lig__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-16);
+    margin-bottom: var(--space-24);
+  }
+  .lig__handle { height: auto; padding: 0; border: none; border-radius: 0; }
+  .lig__handle:hover { background: none; color: var(--color-navy); }
+  .lig__grid {
+    display: flex;
+    gap: var(--space-12);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: var(--space-4);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .lig__grid::-webkit-scrollbar { display: none; }
+  .lig__tile,
+  .lig__tile:nth-child(n + 7) { display: block; flex: 0 0 78%; scroll-snap-align: start; }
+  .lig__play { width: var(--control-h-lg); height: var(--control-h-lg); }
+  .lig__follow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
+    height: var(--control-h-lg);
+    margin-top: var(--space-24);
+    background: var(--color-navy);
+    color: var(--color-sand);
+    text-decoration: none;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+}

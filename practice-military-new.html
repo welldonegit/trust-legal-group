@@ -9,55 +9,55 @@
 </head>
 <body>
   <main>
+    <header class="hero__header">
+      <button type="button" class="hero__burger" aria-label="Меню" aria-expanded="false">
+        <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+      </button>
+      <a class="hero__logo" href="index.html#top" aria-label="Trust Legal Group — на головну">
+        <img class="hero__logo-img" src="assets/logo-header.svg" alt="Trust Legal Group" />
+      </a>
+      <nav class="hero__nav" aria-label="Головна навігація">
+        <a class="navlink navlink--on-dark" href="index.html#top">Головна</a>
+        <a class="navlink navlink--on-dark" href="index.html#practice">Практики</a>
+        <a class="navlink navlink--on-dark" href="index.html#about">Про нас</a>
+        <a class="navlink navlink--on-dark" href="index.html#team">Команда</a>
+        <a class="navlink navlink--on-dark" href="#">Pro Bono</a>
+        <a class="navlink navlink--on-dark" href="#">Новини</a>
+        <a class="navlink navlink--on-dark" href="#">Контакти</a>
+      </nav>
+      <a class="hero__call" href="tel:+380970979696" aria-label="Подзвонити">
+        <svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z" /></svg>
+      </a>
+
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <aside class="hero__panel" role="dialog" aria-modal="true" aria-label="Меню">
+        <div class="hero__panel-top">
+          <img class="hero__panel-logo" src="assets/logo-full.svg" alt="Trust Legal Group" />
+          <button type="button" class="hero__close" aria-label="Закрити меню">
+            <svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
+          </button>
+        </div>
+        <nav class="hero__menu" aria-label="Мобільна навігація">
+          <a class="hero__menu-link" href="index.html#top">Головна</a>
+          <a class="hero__menu-link" href="index.html#practice">Практики</a>
+          <a class="hero__menu-link" href="index.html#about">Про нас</a>
+          <a class="hero__menu-link" href="index.html#team">Команда</a>
+          <a class="hero__menu-link" href="#">Pro Bono</a>
+          <a class="hero__menu-link" href="#">Новини</a>
+          <a class="hero__menu-link" href="#">Контакти</a>
+        </nav>
+        <div class="hero__panel-foot">
+          <a class="hero__panel-phone" href="tel:+380970979696">+380 97 097 96 96</a>
+          <a class="btn btn--primary btn--lg btn--block" href="#"><span>Отримати консультацію</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+        </div>
+      </aside>
+    </header>
+
     <section class="hero" id="top">
       <div class="hero__media">
         <img class="hero__img hero__img--desktop" src="assets/images/case-military.jpg" alt="Адвокати Trust Legal Group у справах військового права" />
         <img class="hero__img hero__img--mobile" src="assets/images/case-military.jpg" alt="Адвокати Trust Legal Group у справах військового права" />
         <div class="hero__scrim" aria-hidden="true"></div>
-
-        <header class="hero__header">
-          <button type="button" class="hero__burger" aria-label="Меню" aria-expanded="false">
-            <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
-          </button>
-          <a class="hero__logo" href="index.html#top" aria-label="Trust Legal Group — на головну">
-            <img class="hero__logo-img" src="assets/logo-header.svg" alt="Trust Legal Group" />
-          </a>
-          <nav class="hero__nav" aria-label="Головна навігація">
-            <a class="navlink navlink--on-dark" href="index.html#top">Головна</a>
-            <a class="navlink navlink--on-dark" href="index.html#practice">Практики</a>
-            <a class="navlink navlink--on-dark" href="index.html#about">Про нас</a>
-            <a class="navlink navlink--on-dark" href="index.html#team">Команда</a>
-            <a class="navlink navlink--on-dark" href="#">Pro Bono</a>
-            <a class="navlink navlink--on-dark" href="#">Новини</a>
-            <a class="navlink navlink--on-dark" href="#">Контакти</a>
-          </nav>
-          <a class="hero__call" href="tel:+380970979696" aria-label="Подзвонити">
-            <svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z" /></svg>
-          </a>
-
-          <div class="hero__overlay" aria-hidden="true"></div>
-          <aside class="hero__panel" role="dialog" aria-modal="true" aria-label="Меню">
-            <div class="hero__panel-top">
-              <img class="hero__panel-logo" src="assets/logo-full.svg" alt="Trust Legal Group" />
-              <button type="button" class="hero__close" aria-label="Закрити меню">
-                <svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
-              </button>
-            </div>
-            <nav class="hero__menu" aria-label="Мобільна навігація">
-              <a class="hero__menu-link" href="index.html#top">Головна</a>
-              <a class="hero__menu-link" href="index.html#practice">Практики</a>
-              <a class="hero__menu-link" href="index.html#about">Про нас</a>
-              <a class="hero__menu-link" href="index.html#team">Команда</a>
-              <a class="hero__menu-link" href="#">Pro Bono</a>
-              <a class="hero__menu-link" href="#">Новини</a>
-              <a class="hero__menu-link" href="#">Контакти</a>
-            </nav>
-            <div class="hero__panel-foot">
-              <a class="hero__panel-phone" href="tel:+380970979696">+380 97 097 96 96</a>
-              <a class="btn btn--primary btn--lg btn--block" href="#"><span>Отримати консультацію</span><span class="btn__arrow" aria-hidden="true">→</span></a>
-            </div>
-          </aside>
-        </header>
 
         <div class="hero__lower">
           <div class="hero__headline">
@@ -181,7 +181,7 @@
         <div class="team__grid">
           <article class="team-card">
             <div class="team-card__photo">
-              <img class="team-card__img" src="assets/team/dmytriev.jpg" alt="Валентин К." loading="lazy" />
+              <img class="team-card__img" src="assets/team/dmytriev.jpg" alt="Валентин К." />
               <div class="team-card__badges">
                 <span class="team-card__badge"><span class="team-card__badge-num text-body text--semibold">100+</span><span class="team-card__badge-label text-caption">справ проти ТЦК</span></span>
                 <span class="team-card__badge"><span class="team-card__badge-num text-body text--semibold">10+</span><span class="team-card__badge-label text-caption">років практики</span></span>
@@ -196,7 +196,7 @@
           </article>
           <article class="team-card">
             <div class="team-card__photo">
-              <img class="team-card__img" src="assets/team/vdovichenko.jpg" alt="Вадим С." loading="lazy" />
+              <img class="team-card__img" src="assets/team/vdovichenko.jpg" alt="Вадим С." />
               <div class="team-card__badges">
                 <span class="team-card__badge"><span class="team-card__badge-num text-body text--semibold">50+</span><span class="team-card__badge-label text-caption">кримінальних справ</span></span>
                 <span class="team-card__badge"><span class="team-card__badge-num text-body text--semibold">10+</span><span class="team-card__badge-label text-caption">років практики</span></span>
@@ -363,7 +363,7 @@
         </div>
 
         <a href="#" class="blog-feat">
-          <div class="blog-feat__media"><img src="assets/images/case-military.jpg" alt="" loading="lazy" /></div>
+          <div class="blog-feat__media"><img src="assets/images/case-military.jpg" alt="" /></div>
           <div class="blog-feat__body">
             <span class="blog-card__tag text-caption">ВЛК</span>
             <div class="blog-feat__meta text-caption"><span>28 червня 2026</span><span class="blog-feat__dot">·</span><span>8 хв</span></div>
@@ -379,7 +379,7 @@
 
         <div class="blog__grid">
           <a href="#" class="blog-card">
-            <div class="blog-card__media"><img src="assets/images/case-white-collar.jpg" alt="" loading="lazy" /></div>
+            <div class="blog-card__media"><img src="assets/images/case-white-collar.jpg" alt="" /></div>
             <div class="blog-card__body">
               <span class="blog-card__tag text-caption">ТЦК</span>
               <div class="blog-card__meta text-caption"><span>18 червня 2026</span><span class="blog-feat__dot">·</span><span>6 хв</span></div>
@@ -393,7 +393,7 @@
             </div>
           </a>
           <a href="#" class="blog-card">
-            <div class="blog-card__media"><img src="assets/images/case-tax-control.jpg" alt="" loading="lazy" /></div>
+            <div class="blog-card__media"><img src="assets/images/case-tax-control.jpg" alt="" /></div>
             <div class="blog-card__body">
               <span class="blog-card__tag text-caption">Виплати</span>
               <div class="blog-card__meta text-caption"><span>11 червня 2026</span><span class="blog-feat__dot">·</span><span>5 хв</span></div>
@@ -407,7 +407,7 @@
             </div>
           </a>
           <a href="#" class="blog-card">
-            <div class="blog-card__media"><img src="assets/images/case-contract.jpg" alt="" loading="lazy" /></div>
+            <div class="blog-card__media"><img src="assets/images/case-contract.jpg" alt="" /></div>
             <div class="blog-card__body">
               <span class="blog-card__tag text-caption">Мобілізація</span>
               <div class="blog-card__meta text-caption"><span>3 червня 2026</span><span class="blog-feat__dot">·</span><span>4 хв</span></div>
