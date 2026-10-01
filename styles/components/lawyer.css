@@ -325,17 +325,12 @@
   .lig__handle { height: auto; padding: 0; border: none; border-radius: 0; }
   .lig__handle:hover { background: none; color: var(--color-navy); }
   .lig__grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-12);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: var(--space-4);
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
   }
-  .lig__grid::-webkit-scrollbar { display: none; }
   .lig__tile,
-  .lig__tile:nth-child(n + 7) { display: block; flex: 0 0 78%; scroll-snap-align: start; }
+  .lig__tile:nth-child(n + 7) { display: block; }
   .lig__play { width: var(--control-h-lg); height: var(--control-h-lg); }
   .lig__follow {
     display: flex;
