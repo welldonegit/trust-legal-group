@@ -9,68 +9,103 @@
 </head>
 <body>
   <main>
-    <header class="hero__header">
-      <button type="button" class="hero__burger" aria-label="Меню" aria-expanded="false">
-        <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
-      </button>
-      <a class="hero__logo" href="#top" aria-label="Trust Legal Group — на головну">
-        <img class="hero__logo-img" src="assets/logo-header.svg" alt="Trust Legal Group" />
-      </a>
-      <nav class="hero__nav" aria-label="Головна навігація">
-        <a class="navlink navlink--on-dark" href="#top">Головна</a>
-        <a class="navlink navlink--on-dark" href="#practice">Практики</a>
-        <a class="navlink navlink--on-dark" href="#about">Про нас</a>
-        <a class="navlink navlink--on-dark" href="#team">Команда</a>
-        <a class="navlink navlink--on-dark" href="#">Pro Bono</a>
-        <a class="navlink navlink--on-dark" href="#">Новини</a>
-        <a class="navlink navlink--on-dark" href="#">Контакти</a>
-      </nav>
-      <a class="hero__call" href="tel:+380970979696" aria-label="Подзвонити">
-        <svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z" /></svg>
-      </a>
-
-      <div class="hero__overlay" aria-hidden="true"></div>
-      <aside class="hero__panel" role="dialog" aria-modal="true" aria-label="Меню">
-        <div class="hero__panel-top">
-          <img class="hero__panel-logo" src="assets/logo-full.svg" alt="Trust Legal Group" />
-          <button type="button" class="hero__close" aria-label="Закрити меню">
-            <svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
+    <section class="hero" id="top">
+    <header class="header">
+      <div class="header__bar">
+        <a class="header__logo" href="#top" aria-label="Trust Legal Group — на головну">
+          <img class="header__logo-img" src="assets/logo-header.svg" alt="Trust Legal Group" />
+        </a>
+        <nav class="header__nav" aria-label="Основна навігація">
+          <a class="header__link is-active" href="#top" aria-current="page">Головна</a>
+          <a class="header__link" href="#practice">Практики</a>
+          <a class="header__link" href="#about">Про нас</a>
+          <a class="header__link" href="#team">Команда</a>
+          <a class="header__link" href="#">Pro Bono</a>
+          <a class="header__link" href="#">Новини</a>
+          <a class="header__link" href="#">Контакти</a>
+        </nav>
+        <div class="header__end">
+          <span class="header__divider" aria-hidden="true"></span>
+          <a class="header__phone header__phone--icon" href="tel:+380970979696" aria-label="Подзвонити адвокату +380 97 097 96 96">
+            <span class="header__phone-ico"><svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 3.5h3l1.5 4-2 1.25a11 11 0 0 0 6.25 6.25L15.5 13l4 1.5v3a2 2 0 0 1-2 2A15 15 0 0 1 3.5 5.5a2 2 0 0 1 2-2z" /></svg></span>
+            <span class="header__phone-text">
+              <span class="header__phone-label">Відповідає адвокат</span>
+              <span class="header__phone-num">+380 97 097 96 96</span>
+            </span>
+          </a>
+          <a class="header__call" href="tel:+380970979696" aria-label="Подзвонити +380 97 097 96 96">
+            <svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 3.5h3l1.5 4-2 1.25a11 11 0 0 0 6.25 6.25L15.5 13l4 1.5v3a2 2 0 0 1-2 2A15 15 0 0 1 3.5 5.5a2 2 0 0 1 2-2z" /></svg>
+          </a>
+          <button type="button" class="header__burger" aria-label="Меню" aria-expanded="false">
+            <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16" /></svg>
           </button>
         </div>
-        <nav class="hero__menu" aria-label="Мобільна навігація">
-          <a class="hero__menu-link" href="#top">Головна</a>
-          <a class="hero__menu-link" href="#practice">Практики</a>
-          <a class="hero__menu-link" href="#about">Про нас</a>
-          <a class="hero__menu-link" href="#team">Команда</a>
-          <a class="hero__menu-link" href="#">Pro Bono</a>
-          <a class="hero__menu-link" href="#">Новини</a>
-          <a class="hero__menu-link" href="#">Контакти</a>
+      </div>
+
+      <div class="header__overlay" aria-hidden="true"></div>
+      <aside class="header__panel" role="dialog" aria-modal="true" aria-label="Меню">
+        <div class="header__panel-top">
+          <img class="header__panel-logo" src="assets/logo-full.svg" alt="Trust Legal Group" />
+          <button type="button" class="header__close" aria-label="Закрити меню">
+            <svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+        </div>
+        <nav class="header__menu" aria-label="Мобільна навігація">
+          <a class="header__menu-link" href="#top">Головна</a>
+          <a class="header__menu-link" href="#practice">Практики</a>
+          <a class="header__menu-link" href="#about">Про нас</a>
+          <a class="header__menu-link" href="#team">Команда</a>
+          <a class="header__menu-link" href="#">Pro Bono</a>
+          <a class="header__menu-link" href="#">Новини</a>
+          <a class="header__menu-link" href="#">Контакти</a>
         </nav>
-        <div class="hero__panel-foot">
-          <a class="hero__panel-phone" href="tel:+380970979696">+380 97 097 96 96</a>
-          <a class="btn btn--primary btn--lg btn--block" href="#"><span>Отримати консультацію</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+        <div class="header__panel-foot">
+          <span class="header__panel-label">Відповідає адвокат</span>
+          <a class="header__panel-phone" href="tel:+380970979696">+380 97 097 96 96</a>
         </div>
       </aside>
     </header>
 
-    <section class="hero" id="top">
-      <div class="hero__media">
+      <div class="hero__stage">
         <img class="hero__img hero__img--desktop" src="assets/images/hero-team.jpg" alt="Команда юристів Trust Legal Group за роботою" />
         <img class="hero__img hero__img--mobile" src="assets/images/hero-team-mobile.jpg" alt="Команда юристів Trust Legal Group за роботою" />
-        <div class="hero__scrim" aria-hidden="true"></div>
-
-        <div class="hero__lower">
-          <div class="hero__headline">
-            <h1 class="hero__title">Професійний юридичний захист у&nbsp;будь-якій кризовій ситуації</h1>
-          </div>
-
-          <aside class="hero__card" aria-label="Консультація адвоката">
-            <p class="hero__card-desc">Залиште проблему нам — і повертайтесь до своїх справ. Про все інше подбають наші профільні адвокати.</p>
-            <div class="hero__card-cta">
-              <a class="btn btn--primary btn--lg btn--block" href="#"><span>Зв'язатись</span><span class="btn__arrow" aria-hidden="true">→</span></a>
-              <span class="hero__card-note">На дзвінок відповідає адвокат, а не менеджер</span>
+        <span class="hero__shade hero__shade--side" aria-hidden="true"></span>
+        <span class="hero__shade hero__shade--bottom" aria-hidden="true"></span>
+        <span class="hero__shade hero__shade--top" aria-hidden="true"></span>
+        <div class="hero__headline">
+          <h1 class="hero__title">Професійний юридичний захист у&nbsp;будь-якій кризовій ситуації</h1>
+        </div>
+        <div class="hero__form">
+          <form class="lead-form" action="#" method="post" aria-label="Заявка на консультацію" novalidate>
+            <div class="lead-form__body">
+              <div class="lead-form__head">
+                <h2 class="lead-form__title">Отримайте консультацію адвоката</h2>
+                <p class="lead-form__desc">Залиште заявку, і ми звʼяжемось з вами найближчим часом. Проаналізуємо вашу ситуацію та запропонуємо рішення.</p>
+              </div>
+              <div class="lead-form__fields">
+                <div class="lead-form__field">
+                  <label class="lead-form__label" for="lead-name">Ваше імʼя</label>
+                  <input class="lead-form__input" id="lead-name" name="name" type="text" autocomplete="name" placeholder="Як до вас звертатися" />
+                  <span class="lead-form__error" id="lead-name-err" aria-live="polite"></span>
+                </div>
+                <div class="lead-form__field">
+                  <label class="lead-form__label" for="lead-phone">Телефон</label>
+                  <input class="lead-form__input" id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+38 (0__) ___-__-__" />
+                  <span class="lead-form__error" id="lead-phone-err" aria-live="polite"></span>
+                </div>
+              </div>
+              <div class="lead-form__actions">
+                <button class="lead-form__btn" type="submit">
+                  <span class="lead-form__btn-label">Отримати консультацію</span>
+                  <span class="lead-form__btn-arrow" aria-hidden="true">→</span>
+                </button>
+                <div class="lead-form__notes">
+                  <p class="lead-form__trust">На дзвінок відповідає адвокат, а не менеджер</p>
+                  <p class="lead-form__legal">Натискаючи кнопку, ви погоджуєтесь з <a href="#">політикою</a> обробки даних</p>
+                </div>
+              </div>
             </div>
-          </aside>
+          </form>
         </div>
       </div>
 
@@ -273,6 +308,41 @@
       </div>
     </section>
 
+    <section class="leader leader--c section section--sand section--flush-top" id="leader">
+      <div class="leader__inner container">
+        <div class="leader__media">
+          <img class="leader__poster" src="assets/team/vdovichenko.jpg" alt="Вадим Вдовідченко — кадр зі звернення" />
+          <span class="leader__shade" aria-hidden="true"></span>
+          <span class="leader__playwrap">
+            <span class="leader__ring" aria-hidden="true"></span>
+            <button type="button" class="leader__play" aria-label="Дивитися звернення керівника, 1:12">
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor" /></svg>
+            </button>
+          </span>
+        </div>
+        <div class="leader__text">
+          <div class="leader__head">
+            <h2 class="leader__title text-h2">Чому нам довіряють у критичний момент</h2>
+            <p class="leader__sub text-body">Вадим Вдовідченко — про те, як працює обʼєднання</p>
+          </div>
+          <div class="leader__qblock">
+            <blockquote class="leader__quote">Ми чесно кажемо клієнту, які в нього шанси,&nbsp;— ще до договору. Саме з цього починається довіра.</blockquote>
+            <svg class="leader__sign" viewBox="0 0 160 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Підпис Вадима Вдовідченка">
+              <path d="M4 34c8-18 14-22 16-14s-4 22 2 20 12-26 16-22-6 20 0 20 10-12 14-14 4 8 10 6 8-10 14-8 2 10 10 8 12-12 18-10 4 6 12 4 14-6 26-8" />
+              <path d="M30 46c30-4 70-6 116-8" />
+            </svg>
+            <div class="leader__author">
+              <img class="leader__photo" src="assets/team/vdovichenko.jpg" alt="" />
+              <div class="leader__who">
+                <span class="leader__name">Вадим Вдовідченко</span>
+                <span class="leader__role">Керівник обʼєднання</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="cases section section--white" id="cases">
       <div class="cases__inner container">
         <div class="cases__head">
@@ -290,7 +360,6 @@
               <span class="case-card__result-label text-caption">Результат</span>
               <span class="case-card__result-text text-lead">Батька відпустили, без переведення у військкомат.</span>
             </div>
-            <div class="case-card__foot"><a class="arrow-link" href="#"><span>Детальніше</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a></div>
           </article>
           <article class="case-card">
             <span class="case-card__tag text-caption">Податкові спори</span>
@@ -299,7 +368,6 @@
               <span class="case-card__result-label text-caption">Результат</span>
               <span class="case-card__result-text text-lead">Повернуто близько 100 000 грн з бюджету.</span>
             </div>
-            <div class="case-card__foot"><a class="arrow-link" href="#"><span>Детальніше</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a></div>
           </article>
           <article class="case-card">
             <span class="case-card__tag text-caption">Сімейне право</span>
@@ -308,7 +376,6 @@
               <span class="case-card__result-label text-caption">Результат</span>
               <span class="case-card__result-text text-lead">Розлучення оформлено без жодної поїздки в Україну.</span>
             </div>
-            <div class="case-card__foot"><a class="arrow-link" href="#"><span>Детальніше</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a></div>
           </article>
           <article class="case-card">
             <span class="case-card__tag text-caption">Кримінальне право</span>
@@ -317,7 +384,6 @@
               <span class="case-card__result-label text-caption">Результат</span>
               <span class="case-card__result-text text-lead">Арешт оскаржено, майно повернуто у найкоротші строки.</span>
             </div>
-            <div class="case-card__foot"><a class="arrow-link" href="#"><span>Детальніше</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a></div>
           </article>
         </div>
         <div class="cases__cta">
@@ -550,71 +616,66 @@
       </div>
     </section>
 
-    <section class="faq section section--sand" id="faq">
-      <div class="faq__inner container">
-        <header class="faq__head">
-          <span class="text-eyebrow faq__eyebrow">Часті питання</span>
-          <h2 class="faq__title text-h1">Коротко про головне</h2>
-          <p class="faq__sub text-lead">Відповіді на питання, які клієнти ставлять найчастіше.</p>
+    <section class="faqg section section--sand" id="faq">
+      <div class="faqg__inner container">
+        <header class="faqg__head">
+          <h2 class="faqg__title text-h1">Часті питання</h2>
+          <p class="faqg__sub text-lead">Відповідаємо на те, що запитують перед зверненням</p>
         </header>
-        <div class="faq__list">
-          <div class="faq-row is-open">
-            <button type="button" class="faq-row__head" aria-expanded="true">
-              <span class="faq-row__title text-title">Скільки коштує консультація і чи можна дізнатися ціну до договору?</span>
-              <span class="faq-row__chev" aria-hidden="true"><svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg></span>
-            </button>
-            <div class="faq-row__panel">
-              <div class="faq-row__panelin">
-                <p class="faq-row__desc text-body">Первинна консультація коштує від 1 500 грн і триває до години. На ній ми детально розбираємо вашу ситуацію, даємо чіткий план дій і називаємо кінцеву вартість усього супроводу. Ця ціна фіксується в договорі й більше не змінюється.</p>
-              </div>
-            </div>
+        <div class="faqg__cols">
+          <div class="faqg__col">
+            <details class="faqg-card">
+              <summary class="faqg-card__head">
+                <span class="faqg-card__ico" aria-hidden="true"><svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" /><path d="M9.5 9.25a2.5 2.5 0 0 1 4.9.7c0 1.65-2.4 2.2-2.4 3.8" /><path d="M12 16.75v.01" /></svg></span>
+                <span class="faqg-card__q text-lead">Скільки коштує консультація адвоката?</span>
+                <span class="faqg-card__chev" aria-hidden="true"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg></span>
+              </summary>
+              <p class="faqg-card__a text-body">Первинна консультація коштує від 1 500 грн і триває до години. Адвокат розбирає вашу ситуацію, дає чіткий план дій і називає кінцеву вартість супроводу — вона фіксується в договорі й більше не змінюється.</p>
+            </details>
+            <details class="faqg-card">
+              <summary class="faqg-card__head">
+                <span class="faqg-card__ico" aria-hidden="true"><svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" /><path d="M9.5 9.25a2.5 2.5 0 0 1 4.9.7c0 1.65-2.4 2.2-2.4 3.8" /><path d="M12 16.75v.01" /></svg></span>
+                <span class="faqg-card__q text-lead">Чи можна отримати консультацію онлайн?</span>
+                <span class="faqg-card__chev" aria-hidden="true"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg></span>
+              </summary>
+              <p class="faqg-card__a text-body">Так, консультацію можна провести телефоном або у відеодзвінку. Документи можна заздалегідь надіслати в месенджер, щоб адвокат ознайомився з ними до розмови.</p>
+            </details>
+            <details class="faqg-card">
+              <summary class="faqg-card__head">
+                <span class="faqg-card__ico" aria-hidden="true"><svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" /><path d="M9.5 9.25a2.5 2.5 0 0 1 4.9.7c0 1.65-2.4 2.2-2.4 3.8" /><path d="M12 16.75v.01" /></svg></span>
+                <span class="faqg-card__q text-lead">Як швидко адвокат приїде на обшук чи затримання?</span>
+                <span class="faqg-card__chev" aria-hidden="true"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg></span>
+              </summary>
+              <p class="faqg-card__a text-body">Черговий адвокат на звʼязку 24/7. Телефонуйте одразу, щойно почалися слідчі дії: у критичних ситуаціях (обшук, затримання, блокпост) ми виїжджаємо на місце в будь-який час доби.</p>
+            </details>
           </div>
-          <div class="faq-row">
-            <button type="button" class="faq-row__head" aria-expanded="false">
-              <span class="faq-row__title text-title">Ви справді на зв'язку 24/7?</span>
-              <span class="faq-row__chev" aria-hidden="true"><svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg></span>
-            </button>
-            <div class="faq-row__panel">
-              <div class="faq-row__panelin">
-                <p class="faq-row__desc text-body">Так. На всі дзвінки відповідає черговий адвокат, а не менеджер. У критичних ситуаціях (обшук, затримання, блокпост) виїжджаємо на місце в будь-який час доби.</p>
-              </div>
-            </div>
-          </div>
-          <div class="faq-row">
-            <button type="button" class="faq-row__head" aria-expanded="false">
-              <span class="faq-row__title text-title">Чи можна звернутися за іншу людину, якщо вона сама не може?</span>
-              <span class="faq-row__chev" aria-hidden="true"><svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg></span>
-            </button>
-            <div class="faq-row__panel">
-              <div class="faq-row__panelin">
-                <p class="faq-row__desc text-body">Так. Договір можна укласти в інтересах близької людини — так починається більшість наших військових і кримінальних справ, особливо коли людину вже затримали.</p>
-              </div>
-            </div>
-          </div>
-          <div class="faq-row">
-            <button type="button" class="faq-row__head" aria-expanded="false">
-              <span class="faq-row__title text-title">Ви гарантуєте результат?</span>
-              <span class="faq-row__chev" aria-hidden="true"><svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg></span>
-            </button>
-            <div class="faq-row__panel">
-              <div class="faq-row__panelin">
-                <p class="faq-row__desc text-body">Жоден чесний адвокат не може гарантувати рішення суду. Але ми гарантуємо інше: ще до підписання договору ми чесно оцінимо ваші шанси, прорахуємо всі ризики та покажемо реальні кейси з нашої практики з аналогічними результатами.</p>
-              </div>
-            </div>
-          </div>
-          <div class="faq-row">
-            <button type="button" class="faq-row__head" aria-expanded="false">
-              <span class="faq-row__title text-title">Чи працюєте з клієнтами з інших міст і з-за кордону?</span>
-              <span class="faq-row__chev" aria-hidden="true"><svg class="icon icon--md" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg></span>
-            </button>
-            <div class="faq-row__panel">
-              <div class="faq-row__panelin">
-                <p class="faq-row__desc text-body">Так, більшість справ ведемо дистанційно: договір онлайн, документи в месенджер, представництво за ордером. Ваша присутність зазвичай не потрібна.</p>
-              </div>
-            </div>
+          <div class="faqg__col">
+            <details class="faqg-card">
+              <summary class="faqg-card__head">
+                <span class="faqg-card__ico" aria-hidden="true"><svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" /><path d="M9.5 9.25a2.5 2.5 0 0 1 4.9.7c0 1.65-2.4 2.2-2.4 3.8" /><path d="M12 16.75v.01" /></svg></span>
+                <span class="faqg-card__q text-lead">Чи гарантуєте ви результат у справі?</span>
+                <span class="faqg-card__chev" aria-hidden="true"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg></span>
+              </summary>
+              <p class="faqg-card__a text-body">Жоден чесний адвокат не може гарантувати рішення суду. Ми гарантуємо чесну оцінку шансів і ризиків ще до підписання договору та показуємо реальні кейси з нашої практики з аналогічними результатами.</p>
+            </details>
+            <details class="faqg-card">
+              <summary class="faqg-card__head">
+                <span class="faqg-card__ico" aria-hidden="true"><svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" /><path d="M9.5 9.25a2.5 2.5 0 0 1 4.9.7c0 1.65-2.4 2.2-2.4 3.8" /><path d="M12 16.75v.01" /></svg></span>
+                <span class="faqg-card__q text-lead">Чи залишиться конфіденційним те, що я розповім?</span>
+                <span class="faqg-card__chev" aria-hidden="true"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg></span>
+              </summary>
+              <p class="faqg-card__a text-body">Так. Усе, що ви розповідаєте адвокату, становить адвокатську таємницю і захищено законом. Ми не передаємо інформацію третім особам без вашої згоди.</p>
+            </details>
+            <details class="faqg-card">
+              <summary class="faqg-card__head">
+                <span class="faqg-card__ico" aria-hidden="true"><svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" /><path d="M9.5 9.25a2.5 2.5 0 0 1 4.9.7c0 1.65-2.4 2.2-2.4 3.8" /><path d="M12 16.75v.01" /></svg></span>
+                <span class="faqg-card__q text-lead">Які документи підготувати до першої зустрічі?</span>
+                <span class="faqg-card__chev" aria-hidden="true"><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg></span>
+              </summary>
+              <p class="faqg-card__a text-body">Візьміть усе, що стосується справи: повістки, протоколи, ухвали, договори, листування. Якщо документів немає — адвокат підкаже, що і де можна отримати.</p>
+            </details>
           </div>
         </div>
-        <p class="faq__note text-body">Ціна першої консультації — <strong>від 1500 грн</strong>. При укладанні договору на супровід ця сума повністю зараховується у вартість послуги.</p>
       </div>
     </section>
 
@@ -780,7 +841,7 @@
       <div class="foot__inner container">
         <div class="foot__grid">
           <div class="foot__brand">
-            <img class="foot__logo" src="assets/logo-full.svg" alt="Trust Legal Group" />
+            <img class="foot__logo" src="assets/logo-full-light.svg" alt="Trust Legal Group" />
             <div class="foot__now">
               <span class="foot__now-h text-caption">Адвокат на зв'язку 24/7</span>
               <a class="foot__phone text-h4" href="tel:+380970979696">+380 97 097 96 96</a>

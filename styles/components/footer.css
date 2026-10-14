@@ -1,14 +1,15 @@
-/* Trust Legal Group — Футер
-   Слева лого + блок «24/7» + мессенджеры; четыре колонки ссылок; нижняя
-   полоса с реквизитами и дисклеймером. На мобайле колонки — аккордеоны
-   (Контакти открыта по умолчанию). Fluid→шкала @1440.
-   Кастомные glyph-иконки — инлайновый SVG (currentColor). */
+/* Trust Legal Group — Футер (navy)
+   Тёмная navy-смуга: слева светлое лого + блок «24/7» + мессенджеры; четыре
+   колонки ссылок; нижняя полоса с реквизитами и дисклеймером. На мобайле
+   колонки — аккордеоны (Контакти открыта по умолчанию). Fluid→шкала @1440.
+   Кастомные glyph-иконки — инлайновый SVG (прозрачный кружок + белый глиф,
+   на hover инвертируется: белый фон + navy глиф). */
 
-.foot { background: var(--color-sand); color: var(--color-ink); padding-top: var(--space-64); }
+.foot { background: var(--color-navy); color: var(--color-on-dark); padding-top: var(--space-64); }
 .foot__inner { padding-bottom: var(--space-32); }
-.foot a { color: var(--color-ink-muted); }
+.foot a { color: color-mix(in srgb, var(--color-on-dark) 70%, transparent); }
 .foot a:hover,
-.foot__link--hover { color: var(--color-navy); }
+.foot__link--hover { color: var(--color-on-dark); }
 
 .foot__grid {
   display: grid;
@@ -21,32 +22,37 @@
 .foot__now { display: flex; flex-direction: column; gap: var(--space-8); }
 .foot__now-h { letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--color-gold); }
 .foot__phone {
-  color: var(--color-navy) !important;
+  color: var(--color-on-dark) !important;
   font-weight: var(--fw-semibold);
   letter-spacing: var(--tracking-snug);
   line-height: 1.1;
 }
-.foot__phone:hover { color: var(--color-navy-hover) !important; }
-.foot__now-note { color: var(--color-ink-muted); }
+.foot__phone:hover { color: var(--color-on-dark) !important; text-decoration: underline; text-underline-offset: 4px; }
+.foot__now-note { color: var(--color-on-dark-muted); }
 
 .foot__msgr { display: flex; gap: var(--space-12); }
-/* Иконки мессенджеров/соцсетей — готовые круглые бейджи (SVG со своим
-   фоном-кружком). Кнопка = сам бейдж; без бордюра/перекраски. */
+/* Иконки мессенджеров/соцсетей — бейджи (SVG со своим кружком-rect + глиф).
+   На navy кружок делаем прозрачным, рисуем свой бордюр; глиф — белый.
+   Hover: белый фон + navy глиф. */
 .foot__ic {
   width: var(--control-h-md);
   height: var(--control-h-md);
   flex: 0 0 auto;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-hairline) solid color-mix(in srgb, var(--color-on-dark) 20%, transparent);
   border-radius: var(--radius-pill);
   overflow: hidden;
-  transition: opacity 0.2s ease;
+  color: var(--color-on-dark);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .foot__ic--sm { width: var(--control-h-sm); height: var(--control-h-sm); }
 .foot-glyph { display: block; width: 100%; height: 100%; }
-/* Бейджи приходят чёрными — перекрашиваем кружок под бренд: navy, hover → gold.
-   Глиф (белый) не трогаем. fill из CSS перекрывает presentation-атрибут SVG. */
-.foot-glyph rect { fill: var(--color-navy); transition: fill 0.2s ease; }
-.foot__ic:hover .foot-glyph rect { fill: var(--color-gold); }
+.foot-glyph rect { fill: transparent; }
+.foot-glyph path { fill: var(--color-on-dark); transition: fill 0.2s ease; }
+.foot__ic:hover { background: var(--color-on-dark); border-color: var(--color-on-dark); }
+.foot__ic:hover .foot-glyph path { fill: var(--color-navy); }
 
 /* ---------- Колонки ---------- */
 .foot__col { border: 0; }
@@ -63,14 +69,14 @@
   font-family: inherit;
   font-size: var(--text-body-size);
   font-weight: var(--fw-semibold);
-  color: var(--color-ink);
+  color: var(--color-on-dark);
   text-align: left;
   cursor: default;
 }
-.foot__chev { display: none; color: var(--color-ink-muted); transition: transform 0.2s ease; }
+.foot__chev { display: none; color: color-mix(in srgb, var(--color-on-dark) 70%, transparent); transition: transform 0.2s ease; }
 .foot__list { display: flex; flex-direction: column; gap: var(--space-12); }
 .foot__link { line-height: 1.4; }
-.foot__meta { color: var(--color-ink-muted); line-height: 1.5; }
+.foot__meta { color: color-mix(in srgb, var(--color-on-dark) 70%, transparent); line-height: 1.5; }
 
 .foot__products {
   display: flex;
@@ -78,38 +84,40 @@
   gap: var(--space-8);
   padding-bottom: var(--space-16);
   margin-bottom: var(--space-16);
-  border-bottom: var(--border-hairline) solid var(--color-rule);
+  border-bottom: var(--border-hairline) solid var(--color-rule-on-dark);
 }
 .foot__product {
   display: inline-flex;
   align-items: flex-start;
   gap: var(--space-8);
-  color: var(--color-navy) !important;
+  color: var(--color-on-dark) !important;
   font-weight: var(--fw-semibold);
   line-height: 1.3;
 }
-.foot__product .icon { margin-top: var(--space-4); flex: 0 0 auto; }
-.foot__product:hover { color: var(--color-navy-hover) !important; }
+.foot__product .icon { margin-top: var(--space-4); flex: 0 0 auto; transition: translate 0.2s ease; }
+.foot__product:hover { color: var(--color-on-dark) !important; }
+.foot__product:hover .icon { translate: var(--space-4) 0; }
 .foot__popular { display: flex; flex-direction: column; gap: var(--space-12); }
-.foot__social { display: flex; gap: var(--space-8); margin-top: var(--space-8); }
+.foot__social { display: flex; gap: var(--space-12); margin-top: var(--space-8); }
 
 /* ---------- Нижняя полоса ---------- */
 .foot__bar {
   margin-top: var(--space-48);
   padding-top: var(--space-24);
-  border-top: var(--border-hairline) solid var(--color-rule);
+  border-top: var(--border-hairline) solid var(--color-rule-on-dark);
   display: grid;
   grid-template-columns: 1fr auto;
   gap: var(--space-16) var(--space-40);
   align-items: start;
 }
 .foot__legal { display: flex; flex-direction: column; gap: var(--space-8); }
-.foot__copy { color: var(--color-ink); }
+.foot__copy { color: var(--color-on-dark-muted); }
 .foot__legal-links { display: flex; gap: var(--space-24); flex-wrap: wrap; }
+.foot__legal-links a { color: var(--color-on-dark-muted); }
+.foot__legal-links a:hover { color: var(--color-on-dark); }
 .foot__disclaimer {
   grid-column: 1 / -1;
-  color: var(--color-ink-muted);
-  opacity: 0.82;
+  color: var(--color-on-dark-muted);
   max-width: 64em;
   line-height: 1.5;
 }
@@ -123,7 +131,7 @@
 @media (max-width: 719px) {
   .foot__grid { grid-template-columns: 1fr; gap: 0; }
   .foot__brand { margin-bottom: var(--space-16); }
-  .foot__col { border-top: var(--border-hairline) solid var(--color-rule); }
+  .foot__col { border-top: var(--border-hairline) solid var(--color-rule-on-dark); }
   .foot__head { cursor: pointer; margin: 0; padding: var(--space-16) 0; }
   .foot__chev { display: inline-flex; }
   .foot__col.is-open .foot__chev { transform: rotate(90deg); }

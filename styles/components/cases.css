@@ -51,10 +51,6 @@
   color: var(--color-gold);
 }
 .case-card__result-text { color: var(--color-ink); font-weight: var(--fw-medium); line-height: 1.4; }
-.case-card__foot {
-  padding-top: var(--space-16);
-  border-top: var(--border-hairline) solid var(--color-rule);
-}
 
 /* ---------- Баннер с формой ---------- */
 .cases__cta { margin-top: var(--space-24); }
