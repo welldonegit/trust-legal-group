@@ -11,7 +11,9 @@
 @import "./components/icon.css";
 @import "./components/button.css";
 @import "./components/navlink.css";
+@import "./components/header.css";
 @import "./components/hero.css";
+@import "./components/lead-form.css";
 @import "./components/steps.css";
 @import "./components/stepsalt.css";
 @import "./components/proc.css";
@@ -23,10 +25,12 @@
 @import "./components/team.css";
 @import "./components/banner.css";
 @import "./components/directions.css";
+@import "./components/leader.css";
 @import "./components/how.css";
 @import "./components/ig.css";
 @import "./components/lawyer.css";
 @import "./components/faq.css";
+@import "./components/faqg.css";
 @import "./components/blog.css";
 @import "./components/cta.css";
 @import "./components/loc.css";

@@ -1,0 +1,69 @@
+/* Trust Legal Group — FAQ (сітка з двох колонок)
+   Заголовок + підзаголовок, далі дві незалежні колонки карток <details>
+   (нативний розкривний елемент — працює без JS). Перша картка відкрита за
+   замовчуванням. Квадратні кути, золота іконка-знак питання, шеврон у кружку
+   повертається при відкритті. Fluid→шкала @1440. */
+
+.faqg__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  max-width: var(--content-max);
+  margin-bottom: var(--space-48);
+}
+.faqg__title { color: var(--color-ink); }
+.faqg__sub { color: var(--color-ink-muted); }
+
+.faqg__cols { display: flex; align-items: flex-start; gap: var(--space-24); }
+.faqg__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-16); }
+
+.faqg-card {
+  background: var(--color-white);
+  border: var(--border-hairline) solid var(--color-rule);
+  border-radius: var(--radius-none);
+  padding: var(--space-24) var(--space-32);
+}
+.faqg-card__head {
+  display: grid;
+  grid-template-columns: var(--icon-lg) minmax(0, 1fr) var(--control-h-sm);
+  align-items: center;
+  gap: var(--space-16);
+  list-style: none;
+  cursor: pointer;
+}
+.faqg-card__head::-webkit-details-marker { display: none; }
+.faqg-card__head:focus-visible { outline: var(--border-thick) solid var(--color-navy); outline-offset: var(--space-4); }
+
+.faqg-card__ico { display: flex; width: var(--icon-lg); height: var(--icon-lg); color: var(--color-gold); }
+.faqg-card__q { color: var(--color-ink); font-weight: var(--fw-medium); }
+
+.faqg-card__chev {
+  width: var(--control-h-sm);
+  height: var(--control-h-sm);
+  border-radius: var(--radius-pill);
+  border: var(--border-hairline) solid var(--color-rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-navy);
+  transform: rotate(90deg);
+  transition: transform 0.25s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.faqg-card__head:hover .faqg-card__chev { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-on-dark); }
+.faqg-card[open] .faqg-card__chev { transform: rotate(270deg); }
+
+.faqg-card__a {
+  margin: var(--space-16) 0 0;
+  padding-left: calc(var(--icon-lg) + var(--space-16));
+  padding-right: var(--control-h-lg);
+  color: var(--color-ink-muted);
+}
+
+@media (max-width: 1023px) {
+  .faqg__cols { flex-direction: column; align-items: stretch; gap: var(--space-16); }
+}
+@media (max-width: 719px) {
+  .faqg-card { padding: var(--space-24); }
+  .faqg-card__head { gap: var(--space-12); }
+  .faqg-card__a { padding-left: 0; padding-right: 0; }
+}

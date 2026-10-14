@@ -1,0 +1,259 @@
+/* Trust Legal Group — Header (шапка)
+   Прозрачная шапка, наложенная поверх фото первого экрана (absolute внутри
+   .hero). Слева лого, по центру/справа UPPERCASE-навигация с подчёркиванием
+   активного пункта, справа блок телефона «Відповідає адвокат» + номер в кружке
+   и разделитель. На планшете навигация сворачивается в бургер, меню выезжает
+   справа. Статический сайт без JS: скролл-состояние (is-scrolled) не включается,
+   шапка прокручивается вместе с героем. Fluid→шкала @1440. Белые полупрозрачные
+   тона берутся через color-mix от --color-on-dark. */
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: var(--color-navy);
+  border-bottom: var(--border-hairline) solid var(--color-on-navy-12);
+  color: var(--color-on-dark);
+  font-family: var(--font-sans);
+}
+
+.header__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-32);
+  padding: var(--space-24) var(--container-pad);
+}
+
+.header__logo { display: flex; align-items: center; flex: 0 0 auto; }
+.header__logo-img { display: block; height: 48px; width: auto; }
+
+/* ---------- Навигация ---------- */
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+  margin-left: auto;
+}
+/* Пункты меню — как в прежней шапке (navlink--on-dark): regular 14/20,
+   широкий трекинг, caps, приглушённо-белый → белый на hover/активном. */
+.header__link {
+  display: flex;
+  align-items: center;
+  height: var(--control-h-sm);
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-lh);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-on-dark-muted);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.header__link:hover,
+.header__link.is-active,
+.header__link[aria-current="page"] { color: var(--color-on-dark); }
+.header__link:focus-visible { outline: var(--border-thick) solid var(--color-gold); outline-offset: 3px; }
+
+.header__divider {
+  flex: 0 0 auto;
+  width: var(--border-hairline);
+  height: var(--control-h-sm);
+  background: color-mix(in srgb, var(--color-on-dark) 24%, transparent);
+}
+
+/* ---------- Правый блок ---------- */
+.header__end {
+  display: flex;
+  align-items: center;
+  gap: var(--space-32);
+  flex: 0 0 auto;
+}
+
+.header__burger,
+.header__call {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--control-h-sm);
+  height: var(--control-h-sm);
+  padding: 0;
+  background: transparent;
+  color: var(--color-on-dark);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.header__burger { border: 0; border-radius: var(--radius-none); }
+.header__call { border: var(--border-hairline) solid color-mix(in srgb, var(--color-on-dark) 48%, transparent); border-radius: var(--radius-pill); }
+.header__call:hover { background: var(--color-on-dark); color: var(--color-navy); border-color: var(--color-on-dark); }
+
+/* ---------- Блок телефона ---------- */
+.header__phone {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  flex: 0 0 auto;
+  color: var(--color-on-dark);
+}
+.header__phone-text { display: flex; flex-direction: column; }
+.header__phone-label {
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-lh);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-on-dark) 64%, transparent);
+}
+.header__phone-num {
+  font-size: var(--text-lead-size);
+  line-height: var(--text-lead-lh);
+  font-weight: var(--fw-medium);
+  color: var(--color-on-dark);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.header__phone-ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--control-h-sm);
+  height: var(--control-h-sm);
+  border-radius: var(--radius-pill);
+  border: var(--border-hairline) solid color-mix(in srgb, var(--color-on-dark) 48%, transparent);
+  color: var(--color-on-dark);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.header__phone--icon:hover .header__phone-ico {
+  background: var(--color-on-dark);
+  border-color: var(--color-on-dark);
+  color: var(--color-navy);
+}
+
+/* ---------- Выезжающее меню (справа) ---------- */
+.header__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: var(--color-scrim);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.header__panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  height: 100%;
+  width: min(92vw, 400px);
+  background: var(--color-sand);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-dialog);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  padding: var(--space-16) var(--space-24) var(--space-32);
+  overflow-y: auto;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(0.2, 0.6, 0.2, 1), visibility 0.32s;
+}
+.header.is-open .header__overlay { opacity: 1; visibility: visible; }
+.header.is-open .header__panel { transform: translateX(0); visibility: visible; }
+
+.header__panel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  height: var(--control-h-sm);
+}
+.header__panel-logo { height: 40px; width: auto; display: block; }
+.header__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--control-h-sm);
+  height: var(--control-h-sm);
+  padding: 0;
+  border: var(--border-hairline) solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.header__close:hover { background: color-mix(in srgb, var(--color-navy) 6%, transparent); }
+
+.header__menu { display: flex; flex-direction: column; }
+.header__menu-link {
+  display: flex;
+  align-items: center;
+  height: var(--control-h-lg);
+  font-size: var(--text-lead-size);
+  line-height: var(--text-lead-lh);
+  font-weight: var(--fw-medium);
+  color: var(--color-ink);
+  border-bottom: var(--border-hairline) solid var(--color-rule);
+  transition: color 0.2s ease;
+}
+.header__menu-link:first-child { border-top: var(--border-hairline) solid var(--color-rule); }
+.header__menu-link:hover { color: var(--color-navy); }
+
+.header__panel-foot {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.header__panel-label {
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-lh);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+.header__panel-phone {
+  font-size: var(--text-h5-size);
+  line-height: var(--text-h5-lh);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+
+/* ---------- Планшет (≤1023px) ---------- */
+@media (max-width: 1023px) {
+  .header__bar { padding-inline: var(--space-48); gap: var(--space-24); }
+  .header__nav { display: none; }
+  .header__divider { display: none; }
+  .header__end { margin-left: auto; }
+  .header__burger {
+    display: inline-flex;
+    border: var(--border-hairline) solid color-mix(in srgb, var(--color-on-dark) 48%, transparent);
+    border-radius: var(--radius-pill);
+  }
+  .header__burger:hover { background: var(--color-on-dark); color: var(--color-navy); border-color: var(--color-on-dark); }
+}
+
+/* ---------- Мобайл (≤719px) ---------- */
+@media (max-width: 719px) {
+  .header__bar {
+    display: grid;
+    grid-template-columns: var(--control-h-sm) minmax(0, 1fr) var(--control-h-sm);
+    align-items: center;
+    gap: var(--space-16);
+    padding-block: var(--space-12);
+    padding-inline: var(--container-pad-mobile);
+  }
+  .header__logo { grid-column: 2; grid-row: 1; justify-self: center; }
+  .header__logo-img { height: 40px; }
+  .header__end { display: contents; }
+  .header__burger { grid-column: 1; grid-row: 1; justify-self: start; }
+  .header__call { grid-column: 3; grid-row: 1; justify-self: end; display: inline-flex; }
+  .header__phone { display: none; }
+  .header__panel { width: 100%; }
+}

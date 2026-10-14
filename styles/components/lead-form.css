@@ -1,0 +1,117 @@
+/* Trust Legal Group — Lead Form (форма заявки в герое)
+   Кремовая карточка с двумя полями (имя, телефон), кнопкой и примечаниями.
+   Состояния фокуса/ошибки продубльованы классами (is-focus / is-error) для
+   спецификации; на статическом сайте без JS валидация не активна. Квадратные
+   углы, Onest, границы-хайрлайны. Fluid→шкала @1440. */
+
+.lead-form {
+  display: grid;
+  background: var(--color-sand);
+  padding: var(--space-32);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+.lead-form__body { grid-area: 1 / 1; display: flex; flex-direction: column; gap: var(--space-24); }
+
+.lead-form__head { display: flex; flex-direction: column; gap: var(--space-8); }
+.lead-form__title {
+  margin: 0;
+  font-size: var(--text-h5-size);
+  line-height: var(--text-h5-lh);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+.lead-form__desc {
+  margin: 0;
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-lh);
+  color: var(--color-ink-muted);
+  text-wrap: pretty;
+}
+
+.lead-form__fields { display: flex; flex-direction: column; gap: var(--space-24); }
+.lead-form__field { position: relative; display: flex; flex-direction: column; gap: var(--space-8); }
+.lead-form__label {
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-lh);
+  font-weight: var(--fw-medium);
+  color: var(--color-ink);
+}
+.lead-form__input {
+  width: 100%;
+  height: var(--control-h-md);
+  padding: 0 var(--space-16);
+  margin: 0;
+  border: var(--border-hairline) solid var(--color-rule);
+  border-radius: var(--radius-none);
+  background: var(--color-white);
+  font-family: inherit;
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-lh);
+  font-weight: var(--fw-regular);
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.lead-form__input::placeholder { color: var(--color-ink-muted); opacity: 0.64; }
+.lead-form__input:hover { border-color: var(--color-ink-muted); }
+.lead-form__input:focus,
+.lead-form__field.is-focus .lead-form__input {
+  border-color: var(--color-navy);
+  box-shadow: inset 0 0 0 1px var(--color-navy);
+}
+.lead-form__field.is-error .lead-form__input {
+  border-color: var(--color-gold-hover);
+  box-shadow: inset 0 0 0 1px var(--color-gold-hover);
+}
+.lead-form__error {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + var(--space-4));
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  height: var(--space-16);
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-lh);
+  color: var(--color-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lead-form__error svg { flex: 0 0 auto; color: var(--color-gold-hover); }
+
+.lead-form__actions { display: flex; flex-direction: column; gap: var(--space-16); margin-top: var(--space-8); }
+.lead-form__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+  width: 100%;
+  height: var(--control-h-md);
+  padding: 0 var(--space-24);
+  border: 0;
+  border-radius: var(--radius-none);
+  background: var(--color-navy);
+  color: var(--color-on-dark);
+  font-family: inherit;
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-lh);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.lead-form__btn:hover { background: var(--color-navy-hover); }
+.lead-form__btn-arrow { transition: translate 0.2s ease; }
+.lead-form__btn:hover .lead-form__btn-arrow { translate: var(--space-4) 0; }
+
+.lead-form__notes { display: flex; flex-direction: column; gap: var(--space-8); }
+.lead-form__trust { margin: 0; font-size: var(--text-caption-size); line-height: var(--text-caption-lh); color: var(--color-ink-muted); }
+.lead-form__legal { margin: 0; font-size: var(--text-caption-size); line-height: var(--text-caption-lh); color: var(--color-ink-muted); }
+.lead-form__legal a { color: var(--color-navy); text-decoration: underline; text-underline-offset: 2px; }
+.lead-form__legal a:hover { color: var(--color-navy-hover); }
+
+@media (max-width: 719px) {
+  .lead-form { padding: var(--space-24); }
+}

@@ -1,0 +1,151 @@
+/* Trust Legal Group — «Звернення керівника» (відео-блок, варіант C)
+   Зліва вертикальне відео-прев'ю 4:5 з кнопкою play, справа — заголовок,
+   цитата з золотою лінією-акцентом, підпис-факсиміле та автор (фото + ім'я).
+   Відео вантажиться по кліку (у статичній версії — лише фасад). Fluid→шкала. */
+
+.leader {
+  /* Одиночные layout-размеры блока (вне общих шкал) — локальные токены. */
+  --leader-media-max: 448px; /* макс. ширина вертикального превью 4:5 */
+  --leader-ring: 96px;       /* пульсирующее кольцо вокруг кнопки play */
+  --leader-play: 64px;       /* сама кнопка play                      */
+  --leader-sign-h: 56px;     /* высота декоративного SVG-подписи       */
+}
+.leader__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  column-gap: var(--space-64);
+  align-items: start;
+}
+
+/* ---------- Медиа (прев'ю відео) ---------- */
+.leader__media {
+  grid-column: 1;
+  justify-self: start;
+  width: min(100%, var(--leader-media-max));
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-avatar-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.leader__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+  display: block;
+}
+.leader__shade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40%;
+  background: linear-gradient(0deg, color-mix(in srgb, var(--color-navy) 64%, transparent) 0%, transparent 100%);
+  pointer-events: none;
+}
+.leader__playwrap {
+  position: relative;
+  z-index: 1;
+  width: var(--leader-ring);
+  height: var(--leader-ring);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.leader__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-pill);
+  border: var(--border-hairline) solid color-mix(in srgb, var(--color-on-dark) 40%, transparent);
+  pointer-events: none;
+  animation: leader-pulse 2.4s ease-in-out infinite;
+}
+@keyframes leader-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.12); opacity: 0.4; } }
+@media (prefers-reduced-motion: reduce) { .leader__ring { animation: none; } }
+.leader__play {
+  position: relative;
+  width: var(--leader-play);
+  height: var(--leader-play);
+  border-radius: var(--radius-pill);
+  border: 0;
+  padding: 0;
+  background: var(--color-on-dark);
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.leader__play svg { margin-left: 3px; }
+.leader__play:hover { background: var(--color-gold); }
+.leader__play:focus-visible { outline: var(--border-thick) solid var(--color-on-dark); outline-offset: var(--space-4); }
+
+/* ---------- Текст ---------- */
+.leader__text {
+  grid-column: 2;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-48);
+  min-width: 0;
+}
+.leader__head { display: flex; flex-direction: column; gap: var(--space-16); }
+.leader__title { color: var(--color-navy); text-wrap: balance; }
+.leader__sub { color: var(--color-ink-muted); }
+
+.leader__qblock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  padding-left: var(--space-24);
+  border-left: var(--border-thick) solid var(--color-gold);
+}
+.leader__quote {
+  margin: 0;
+  font-size: var(--text-h4-size);
+  line-height: var(--text-h4-lh);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-snug);
+  color: var(--color-navy);
+  text-wrap: pretty;
+}
+.leader__sign { display: block; width: 160px; height: var(--leader-sign-h); color: var(--color-navy); }
+
+.leader__author { display: flex; flex-direction: row; align-items: center; gap: var(--space-16); }
+.leader__photo {
+  width: var(--control-h-lg);
+  height: var(--control-h-lg);
+  flex: 0 0 auto;
+  border-radius: var(--radius-pill);
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  background: var(--color-avatar-bg);
+}
+.leader__who { display: flex; flex-direction: column; }
+.leader__name { font-size: var(--text-body-size); line-height: var(--text-body-lh); font-weight: var(--fw-medium); color: var(--color-navy); }
+.leader__role { font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-lh); color: var(--color-ink-muted); }
+
+/* ---------- Планшет (≤1023px) ---------- */
+@media (max-width: 1023px) {
+  .leader__inner { column-gap: var(--space-32); }
+  .leader__text { gap: var(--space-32); }
+  .leader__title { font-size: var(--text-h3-size); line-height: var(--text-h3-lh); }
+  .leader__quote { font-size: var(--text-h5-size); line-height: var(--text-h5-lh); }
+}
+
+/* ---------- Мобайл (≤719px) ---------- */
+@media (max-width: 719px) {
+  .leader__inner { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-32); }
+  .leader__media { grid-column: 1; grid-row: 1; width: 100%; }
+  .leader__text { grid-column: 1; grid-row: 2; }
+  .leader__title { font-size: var(--text-h5-size); line-height: var(--text-h5-lh); }
+  .leader__quote { font-size: var(--text-lead-size); line-height: var(--text-lead-lh); }
+}

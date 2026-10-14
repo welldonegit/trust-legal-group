@@ -1,226 +1,92 @@
-/* Trust Legal Group — Hero (первый экран)
-   Полноэкранное фото под navy-скримом; заголовок снизу слева, кремовая
-   карточка справа, полоса из четырёх метрик снизу.
-   Все fluid-размеры сведены к фиксированным значениям шкалы (снимок @1440). */
+/* Trust Legal Group — Hero (первый экран, v2)
+   Полноэкранное фото высотой ровно в видимую часть окна (height: 100svh,
+   на десктопе ≤1080px) под градиентными шейдами; шапка наложена сверху
+   (см. header.css). Слева снизу-по-центру — заголовок,
+   справа — кремовая форма заявки (lead-form.css). Под фото — полоса из четырёх
+   метрик на песке. Раскладка — 12-колоночная сетка с боковыми желобами; все
+   fluid-размеры сведены к фиксированным значениям шкалы (снимок @1440).
+   Структурные размеры сетки (желоб, верхний запас под шапку) вынесены в
+   локальные custom-properties. */
 
 .hero {
-  background: var(--color-sand);
-  display: flex;
-  flex-direction: column;
+  position: relative; /* контекст для абсолютной .header */
+  background: var(--color-navy);
 }
 
-/* ---------- Медиа (фото) ---------- */
-.hero__media {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: 76vh;
-  padding: var(--space-24) var(--container-pad) var(--space-48);
+.hero__stage {
+  --hero-gutter: var(--container-pad); /* боковой жёлоб = отступ контейнера  */
+  --hero-top: var(--space-96);         /* запас под шапку (её высота ~96px)  */
+  display: grid;
+  grid-template-columns: var(--hero-gutter) repeat(12, minmax(0, 1fr)) var(--hero-gutter);
+  grid-template-rows: var(--hero-top) minmax(0, 1fr) var(--space-32);
+  column-gap: var(--space-24);
+  /* Первый экран = ровно высота видимой части окна (svh), на десктопе
+     ограничен 1080px. Именно height (не min-height) — блок никогда не
+     выходит за пределы экрана, какой бы высоты ни был контент внутри. */
+  height: min(100svh, 1080px);
 }
-.hero__img {
-  position: absolute;
-  inset: 0;
+
+/* ---------- Медиа (фото) + шейды ---------- */
+.hero__img,
+.hero__shade {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 28%;
+  min-height: 0;
 }
+.hero__img { object-fit: cover; object-position: center 28%; display: block; }
 .hero__img--mobile { display: none; }
-.hero__scrim {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom,
-      color-mix(in srgb, var(--color-ink) 42%, transparent) 0%,
-      transparent 22%),
-    linear-gradient(to top,
-      color-mix(in srgb, var(--color-ink) 80%, transparent) 0%,
-      color-mix(in srgb, var(--color-ink) 30%, transparent) 46%,
-      transparent 100%);
+.hero__shade {
+  pointer-events: none;
+}
+.hero__shade--side {
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--color-ink) 80%, transparent) 0%,
+    color-mix(in srgb, var(--color-ink) 56%, transparent) 36%,
+    color-mix(in srgb, var(--color-ink) 8%, transparent) 64%,
+    transparent 100%);
+}
+.hero__shade--top {
+  grid-row: 1 / 2;
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--color-ink) 56%, transparent) 0%,
+    transparent 100%);
+}
+.hero__shade--bottom {
+  background: linear-gradient(0deg,
+    color-mix(in srgb, var(--color-ink) 48%, transparent) 0%,
+    transparent 40%);
 }
 
-/* ---------- Шапка ----------
-   В обычном потоке (не fixed): идёт под плашкой topcall над hero, обе
-   прокручиваются вместе со страницей. relative + z-index — чтобы шапка была
-   над абсолютным меню-оверлеем в своём контексте. */
-.hero__header {
-  position: relative;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-24);
-  padding: var(--space-12) var(--container-pad);
-  background: var(--color-navy); /* сплошная заливка, без прозрачности */
-  border-bottom: var(--border-hairline) solid var(--color-on-navy-12);
-}
-/* Статический вариант — для спецификации (position:fixed в Figma не імпортується) */
-.hero__header--static { position: static; }
-.hero__logo-img { height: 52px; width: auto; }
-.hero__nav {
-  display: flex;
-  align-items: center;
-  gap: var(--space-24);
-}
-.hero__burger,
-.hero__call {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
-  width: var(--control-h-md);
-  height: var(--control-h-md);
-  border-radius: var(--radius-pill);
-  padding: 0;
-  background: var(--color-on-navy-08);
-  border: var(--border-hairline) solid var(--color-on-navy-45);
-  color: var(--color-sand);
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-.hero__burger:hover,
-.hero__call:hover {
-  background: color-mix(in srgb, var(--color-sand) 18%, transparent);
-  border-color: var(--color-sand);
-}
-
-/* Выезжающее меню (мобайл) */
-.hero__overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 900;
-  background: var(--color-scrim);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-.hero__panel {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  height: 100%;
-  width: min(92vw, 400px);
-  background: var(--color-band);
-  box-shadow: var(--shadow-dialog);
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-24);
-  transform: translateX(-100%);
-  transition: transform 0.32s cubic-bezier(0.2, 0.6, 0.2, 1);
-  overflow-y: auto;
-}
-.hero__header.is-open .hero__overlay { opacity: 1; visibility: visible; }
-.hero__header.is-open .hero__panel { transform: translateX(0); }
-.hero__panel-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-16);
-  margin-bottom: var(--space-8);
-}
-.hero__panel-logo { height: 40px; width: auto; }
-.hero__close {
-  flex: 0 0 auto;
-  width: var(--control-h-sm);
-  height: var(--control-h-sm);
-  border-radius: var(--radius-pill);
-  padding: 0;
-  background: transparent;
-  border: var(--border-hairline) solid var(--color-rule);
-  color: var(--color-ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease;
-}
-.hero__close:hover { background: color-mix(in srgb, var(--color-navy) 6%, transparent); }
-.hero__menu {
-  display: flex;
-  flex-direction: column;
-  margin-top: var(--space-16);
-}
-.hero__menu-link {
-  padding: var(--space-16) var(--space-2);
-  font-size: var(--text-lead-size);
-  line-height: var(--text-lead-lh);
-  color: var(--color-ink);
-  border-bottom: var(--border-hairline) solid var(--color-rule);
-  transition: color 0.2s ease;
-}
-.hero__menu-link:first-child { border-top: var(--border-hairline) solid var(--color-rule); }
-.hero__menu-link:hover { color: var(--color-navy); }
-.hero__panel-foot {
-  margin-top: auto;
-  padding-top: var(--space-24);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-16);
-}
-.hero__panel-phone {
-  font-size: var(--text-title-size);
-  font-weight: var(--fw-semibold);
-  color: var(--color-ink);
-}
-
-/* ---------- Нижний ряд: заголовок + карточка ---------- */
-.hero__lower {
+/* ---------- Заголовок ---------- */
+.hero__headline {
+  grid-column: 2 / 9;
+  grid-row: 2;
+  align-self: center;
   position: relative;
   z-index: 2;
-  margin-top: auto;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-64);
-}
-.hero__headline {
-  flex: 1 1 auto;
-  max-width: var(--content-max);
-  padding-top: var(--space-8);
-}
-/* Модификатор: на десктопе центрировать заголовок по высоте кремовой
-   карточки (для страниц с коротким заголовком — иначе flex-start поднимает
-   его вверх). На планшете/мобайле ряд становится колонкой — не влияет. */
-@media (min-width: 1024px) {
-  .hero__lower--middle { align-items: center; }
+  flex-direction: column;
+  gap: var(--space-24);
 }
 .hero__title {
   margin: 0;
   color: var(--color-on-dark);
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-medium);
   font-size: var(--text-display-size);
   line-height: var(--text-display-lh);
   letter-spacing: var(--tracking-tight);
   text-wrap: balance;
 }
 
-/* ---------- Кремовая карточка ---------- */
-.hero__card {
-  flex: 0 0 auto;
-  z-index: 4;
-  width: min(440px, 38%);
-  background: var(--color-sand);
-  padding: var(--space-32);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-24);
-}
-.hero__card-desc {
-  margin: 0;
-  color: var(--color-navy);
-  font-weight: var(--fw-medium);
-  font-size: var(--text-lead-size);
-  line-height: 28px;
-}
-.hero__card-cta {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-16);
-}
-.hero__card-note {
-  font-size: var(--text-caption-size);
-  line-height: var(--text-caption-lh);
-  color: var(--color-ink-muted);
+/* ---------- Форма заявки ---------- */
+.hero__form {
+  grid-column: 9 / 14;
+  grid-row: 2;
+  align-self: center;
+  position: relative;
+  z-index: 2;
 }
 
 /* ---------- Полоса метрик (песок) ---------- */
@@ -253,49 +119,135 @@
   color: var(--color-ink-muted);
   max-width: 15em;
 }
-/* Сноска под метрикой (напр. пометка о сроках) */
 .hero__stat-note { margin: 0; color: var(--color-ink-muted); }
 
 /* ---------- Планшет (≤1023px) ---------- */
 @media (max-width: 1023px) {
-  .hero__media { min-height: auto; padding-bottom: var(--space-40); }
-  .hero__lower { flex-direction: column; gap: var(--space-32); }
-  .hero__headline { max-width: 100%; padding-top: 0; }
+  .hero__stage {
+    --hero-gutter: var(--space-48);
+    grid-template-rows: minmax(0, 1fr) auto auto var(--space-48);
+    height: min(100svh, 1080px);
+  }
+  .hero__shade--side {
+    background: linear-gradient(90deg,
+      color-mix(in srgb, var(--color-ink) 72%, transparent) 0%,
+      color-mix(in srgb, var(--color-ink) 32%, transparent) 64%,
+      color-mix(in srgb, var(--color-ink) 16%, transparent) 100%);
+  }
+  .hero__shade--bottom {
+    background: linear-gradient(0deg,
+      color-mix(in srgb, var(--color-ink) 64%, transparent) 0%,
+      transparent 64%);
+  }
+  .hero__headline {
+    grid-column: 2 / 14;
+    grid-row: 2;
+    align-self: end;
+  }
   .hero__title { font-size: var(--text-h1-size); line-height: var(--text-h1-lh); }
-  .hero__card { width: 100%; max-width: none; }
+  .hero__form {
+    grid-column: 2 / 13;
+    grid-row: 3;
+    align-self: start;
+    margin-top: var(--space-40);
+  }
   .hero__stats { grid-template-columns: repeat(2, 1fr); row-gap: var(--space-32); }
   .hero__stat:nth-child(3) { padding-left: 0; border-left: none; }
-  .hero__header { padding-inline: var(--space-48); }
 }
 
 /* ---------- Мобайл (≤719px) ---------- */
 @media (max-width: 719px) {
-  .hero__media { padding: var(--space-24) var(--container-pad-mobile); }
+  .hero__stage {
+    --hero-gutter: var(--container-pad-mobile);
+    grid-template-columns: var(--hero-gutter) minmax(0, 1fr) var(--hero-gutter);
+    grid-template-rows: minmax(0, 1fr) auto var(--space-32) auto var(--space-40);
+    height: min(100svh, 1080px);
+  }
+  .hero__img,
+  .hero__shade--side,
+  .hero__shade--bottom { grid-row: 1 / 3; }
   .hero__img--desktop { display: none; }
   .hero__img--mobile { display: block; object-position: center top; }
-  .hero__stats { padding-inline: var(--container-pad-mobile); }
-  .hero__header { gap: var(--space-16); padding-inline: var(--container-pad-mobile); }
-  .hero__burger,
-  .hero__call { display: inline-flex; position: relative; z-index: 2; }
-  .hero__burger { order: 0; }
-  .hero__logo {
-    order: 1;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    max-width: 66%;
-    display: flex;
-    justify-content: center;
+  .hero__shade--side { background: none; }
+  .hero__shade--bottom {
+    background: linear-gradient(0deg,
+      var(--color-navy) 0%,
+      color-mix(in srgb, var(--color-navy) 64%, transparent) 40%,
+      transparent 72%);
   }
-  .hero__call { order: 2; margin-left: auto; }
-  .hero__nav { display: none; }
-  .hero__lower { margin-top: 240px; }
+  .hero__shade--top { grid-row: 1 / 2; height: var(--space-128); }
+  .hero__headline { grid-column: 2; grid-row: 2; padding-top: 0; }
   .hero__title { font-size: var(--text-h2-size); line-height: var(--text-h2-lh); }
-  .hero__card { padding: var(--space-24); }
-  .hero__stats { grid-template-columns: 1fr; gap: 0; }
+  .hero__form { grid-column: 2; grid-row: 4; margin-top: 0; }
+  .hero__stats { padding-inline: var(--container-pad-mobile); grid-template-columns: 1fr; gap: 0; }
   .hero__stat { padding: var(--space-16) 0; border-left: none; }
   .hero__stat + .hero__stat { border-top: var(--border-hairline) solid var(--color-rule); }
   .hero__stat:nth-child(3) { padding-left: 0; }
+}
+
+
+/* ============================================================
+   LEGACY — старая шапка в потоке. Живая страница её больше не
+   использует (её заменил .header, см. header.css). Оставлено
+   ТОЛЬКО для демо-блока состояний под футером (#spec-states),
+   где показывается прежний вариант шапки. Не использовать на
+   реальных страницах.
+   ============================================================ */
+.hero__header {
+  position: relative;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-24);
+  padding: var(--space-12) var(--container-pad);
+  background: var(--color-navy);
+  border-bottom: var(--border-hairline) solid var(--color-on-navy-12);
+}
+.hero__header--static { position: static; }
+.hero__logo-img { height: 52px; width: auto; }
+.hero__nav { display: flex; align-items: center; gap: var(--space-24); }
+.hero__burger,
+.hero__call {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--control-h-md);
+  height: var(--control-h-md);
+  border-radius: var(--radius-pill);
+  padding: 0;
+  background: var(--color-on-navy-08);
+  border: var(--border-hairline) solid var(--color-on-navy-45);
+  color: var(--color-sand);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.hero__burger:hover,
+.hero__call:hover {
+  background: color-mix(in srgb, var(--color-sand) 18%, transparent);
+  border-color: var(--color-sand);
+}
+.hero__close {
+  flex: 0 0 auto;
+  width: var(--control-h-sm);
+  height: var(--control-h-sm);
+  border-radius: var(--radius-pill);
+  padding: 0;
+  background: transparent;
+  border: var(--border-hairline) solid var(--color-rule);
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+.hero__close:hover { background: color-mix(in srgb, var(--color-navy) 6%, transparent); }
+@media (max-width: 1023px) {
+  .hero__header { padding-inline: var(--space-48); }
+}
+@media (max-width: 719px) {
+  .hero__header { gap: var(--space-16); padding-inline: var(--container-pad-mobile); }
+  .hero__burger,
+  .hero__call { display: inline-flex; }
+  .hero__nav { display: none; }
 }
