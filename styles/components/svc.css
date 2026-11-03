@@ -1,0 +1,342 @@
+/* Trust Legal Group — Service (сторінка послуги, напр. «Критичність та
+   бронювання працівників»).
+   Расширяет hero.css: тот же первый экран (фото + шейды + наложенная шапка),
+   но вместо формы заявки — хлебные крошки, заголовок, список выгод и CTA-кнопка
+   с НОВЫМ элементом: стрелкой в рамке (отдельный бордюрный блок справа от
+   подписи). Под героем — полоса метрик (песок) и сетка «Знаємо процедуру
+   зсередини» с пиксельными иконками. Все значения — из токенов. */
+
+/* ===================== Герой услуги ===================== */
+/* Шире заголовочная колонка, вертикальный ритм задаём маржами потомков. */
+.svc .hero__headline {
+  grid-column: 2 / 11;
+  gap: 0;
+  padding-top: var(--space-24);
+}
+/* Плотнее боковой шейд — под крупным светлым текстом слева. */
+.svc .hero__shade--side {
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--color-ink) 86%, transparent) 0%,
+    color-mix(in srgb, var(--color-ink) 70%, transparent) 40%,
+    color-mix(in srgb, var(--color-ink) 20%, transparent) 70%,
+    color-mix(in srgb, var(--color-ink) 5%, transparent) 100%);
+}
+.svc .hero__title { max-width: 15em; }
+
+/* ---------- Хлебные крошки ---------- */
+.svc__crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8) var(--space-12);
+  margin: 0 0 var(--space-40);
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-lh);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-tag);
+  text-transform: uppercase;
+}
+.svc__crumbs li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  color: color-mix(in srgb, var(--color-on-dark) 64%, transparent);
+}
+/* Разделитель-«шеврон» между пунктами. */
+.svc__crumbs li + li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-top: var(--border-hairline) solid color-mix(in srgb, var(--color-on-dark) 40%, transparent);
+  border-right: var(--border-hairline) solid color-mix(in srgb, var(--color-on-dark) 40%, transparent);
+  rotate: 45deg;
+}
+.svc__crumbs a {
+  color: color-mix(in srgb, var(--color-on-dark) 64%, transparent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.svc__crumbs a:hover { color: var(--color-on-dark); }
+.svc__crumbs [aria-current] { color: var(--color-on-dark); }
+
+/* ---------- Лид (опционально) ---------- */
+.svc__lead {
+  margin: var(--space-24) 0 0;
+  max-width: 34em;
+  font-size: var(--text-lead-size);
+  line-height: var(--text-lead-lh);
+  color: color-mix(in srgb, var(--color-on-dark) 76%, transparent);
+  text-wrap: pretty;
+}
+
+/* ---------- Список выгод ---------- */
+.svc__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  margin: var(--space-40) 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 560px;
+}
+.svc__item {
+  display: grid;
+  grid-template-columns: var(--icon-lg) minmax(0, 1fr);
+  gap: var(--space-16);
+  align-items: start;
+  font-size: var(--text-lead-size);
+  line-height: var(--text-lead-lh);
+  font-weight: var(--fw-medium);
+  color: var(--color-on-dark);
+}
+.svc__ico {
+  display: flex;
+  width: var(--icon-lg);
+  height: var(--icon-lg);
+  color: var(--color-on-dark);
+}
+.svc__item em { font-style: normal; color: var(--color-gold); }
+
+/* ---------- Действия ---------- */
+.svc__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-16) var(--space-32);
+  margin-top: var(--space-40);
+}
+
+/* CTA-кнопка: светлая (как .btn--light в проекте) — песочный фон, navy-текст,
+   прямые углы, высота lg (56), Onest. НОВОЕ: стрелка в рамке — отдельный блок
+   справа, растянутый на всю высоту кнопки и отделённый вертикальной линией. */
+.svc__btn {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: var(--control-h-lg);
+  padding: 0 0 0 var(--space-32);
+  background: var(--color-sand);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-lh);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.svc__btn:hover { background: var(--color-white); color: var(--color-navy); }
+/* Рамка стрелки */
+.svc__btn-arrow {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  margin-left: var(--space-24);
+  padding: 0 var(--space-24);
+  border-left: var(--border-hairline) solid color-mix(in srgb, var(--color-navy) 16%, transparent);
+}
+.svc__btn-arrow svg { display: block; transition: translate 0.3s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.svc__btn:hover .svc__btn-arrow svg { translate: 4px 0; }
+.svc__btn:focus-visible { outline: var(--border-thick) solid var(--color-gold); outline-offset: 2px; }
+
+/* ---------- Телефон рядом с кнопкой (опционально) ---------- */
+.svc__call {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  color: var(--color-on-dark);
+  text-decoration: none;
+}
+.svc__call-ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-h-sm);
+  height: var(--control-h-sm);
+  border-radius: var(--radius-pill);
+  border: var(--border-hairline) solid color-mix(in srgb, var(--color-on-dark) 48%, transparent);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.svc__call:hover .svc__call-ico {
+  background: var(--color-on-dark);
+  border-color: var(--color-on-dark);
+  color: var(--color-navy);
+}
+.svc__call-text { display: flex; flex-direction: column; }
+.svc__call-label {
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-lh);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-on-dark) 64%, transparent);
+}
+.svc__call-num {
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-lh);
+  font-weight: var(--fw-medium);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Герой услуги: своя сетка строк (фото во весь экран, запас под шапку сверху). */
+.svc .hero__stage {
+  grid-template-rows: var(--space-96) minmax(0, 1fr) var(--space-64);
+}
+
+/* ===================== Полоса метрик ===================== */
+.svc-stats__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-48);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.svc-stats__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding-left: var(--space-24);
+  border-left: var(--border-hairline) solid color-mix(in srgb, var(--color-navy) 16%, transparent);
+}
+.svc-stats__item:first-child { padding-left: 0; border-left: 0; }
+.svc-stats__num {
+  margin: 0;
+  font-size: var(--text-h2-size);
+  line-height: var(--text-h2-lh);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+.svc-stats__text {
+  margin: 0;
+  max-width: 16em;
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-lh);
+  color: var(--color-ink-muted);
+  text-wrap: pretty;
+}
+
+/* ===================== Знаємо процедуру зсередини ===================== */
+.svc-why__title {
+  margin: 0 0 var(--space-64);
+  font-size: var(--text-display-size);
+  line-height: var(--text-display-lh);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.svc-why__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.svc-why__card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-32) var(--space-32) var(--space-40);
+  background: var(--color-sand);
+  border: var(--border-hairline) solid var(--color-rule);
+  transition: border-color 0.3s ease;
+}
+.svc-why__card:hover { border-color: color-mix(in srgb, var(--color-navy) 32%, transparent); }
+.svc-why__ico {
+  display: block;
+  color: var(--color-ink);
+  margin-bottom: var(--space-48);
+  overflow: visible;
+}
+.svc-why__ico rect {
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.svc-why__card:hover .svc-why__ico rect[fill] { transform: scale(1.15); }
+.svc-why__name {
+  margin: 0 0 var(--space-16);
+  font-size: var(--text-h5-size);
+  line-height: var(--text-h5-lh);
+  font-weight: var(--fw-medium);
+  color: var(--color-ink);
+}
+.svc-why__text {
+  margin: 0;
+  font-size: var(--text-body-size);
+  line-height: 26px;
+  color: var(--color-ink-muted);
+  text-wrap: pretty;
+}
+
+/* ===================== Планшет (≤1023px) ===================== */
+@media (max-width: 1023px) {
+  .svc .hero__stage {
+    grid-template-rows: var(--space-96) auto var(--space-64);
+    height: auto;
+    min-height: 100svh;
+  }
+  .svc .hero__headline {
+    grid-column: 2 / 14;
+    grid-row: 2;
+    align-self: start;
+    padding-top: var(--space-48);
+  }
+  .svc-stats__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-40); }
+  .svc-stats__item:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .svc-why__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .svc-why__title { font-size: var(--text-h1-size); line-height: var(--text-h1-lh); margin-bottom: var(--space-48); }
+}
+
+/* ===================== Мобайл (≤719px) ===================== */
+@media (max-width: 719px) {
+  .svc .hero__stage {
+    grid-template-columns: var(--container-pad-mobile) minmax(0, 1fr) var(--container-pad-mobile);
+    grid-template-rows: calc(var(--space-96) + var(--space-16)) auto var(--space-48);
+    column-gap: 0;
+    height: auto;
+    min-height: 0;
+    background: #000;
+  }
+  .svc { background: #000; }
+  .svc .hero__img--desktop { display: none; }
+  .svc .hero__img--mobile { display: block; object-position: center 60%; }
+  .svc .hero__img,
+  .svc .hero__shade--side,
+  .svc .hero__shade--bottom { grid-row: 1 / -1; }
+  /* Опускаем крошки/заголовок/список/кнопку ниже на 96px (56 + 40). */
+  .svc .hero__headline { grid-column: 2; grid-row: 2; padding-top: var(--space-96); }
+  .svc .hero__shade--side,
+  .svc .hero__shade--top { display: none; }
+  .svc .hero__shade--bottom {
+    background: linear-gradient(180deg,
+      color-mix(in srgb, #000 8%, transparent) 0%,
+      color-mix(in srgb, #000 30%, transparent) 25%,
+      color-mix(in srgb, #000 72%, transparent) 55%,
+      color-mix(in srgb, #000 85%, transparent) 100%);
+  }
+  .svc__crumbs { display: none; }
+  .svc .hero__title { font-size: var(--text-h2-size); line-height: var(--text-h2-lh); }
+  .svc__lead { font-size: var(--text-body-size); line-height: var(--text-body-lh); margin-top: var(--space-16); }
+  .svc__list { margin-top: var(--space-32); }
+  .svc__item { font-size: var(--text-body-size); line-height: var(--text-body-lh); }
+  .svc__actions { flex-direction: column; align-items: stretch; margin-top: var(--space-32); }
+  .svc__btn { width: 100%; justify-content: space-between; padding-left: var(--space-24); white-space: nowrap; }
+  .svc__btn-arrow { margin-left: var(--space-16); padding: 0 var(--space-24); }
+  .svc__call { justify-content: center; }
+  .svc-stats__list { grid-template-columns: minmax(0, 1fr); gap: var(--space-32); }
+  .svc-stats__item { padding-left: 0; border-left: 0; gap: var(--space-8); }
+  .svc-stats__num { font-size: var(--text-h4-size); line-height: var(--text-h4-lh); }
+  .svc-stats__text { font-size: var(--text-body-sm-size); line-height: var(--text-body-sm-lh); }
+  .svc-why__title { font-size: var(--text-h3-size); line-height: var(--text-h3-lh); margin-bottom: var(--space-32); }
+  .svc-why__grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-12); }
+  .svc-why__card { padding: var(--space-24) var(--space-24) var(--space-32); }
+  .svc-why__ico { margin-bottom: var(--space-32); }
+  .svc-why__name { font-size: var(--text-title-size); line-height: var(--text-title-lh); margin-bottom: var(--space-12); }
+  .svc-why__text { font-size: var(--text-body-sm-size); line-height: var(--space-24); }
+}
