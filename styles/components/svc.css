@@ -297,7 +297,7 @@
 @media (max-width: 719px) {
   .svc .hero__stage {
     grid-template-columns: var(--container-pad-mobile) minmax(0, 1fr) var(--container-pad-mobile);
-    grid-template-rows: calc(var(--space-96) + var(--space-16)) auto var(--space-48);
+    grid-template-rows: var(--space-64) auto var(--space-48);
     column-gap: 0;
     height: auto;
     min-height: 0;
@@ -309,8 +309,8 @@
   .svc .hero__img,
   .svc .hero__shade--side,
   .svc .hero__shade--bottom { grid-row: 1 / -1; }
-  /* Опускаем крошки/заголовок/список/кнопку ниже на 96px (56 + 40). */
-  .svc .hero__headline { grid-column: 2; grid-row: 2; padding-top: var(--space-96); }
+  /* Крошки — на 24px ниже нижнего края шапки (row 1 ≈ высота шапки 64px). */
+  .svc .hero__headline { grid-column: 2; grid-row: 2; padding-top: var(--space-24); }
   .svc .hero__shade--side,
   .svc .hero__shade--top { display: none; }
   .svc .hero__shade--bottom {
@@ -320,7 +320,7 @@
       color-mix(in srgb, #000 72%, transparent) 55%,
       color-mix(in srgb, #000 85%, transparent) 100%);
   }
-  .svc__crumbs { display: none; }
+  .svc__crumbs { margin-bottom: var(--space-96); }
   .svc .hero__title { font-size: var(--text-h2-size); line-height: var(--text-h2-lh); }
   .svc__lead { font-size: var(--text-body-size); line-height: var(--text-body-lh); margin-top: var(--space-16); }
   .svc__list { margin-top: var(--space-32); }
