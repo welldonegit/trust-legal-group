@@ -32,6 +32,12 @@
 @import "./components/lawyer.css";
 @import "./components/faq.css";
 @import "./components/faqg.css";
+@import "./components/credit-quiz.css";
+@import "./components/credit-process.css";
+@import "./components/credit-cases.css";
+@import "./components/credit-ways.css";
+@import "./components/credit-lenders.css";
+@import "./components/quiz-gallery.css";
 @import "./components/blog.css";
 @import "./components/cta.css";
 @import "./components/loc.css";

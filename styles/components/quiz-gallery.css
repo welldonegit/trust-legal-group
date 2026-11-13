@@ -1,0 +1,59 @@
+/* Trust Legal Group — ДОВІДКА ДЛЯ ДИЗАЙНУ: статична розкладка всіх екранів
+   квіза під футером. Не частина живого макета — можна видалити разом з блоком
+   .qg у HTML і цим імпортом. --cq-line тут продубльовано, бо картки .cq__card
+   лежать поза .cq, де ця змінна визначена. */
+
+.qg {
+  --cq-line: #e4ded2;
+  background: var(--color-band);
+  padding-block: var(--space-96);
+  border-top: var(--border-hairline) solid var(--color-rule);
+}
+.qg__inner {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+  box-sizing: border-box;
+}
+
+.qg__head { max-width: 760px; margin-bottom: var(--space-48); }
+.qg__eyebrow { display: block; margin-bottom: var(--space-16); color: var(--color-gold); }
+.qg__title { margin: 0; color: var(--color-ink); }
+.qg__note { margin: var(--space-16) 0 0; color: var(--color-ink-muted); }
+
+.qg__list { display: flex; flex-direction: column; gap: var(--space-48); margin: 0; }
+.qg__item { margin: 0; }
+.qg__cap {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-lh);
+  letter-spacing: 0.04em;
+  color: var(--color-ink-muted);
+}
+.qg__cap code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  color: var(--color-navy);
+  background: var(--color-sand);
+  padding: 1px 6px;
+  border: var(--border-hairline) solid var(--color-rule);
+}
+
+/* Картки в галереї статичні — курсор за замовчуванням */
+.qg .cq__opt,
+.qg .cq__btn,
+.qg .cq__back,
+.qg .cq__link { cursor: default; }
+
+@media (max-width: 1023px) {
+  .qg__inner { padding-inline: var(--space-48); }
+}
+@media (max-width: 719px) {
+  .qg { padding-block: var(--space-64); }
+  .qg__inner { padding-inline: var(--container-pad-mobile); }
+  .qg__list { gap: var(--space-32); }
+}

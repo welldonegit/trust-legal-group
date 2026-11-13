@@ -1,0 +1,139 @@
+/* Trust Legal Group — Кредитні спори: квіз «Чи вийде списати ваш борг?».
+   Світлий крем-блок; біла картка з питанням ліворуч і крем-панеллю адвоката
+   праворуч. Сайт без JS — показуємо перше питання статично. */
+
+.cq {
+  --cq-line: #e4ded2;
+  background: var(--color-sand);
+  color: var(--color-ink);
+}
+.cq__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vh, 40px);
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+  box-sizing: border-box;
+}
+
+.cq__aside { max-width: 760px; }
+.cq__aside .text-eyebrow { display: block; margin-bottom: var(--space-24); color: var(--color-gold); }
+.cq__title { margin: 0; color: var(--color-ink); }
+
+/* --- Картка --- */
+.cq__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  background: var(--color-white);
+  border: 1px solid var(--cq-line);
+}
+.cq__main { display: flex; flex-direction: column; min-width: 0; padding: clamp(28px, 4vh, 44px) clamp(28px, 3.4vw, 48px); }
+
+.cq__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-24); }
+.cq__count { font-size: 13px; line-height: 20px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cq__count b { font-weight: 500; color: var(--color-ink); }
+.cq__bar { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; width: 200px; }
+.cq__seg { height: 2px; background: var(--cq-line); }
+.cq__seg.is-on { background: var(--color-navy); }
+.cq__seg.is-now { background: color-mix(in srgb, var(--color-navy) 50%, var(--cq-line)); }
+
+.cq__pane { display: flex; flex-direction: column; flex: 1; margin-top: clamp(24px, 3.6vh, 40px); }
+.cq__q { margin: 0; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.25; font-weight: 500; letter-spacing: -0.01em; color: var(--color-ink); text-wrap: balance; }
+
+.cq__opts { display: flex; flex-direction: column; gap: 8px; margin-top: clamp(20px, 3vh, 32px); }
+.cq__opt {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  min-height: clamp(52px, 6.4vh, 64px);
+  padding: 0 0 0 18px;
+  background: var(--color-white);
+  border: 1px solid var(--cq-line);
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: border-color 0.2s ease, background-color 0.25s ease, color 0.25s ease;
+}
+.cq__opt:hover { border-color: var(--color-navy); }
+.cq__key {
+  display: flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; justify-self: center; box-sizing: border-box;
+  border: 1px solid var(--color-rule); background: var(--color-white); color: var(--color-navy);
+}
+.cq__key svg { opacity: 0; transform: scale(0.6); transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.cq__opt-label { padding: 12px 0; font-size: 18px; line-height: 24px; font-weight: 500; }
+.cq__opt-arrow { display: flex; align-items: center; align-self: stretch; padding: 0 24px; border-left: 1px solid var(--cq-line); color: var(--color-navy); }
+.cq__opt-arrow svg { display: block; transition: translate 0.3s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.cq__opt:hover .cq__opt-arrow svg { translate: 4px 0; }
+/* Виділений варіант (демо-стан) */
+.cq__opt.is-on { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
+.cq__opt.is-on .cq__key { background: var(--color-white); border-color: var(--color-white); color: var(--color-navy); }
+.cq__opt.is-on .cq__key svg { opacity: 1; transform: scale(1); }
+.cq__opt.is-on .cq__opt-arrow { color: var(--color-white); border-color: rgba(255, 255, 255, 0.18); }
+
+.cq__foot { display: flex; align-items: center; justify-content: space-between; gap: var(--space-16); margin-top: clamp(20px, 3vh, 32px); padding-top: clamp(12px, 2vh, 20px); border-top: 1px solid var(--color-band); }
+.cq__back { display: inline-flex; align-items: center; gap: 12px; padding: 8px 0; background: none; border: 0; font: inherit; font-size: 14px; line-height: 20px; font-weight: 500; color: var(--color-ink); cursor: default; }
+.cq__back:disabled { opacity: 0.3; }
+.cq__back-arrow { display: flex; rotate: 180deg; }
+.cq__hint { font-size: 13px; line-height: 20px; color: #9c968b; }
+
+/* --- Бокова панель адвоката --- */
+.cq__side { display: flex; flex-direction: column; gap: 28px; padding: 32px 28px; background: var(--color-sand); border-left: 1px solid var(--cq-line); color: var(--color-ink); }
+.cq__plate { display: grid; grid-template-columns: 68px minmax(0, 1fr); align-items: center; gap: 20px; padding: 16px 20px 16px 16px; background: var(--color-white); border: 1px solid var(--cq-line); }
+.cq__photo { width: 68px; aspect-ratio: 2407 / 3611; overflow: hidden; background: var(--cq-line); }
+.cq__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cq__who { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.cq__who-name { margin: 0; font-size: 18px; line-height: 24px; font-weight: 500; color: var(--color-ink); }
+.cq__who-role { margin: 0; font-size: 14px; line-height: 20px; color: var(--color-ink-muted); text-wrap: pretty; }
+.cq__say { position: relative; margin: 0; padding: 0 4px 0 36px; font-size: 17px; line-height: 26px; font-style: italic; color: var(--color-ink); text-wrap: pretty; }
+.cq__say::before { content: "\201C"; position: absolute; left: 0; top: -6px; font-size: 48px; line-height: 1; font-style: normal; font-weight: 500; color: var(--color-gold); }
+
+/* ---------- Планшет ---------- */
+@media (max-width: 1023px) {
+  .cq__card { grid-template-columns: minmax(0, 1fr); }
+  .cq__side { order: -1; gap: 16px; padding: 20px 24px; border-left: 0; border-bottom: 1px solid var(--cq-line); }
+  .cq__say { font-size: 15px; line-height: 23px; }
+}
+
+/* ---------- Мобайл ---------- */
+@media (max-width: 719px) {
+  .cq__main { padding: 24px 20px; }
+  .cq__side { padding: 20px; }
+  .cq__bar { width: 120px; }
+  .cq__q { font-size: 24px; line-height: 32px; }
+  .cq__opt { min-height: 60px; gap: 14px; padding: 0 0 0 12px; grid-template-columns: 28px minmax(0, 1fr) auto; }
+  .cq__opt-arrow { padding: 0 16px; }
+  .cq__opt-label { font-size: 16px; }
+  .cq__hint { display: none; }
+}
+
+/* Адаптивні бічні відступи — як у .container дизайн-системи */
+@media (max-width: 1023px) { .cq__inner { padding-inline: var(--space-48); } }
+@media (max-width: 719px)  { .cq__inner { padding-inline: var(--container-pad-mobile); } }
+
+/* --- Кроки форми та завершення (інтерактивний квіз) --- */
+.cq__sub { margin: 12px 0 0; max-width: 30em; font-size: 16px; line-height: 24px; color: var(--color-ink-muted); }
+.cq__fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: clamp(20px, 3vh, 32px); }
+.cq__field { display: flex; flex-direction: column; gap: 8px; }
+.cq__label { font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-ink-muted); }
+.cq__input { height: 56px; padding: 0 18px; border: 1px solid var(--cq-line); background: var(--color-white); font: inherit; font-size: 16px; color: var(--color-ink); border-radius: 0; outline: none; transition: border-color 0.2s ease; font-variant-numeric: tabular-nums; }
+.cq__input::placeholder { color: #9c968b; }
+.cq__input:focus { border-color: var(--color-navy); }
+.cq__btn { display: flex; align-items: center; justify-content: space-between; height: 60px; margin-top: 24px; padding: 0 0 0 28px; background: var(--color-navy); border: 0; font: inherit; font-size: 16px; line-height: 24px; font-weight: 500; color: var(--color-white); cursor: pointer; transition: background-color 0.2s ease, opacity 0.2s ease; }
+.cq__btn:hover { background: #24364e; }
+.cq__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.cq__btn-arrow { display: flex; align-items: center; align-self: stretch; padding: 0 24px; border-left: 1px solid rgba(255, 255, 255, 0.18); }
+.cq__legal { margin: 16px 0 0; font-size: 13px; line-height: 20px; color: #9c968b; }
+.cq__legal a { color: var(--color-ink-muted); text-decoration: underline; text-underline-offset: 3px; }
+.cq__legal a:hover { color: var(--color-ink); }
+.cq__done { justify-content: center; align-items: flex-start; margin-top: 0; }
+.cq__done-mark { display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; margin-bottom: 32px; border: 1px solid var(--color-navy); color: var(--color-navy); }
+.cq__link { margin-top: 32px; padding: 0; background: none; border: 0; font: inherit; font-size: 14px; font-weight: 500; color: var(--color-ink); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+
+@media (max-width: 719px) {
+  .cq__fields { grid-template-columns: minmax(0, 1fr); margin-top: 24px; }
+  .cq__input { height: 48px; }
+  .cq__btn { height: 52px; margin-top: 16px; }
+}
