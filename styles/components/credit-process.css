@@ -1,0 +1,48 @@
+/* Trust Legal Group — Кредитні спори: «Працюємо на результат».
+   Варіант блоку .proc: білий фон, eyebrow + підзаголовок, 4 кроки «драбинкою»,
+   що з'являються й збираються в один рівень, та текст-нота під ними.
+   Прогресивне покращення: без JS — драбинка видима одразу; JS додає .proc--anim
+   (ховає), потім .is-in (проявляє), потім .is-flat (вирівнює в ряд). */
+
+.proc--credit { background: var(--color-white); }
+
+.proc--credit .proc__eyebrow { display: block; margin: 0 0 var(--space-24); color: var(--color-gold); }
+.proc--credit .proc__title { margin-bottom: 20px; }
+.proc--credit .proc__sub {
+  margin: 0 0 clamp(44px, 6vh, 72px);
+  max-width: 40em;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-ink-muted);
+  text-wrap: pretty;
+}
+.proc--credit .proc__gap { height: clamp(96px, 11vw, 168px); }
+
+.proc--credit .proc__note {
+  margin: clamp(56px, 8vh, 96px) 0 0;
+  padding-top: var(--space-32);
+  border-top: var(--border-hairline) solid var(--color-rule);
+  max-width: 56em;
+}
+.proc--credit .proc__note p { margin: 0; font-size: 20px; line-height: 30px; color: var(--color-ink); text-wrap: pretty; }
+
+/* ---------- «Драбинка» + вирівнювання (десктоп) ---------- */
+@media (min-width: 1024px) {
+  .proc--credit .proc__col { transition: margin-top 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .proc--credit .proc__col:nth-child(2) { margin-top: clamp(52px, 6.5vw, 104px); }
+  .proc--credit .proc__col:nth-child(3) { margin-top: clamp(104px, 13vw, 208px); }
+  .proc--credit .proc__col:nth-child(4) { margin-top: clamp(156px, 19.5vw, 312px); }
+  /* під час проявлення додаємо margin-top у список transition, щоб колапс був плавним */
+  .proc--credit.proc--anim.is-in .proc__col {
+    transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.22, 0.61, 0.24, 1), margin-top 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  /* фінал: усі кроки на одному рівні */
+  .proc--credit.is-flat .proc__col { margin-top: 0; }
+}
+
+/* ---------- Нота ---------- */
+@media (max-width: 719px) {
+  .proc--credit .proc__sub { font-size: 16px; line-height: 24px; }
+  .proc--credit .proc__note { margin-top: 40px; padding-top: 24px; }
+  .proc--credit .proc__note p { font-size: 17px; line-height: 26px; }
+}

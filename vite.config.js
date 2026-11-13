@@ -19,6 +19,7 @@ export default defineConfig({
         practiceMilitaryNew: resolve(__dirname, "practice-military-new.html"),
         serviceRozshuk: resolve(__dirname, "service-rozshuk.html"),
         serviceCritical: resolve(__dirname, "service-critical.html"),
+        serviceCredit: resolve(__dirname, "service-credit.html"),
         lawyerVdovichenko: resolve(__dirname, "lawyer-vdovichenko.html"),
       },
     },

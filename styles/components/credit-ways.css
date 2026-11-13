@@ -1,0 +1,62 @@
+/* Trust Legal Group — Кредитні спори: «Чесно про списання боргів».
+   Білі картки зі способами + остання navy-картка CTA із золотим акцентом.
+   Іконки — борг як набір клітинок: заповнена лишається, контурна зникає. */
+
+.cways { background: var(--color-sand); }
+.cways__inner {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+  box-sizing: border-box;
+}
+
+.cways__head { max-width: 760px; margin-bottom: clamp(40px, 6vh, 64px); }
+.cways__head .text-eyebrow { display: block; color: var(--color-gold); }
+.cways__title { margin: 14px 0 0; color: var(--color-ink); }
+.cways__sub { margin: 20px 0 0; max-width: 640px; font-size: clamp(1.0625rem, 1.2vw, 1.1875rem); line-height: 1.55; color: var(--color-ink-muted); text-wrap: pretty; }
+
+.cways__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.cways__card { display: flex; flex-direction: column; padding: 32px 32px 40px; background: var(--color-white); border: 1px solid #e4ded2; transition: border-color 0.3s ease; }
+.cways__card:hover { border-color: var(--color-rule); }
+.cways__ico { display: block; color: var(--color-ink); margin-bottom: 48px; overflow: visible; }
+.cways__ico rect { transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1); transform-box: fill-box; transform-origin: center; }
+.cways__card:hover .cways__ico rect.is-fill { transform: scale(1.15); }
+.cways__name { margin: 0 0 16px; font-size: 22px; line-height: 28px; font-weight: 500; color: var(--color-ink); text-wrap: balance; }
+.cways__text { margin: 0; font-size: 16px; line-height: 26px; color: var(--color-ink-muted); text-wrap: pretty; }
+
+/* --- CTA-картка --- */
+.cways__card--cta { padding: 0; background: var(--color-navy); border-color: var(--color-navy); transition: background-color 0.3s ease; }
+.cways__card--cta:hover { background: var(--color-navy-hover); border-color: var(--color-navy-hover); }
+.cways__cta { display: flex; flex-direction: column; flex: 1; padding: 32px; color: var(--color-white); text-decoration: none; }
+.cways__card--cta .cways__ico { color: rgba(255, 255, 255, 0.55); }
+.cways__card--cta .cways__ico .is-gold { color: var(--color-gold); }
+.cways__card--cta:hover .cways__ico rect.is-fill { transform: scale(1.15); }
+.cways__card--cta .cways__name { color: var(--color-white); }
+.cways__card--cta .cways__text { color: rgba(255, 255, 255, 0.72); margin-bottom: 40px; }
+.cways__cta-row { display: flex; align-items: center; justify-content: space-between; margin-top: auto; height: 56px; padding: 0 0 0 28px; background: var(--color-sand); font-size: 16px; line-height: 24px; font-weight: 500; color: var(--color-navy); transition: background-color 0.2s ease; }
+.cways__card--cta:hover .cways__cta-row { background: var(--color-white); }
+.cways__cta-arrow { display: flex; align-items: center; align-self: stretch; padding: 0 24px; border-left: 1px solid rgba(27, 41, 60, 0.16); color: var(--color-navy); }
+.cways__cta-arrow svg { transition: translate 0.3s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.cways__card--cta:hover .cways__cta-arrow svg { translate: 4px 0; }
+
+/* ---------- Планшет ---------- */
+@media (max-width: 1023px) {
+  .cways__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Мобайл ---------- */
+@media (max-width: 719px) {
+  .cways__grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .cways__card { padding: 24px 24px 28px; }
+  .cways__ico { margin-bottom: 32px; }
+  .cways__name { font-size: 20px; line-height: 26px; margin-bottom: 12px; }
+  .cways__text { font-size: 15px; line-height: 24px; }
+  .cways__cta { padding: 24px; }
+  .cways__cta-row { padding-left: 24px; }
+  .cways__cta-arrow { padding: 0 20px; }
+}
+
+/* Адаптивні бічні відступи — як у .container дизайн-системи */
+@media (max-width: 1023px) { .cways__inner { padding-inline: var(--space-48); } }
+@media (max-width: 719px)  { .cways__inner { padding-inline: var(--container-pad-mobile); } }
