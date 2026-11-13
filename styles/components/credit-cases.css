@@ -15,9 +15,11 @@
 .ccase__title { margin: 14px 0 0; color: var(--color-ink); }
 
 .ccase__list { display: flex; flex-direction: column; gap: clamp(12px, 1.6vh, 16px); margin: 0; padding: 0; list-style: none; }
-.ccase__row { display: grid; grid-template-columns: minmax(0, 36%) minmax(0, 1fr); min-height: clamp(120px, 9vw, 148px); }
+/* Flexbox замість grid — так ряд коректно імпортується в Figma (auto-layout). */
+.ccase__row { display: flex; align-items: stretch; min-height: 140px; }
 
 .ccase__prob {
+  flex: 0 0 36%;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -49,23 +51,24 @@
 }
 
 .ccase__sol {
-  display: grid;
-  grid-template-columns: 28px minmax(0, 1fr);
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
   align-items: center;
   gap: clamp(20px, 2.2vw, 36px);
   padding: clamp(24px, 2.4vw, 40px) clamp(28px, 3vw, 48px);
   background: var(--color-sand);
 }
-.ccase__sol-mark { display: flex; color: var(--color-gold); transition: translate 0.35s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.ccase__sol-mark { flex: 0 0 auto; display: flex; color: var(--color-gold); transition: translate 0.35s cubic-bezier(0.2, 0.7, 0.2, 1); }
 .ccase__row:hover .ccase__sol-mark { translate: 4px 0; }
-.ccase__d { margin: 0; max-width: 40em; font-size: clamp(1rem, 1.15vw, 1.125rem); line-height: 1.55; color: var(--color-navy); text-wrap: pretty; }
+.ccase__d { flex: 1 1 auto; min-width: 0; margin: 0; max-width: 40em; font-size: clamp(1rem, 1.15vw, 1.125rem); line-height: 1.55; color: var(--color-navy); text-wrap: pretty; }
 
 /* ---------- Мобайл ---------- */
 @media (max-width: 719px) {
-  .ccase__row { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .ccase__row { flex-direction: column; align-items: stretch; min-height: 0; }
+  .ccase__prob { flex: none; padding: 22px 24px; }
   .ccase__idx { font-size: clamp(4rem, 14vw, 6rem); }
-  .ccase__prob { padding: 22px 24px; }
-  .ccase__sol { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 20px 24px 24px; }
+  .ccase__sol { flex: none; flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px 24px 24px; }
   .ccase__sol-mark svg { width: 22px; }
   .ccase__d { font-size: 15px; line-height: 1.55; }
 }
